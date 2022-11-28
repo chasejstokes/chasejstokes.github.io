@@ -5,7 +5,7 @@
 }
 
 a {
-    color: #2E75B7;
+    color: #1e91d6;
     text-decoration-line: none;
 }
 
@@ -13,25 +13,30 @@ h2 {
     font-size: 3.5em;
 }
 
+body {
+    background-color: #F7F9F9;
+}
+
 /* navbar */
 
 #header {
-    color: whitesmoke;
+    color: #F7F9F9;
     font-size: 3em;
     padding-bottom: 1.5%;
     margin: 0;
 }
+
 
 .navbar {
     padding: 3% 10% 0.5% 10%;
 }
 
 .active {
-    font-weight: bold;
+    font-weight: 900;
 }
 
 .nav-link {
-    color: whitesmoke;
+    color: #F7F9F9;
     font-size: 1.25em;
 }
 
@@ -80,7 +85,7 @@ h2 {
 }
 
 .news-item {
-    background-color: #EEEEEE;
+    background-color: #AEC2B1;
     margin-top: 1%;
     padding: 1.5em;
 }
