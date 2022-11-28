@@ -1,0 +1,37 @@
+body {
+    margin: 5%;
+    /* font-size: 1.1em; */
+}
+
+a {
+    text-decoration: none;
+    color: rgb(66, 66, 235)
+}
+
+.tag-block {
+    margin: 2em 0;
+}
+
+.tag {
+    color: rgb(208, 104, 121);
+    margin-bottom: 1em;
+    background-color: rgb(242, 242, 242);
+}
+
+.body {
+    margin-left: 1em;
+}
+
+.p {
+    margin-left: 2em;
+}
+
+.practice {
+    margin: 1%;
+    padding: 1.1em 1.5em;
+    background-color: rgb(242, 242, 242);
+}
+
+#htmltext {
+    color: black;
+}

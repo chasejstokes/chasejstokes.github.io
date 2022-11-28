@@ -1,0 +1,7 @@
+img {
+    object-fit: cover;
+    width: 350px;
+    height: 350px;
+    margin: 5%;
+    display: inline;
+}
