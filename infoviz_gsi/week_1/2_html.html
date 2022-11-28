@@ -6,83 +6,214 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML Intro</title>
-    <link rel="stylesheet" href="2_html.css">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    <!-- stylesheet from website -->
+    <link rel="stylesheet" href="../../main.css">
+
+    <!-- stylesheet for this page -->
+    <link rel="stylesheet" href="week_1.css">
 </head>
 
 <body>
 
-    <h1>Part 1: HTML Basics</h1>
-
-    <p>
-        HTML stands for <b>H</b>yper<b>T</b>ext<b>M</b>arkup<b>L</b>anguage. HTML defines thes tructure of a
-        document.
-    </p>
-
-    <h2>HTML Syntax</h2>
-
-    <p>
-        HTML separates a web page into different elements. The elements are defined by HTML tags. Here is an example.
-
-    </p>
-
-    <div class="tag-block">
-        <div class="tag">
-            <span class="html">&lt;html&gt;</span>
+    <!-- navbar -->
+    <nav id='mainNavbar' class="navbar navbar-expand-lg navbar-dark bf-dark" style="background-color: #172815;">
+        <h1 id="header">Chase Stokes</h1>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id='mainNavCollapse'>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a href="../../index.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                        data-toggle="dropdown">Research</a>
+                    <ul class="dropdown-menu">
+                        <li> <a class="dropdown-item" href="../../research.html">All</a></li>
+                        <li><a class="dropdown-item" href="../../research/lang_vis.html">Language and Visualization</a>
+                        </li>
+                        <li><a class="dropdown-item" href="../../research/percep_vis.html">Perception and
+                                Visualization</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle active" href="#" role="button"
+                        data-toggle="dropdown">Teaching</a>
+                    <ul class="dropdown-menu">
+                        <li> <a class="dropdown-item" href="../../teaching.html">All</a></li>
+                        <li><a class="dropdown-item active" href="../infoviz.html">INFO 247</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="../../cv.html" class="nav-link">CV</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../../contact.html" class="nav-link">Contact</a>
+                </li>
+            </ul>
         </div>
-        <div class="tag">
-            <span class="body">&lt;body&gt;</span>
+    </nav>
+
+    <div class="container-fluid">
+        <h1>Part 1: HTML Basics</h1>
+
+        <p>
+            HTML stands for <b>H</b>yper<b>T</b>ext<b>M</b>arkup<b>L</b>anguage. HTML defines the structure of a
+            document.
+        </p>
+
+        <h2>HTML Syntax</h2>
+
+        <p>
+            HTML separates a web page into different elements. The elements are defined by HTML tags. Here is an
+            example.
+
+        </p>
+
+        <div class="tag-block">
+            <div class="tag">
+                <span class="html">&lt;html&gt;</span>
+            </div>
+            <div class="tag">
+                <span class="body">&lt;body&gt;</span>
+            </div>
+            <div class="tag">
+                <span class="p">&lt;p&gt;
+                    <span id="htmltext">Hi, I am a HTML element!</span>
+                    &lt;/p&gt;</span>
+            </div>
+            <div class="tag">
+                <span class="body">&lt;/body&gt;</span>
+            </div>
+            <div class="tag">
+                <span class="html">&lt;/html&gt;</span>
+            </div>
         </div>
-        <div class="tag">
-            <span class="p">&lt;p&gt;
-                <span id="htmltext">Hi, I am a HTML element!</span>
-                &lt;/p&gt;</span>
+
+        <p>Each tag has a start tag and a stop tag. For example, <span class="tag">&lt;p&gt;</span>...<span
+                class="tag">&lt;/p&gt;</span>. However, we can also use a shorthand for certain tags that do not require
+            content, such as line breaks: <span class=tag>&lt;\br&gt;</span>
+        </p>
+
+        <p>
+            It is also conventional to indent the nested tags. This helps us to visualize the structure of the web page
+            easily.
+        </p>
+
+        <p>
+            There are many HTML tags that you can use. They can be found <a
+                href="https://www.w3schools.com/tags/ref_byfunc.asp" target="_blank">here</a>. For more commonly used
+            ones,
+            you can check <a href="https://www.geeksforgeeks.org/most-commonly-used-tags-in-html/"
+                target="_blank">this</a>
+            out.
+        </p>
+
+        <h2>Practice</h2>
+
+        <p>
+            There are few ways you can write HTML in the tools we downloaded. It is <i>easiest</i> to write in VSC,
+            which is what I would recommend for your final project.
+        </p>
+
+        <div>
+
+            <p>
+                However, writing HTML is also possible in Jupyter Notebooks.
+            </p>
+
+            <ul>Pros
+                <li>Easy to quickly update output without refreshing page</li>
+                <li>Creates a central location for turning in HTML code and Python</li>
+            </ul>
+
+            <ul>Cons
+                <li>No autofill of ending tags</li>
+                <li>No auto indent</li>
+                <li>Code highlights remain for Python, rather than for HTML</li>
+            </ul>
+
+            <p>
+                So, there are tradeoffs when writing HTML in Jupyter Notebooks.
+                It'll be how you write for assignments, but I wouldn't recommend it for your final project.
+            </p>
+
+            <p>
+                See?
+                <br>
+                <img src="jupyter_example.png" id=jupyterExample>
+
+            </p>
+
         </div>
-        <div class="tag">
-            <span class="body">&lt;/body&gt;</span>
+
+        <p>
+            As an exercise, write the section in HTML. You can use either VSC or Jupyter Notebook. Use the above links
+            to look up tags you might need.
+        </p>
+
+        <div class=practice>
+
+            <h5>I am a Header level 5.</h5>
+            <p>And this is my paragraph.</p>
+            <p>And an unordered list...</p>
+            <h5>To-Do List for Today</h5>
+            <ul>
+                <li>Think</li>
+                <li>Work</li>
+                <li>Sleep</li>
+            </ul>
+
         </div>
-        <div class="tag">
-            <span class="html">&lt;/html&gt;</span>
+
+        <h2>Hyperlinks</h2>
+
+        <div class="link-home">
+            <a href="1_intro.html"> Return to Week 1 Intro</a>
         </div>
+
+        <div class="link-home">
+            <a href="../infoviz.html"> Return to Course Home</a>
+        </div>
+
     </div>
 
-    <p>Each tag has a start tag and a stop tag. For example, <span class="tag">&lt;p&gt;</span>...<span
-            class="tag">&lt;/p&gt;</span>. However, we can also use a shorthand for certain tags that do not require
-        content, such as line breaks: <span class=tag>&lt;\br&gt;</span>
-    </p>
+    <!-- footer -->
+    <footer class="footer mt-auto" style="background-color: #172815;">
+        <div class="container">
+            <ul class="nav justify-content-center list-unstyled">
+                <li class='footer-item'>
+                    <a href="mailto: cstokes@ischool.berkeley.edu">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#f9f9f9"
+                            class="bi bi-envelope" viewBox="0 0 16 16">
+                            <path
+                                d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z" />
+                        </svg>
+                    </a>
+                    <p class=footer-text>Questions? Want to schedule office hours? Send me an email!</p>
+                </li>
 
-    <p>
-        It is also conventional to indent the nested tags. This helps us to visualize the structure of the web page
-        easily.
-    </p>
+            </ul>
+        </div>
+    </footer>
 
-    <p>
-        There are many HTML tags that you can use. They can be found <a
-            href="https://www.w3schools.com/tags/ref_byfunc.asp" target="_blank">here</a>. For more commonly used ones,
-        you can check <a href="https://www.geeksforgeeks.org/most-commonly-used-tags-in-html/" target="_blank">this</a>
-        out.
-    </p>
-
-    <h2>Practice</h2>
-
-    <p>
-        As an exercise, write the section in HTML. Use the above links to look up tags you might need.
-    </p>
-
-    <div class=practice>
-
-        <h5>I am a Header level 5.</h5>
-        <p>And this is my paragraph.</p>
-        <p>And an unordered list...</p>
-        <h5>To-Do List for Today</h5>
-        <ul>
-            <li>Think</li>
-            <li>Work</li>
-            <li>Sleep</li>
-        </ul>
-
-    </div>
-
-    <h2>Hyperlinks</h2>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
 
 </body>
 

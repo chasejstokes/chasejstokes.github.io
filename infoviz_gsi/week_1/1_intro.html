@@ -6,70 +6,159 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Activity Intro</title>
-    <link rel="stylesheet" href="1_intro.css">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    <!-- stylesheet from website -->
+    <link rel="stylesheet" href="../../main.css">
+
+    <!-- stylesheet for this page -->
+    <link rel="stylesheet" href="week_1.css">
 </head>
 
 <body>
 
-    <h1>Hi Class!</h1>
+    <!-- navbar -->
+    <nav id='mainNavbar' class="navbar navbar-expand-lg navbar-dark bf-dark" style="background-color: #172815;">
+        <h1 id="header">Chase Stokes</h1>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id='mainNavCollapse'>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a href="../../index.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                        data-toggle="dropdown">Research</a>
+                    <ul class="dropdown-menu">
+                        <li> <a class="dropdown-item" href="../../research.html">All</a></li>
+                        <li><a class="dropdown-item" href="../../research/lang_vis.html">Language and Visualization</a>
+                        </li>
+                        <li><a class="dropdown-item" href="../../research/percep_vis.html">Perception and
+                                Visualization</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle active" href="#" role="button"
+                        data-toggle="dropdown">Teaching</a>
+                    <ul class="dropdown-menu">
+                        <li> <a class="dropdown-item" href="../../teaching.html">All</a></li>
+                        <li><a class="dropdown-item active" href="../infoviz.html">INFO 247</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="../../cv.html" class="nav-link">CV</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../../contact.html" class="nav-link">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
-    <h2>A Short Introduction</h2>
+    <div class="container-fluid">
 
-    <div>
-        <p> My name is Chase Stokes, and I'll be your GSI for Infoviz this semester!</p>
+        <h1>Hi Class!</h1>
 
-        <p>First, a little about me.</p>
+        <h2>A Short Introduction</h2>
 
-        <ul>
-            <li>I am originally from Omaha, Nebraska.
-                <span class="hover_img">
-                    <a href="#">Where
-                        <span><img src="omaha.jpg" alt="image" height="100" /></span>
+        <div>
+            <p> My name is Chase Stokes, and I'll be your GSI for Infoviz this semester!</p>
+
+            <p>First, a little about me.</p>
+
+            <ul>
+                <li>I am originally from Omaha, Nebraska.
+                    <span class="hover_img">
+                        <a href="#">Where
+                            <span><img src="omaha.jpg" alt="image" height="100" /></span>
+                        </a>
+                    </span>
+                    even is that?
+                </li>
+                <li>I am definitely not an expert web developer! <a href="https://chasejstokes.github.io/"
+                        target="_blank">This</a>
+                    is about
+                    as far as I've gotten. Definitely under construction.</li>
+                <li>I do, however, spend a lot of time <a href="https://arxiv.org/abs/2208.01780"
+                        target="_blank">thinking</a> about
+                    visualizations! And <a href="https://arxiv.org/abs/2209.10789" target="_blank">thinking</a>. And <a
+                        href="https://arxiv.org/abs/2208.04436" target="_blank">thinking</a>. And
+                    <a href="https://people.ischool.berkeley.edu/~hearst/papers/nlviz2021.pdf"
+                        target="_blank">thinking</a>
+                    some more.
+                </li>
+                <li>I'm a second-year PhD. student, advised by <a href="https://people.ischool.berkeley.edu/~hearst/"
+                        target="_blank">Marti Hearst</a>.</li>
+                <li>I have a cat named Tuesday. <br> <img class=tuesday src="tuesday.jpeg"> <br> Want to see <a
+                        href="1.5_tuesday.html">more</a>?</li>
+            </ul>
+
+
+        </div>
+
+        <h2>Roadmap for Today</h2>
+
+        <div>
+            <p>We'll cover a few topics today, and we'll go more in depth next week.</p>
+
+            <ol>
+                <li>Downloading <a href="https://code.visualstudio.com/" target="_blank">VSC</a> and <a
+                        href="https://www.anaconda.com/" target="_blank">Anaconda</a></li>
+                <li>Basics of <a href='2_html.html'>HTML</a></li>
+                <li>Basics of <a href='3_css.html'>CSS</a></li>
+            </ol>
+
+        </div>
+        <h2>Contact Me!</h2>
+
+        <p>You can feel free to contact me by email - <a href="mailto:cstokes@ischool.berkeley.edu"
+                target="_blank">cstokes@ishool.berkeley.edu</a>. Happy to chat about
+            visualizations, class, or whatever's on your mind.</p>
+
+        <p>My office hours are xxx.</p>
+
+        <div class="link-home">
+            <a href="../infoviz.html"> Return to Course Home</a>
+        </div>
+
+    </div>
+
+
+    <!-- footer -->
+    <footer class="footer mt-auto" style="background-color: #172815;">
+        <div class="container">
+            <ul class="nav justify-content-center list-unstyled">
+                <li class='footer-item'>
+                    <a href="mailto: cstokes@ischool.berkeley.edu">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#f9f9f9"
+                            class="bi bi-envelope" viewBox="0 0 16 16">
+                            <path
+                                d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z" />
+                        </svg>
                     </a>
-                </span>
-                even is that?
-            </li>
-            <li>I am definitely not an expert web developer! <a href="https://chasejstokes.github.io/"
-                    target="_blank">This</a>
-                is about
-                as far as I've gotten. Definitely under construction.</li>
-            <li>I do, however, spend a lot of time <a href="https://arxiv.org/abs/2208.01780"
-                    target="_blank">thinking</a> about
-                visualizations! And <a href="https://arxiv.org/abs/2209.10789" target="_blank">thinking</a>. And <a
-                    href="https://arxiv.org/abs/2208.04436" target="_blank">thinking</a>. And
-                <a href="https://people.ischool.berkeley.edu/~hearst/papers/nlviz2021.pdf" target="_blank">thinking</a>
-                some more.
-            </li>
-            <li>I'm a second-year PhD. student, advised by <a href="https://people.ischool.berkeley.edu/~hearst/"
-                    target="_blank">Marti Hearst</a>.</li>
-            <li>I have a cat named Tuesday. <br> <img class=tuesday src="tuesday.jpeg"> <br> Want to see <a
-                    href="tuesday.html">more</a>?</li>
-        </ul>
+                    <p class=footer-text>Questions? Want to schedule office hours? Send me an email!</p>
+                </li>
 
+            </ul>
+        </div>
+    </footer>
 
-    </div>
-
-    <h2>Roadmap for Today</h2>
-
-    <div>
-        <p>We'll cover a few topics today, and we'll go more in depth next week.</p>
-
-        <ol>
-            <li>Downloading <a href="https://code.visualstudio.com/" target="_blank">VSC</a> and <a
-                    href="https://www.anaconda.com/" target="_blank">Anaconda</a></li>
-            <li>Basics of <a href='2_html.html' target="_blank">HTML</a></li>
-            <li>Basics of <a href='3_css.html' target="_blank">CSS</a></li>
-        </ol>
-
-    </div>
-    <h2>Contact Me!</h2>
-
-    <p>You can feel free to contact me by email - <a href="mailto:cstokes@ischool.berkeley.edu"
-            target="_blank">cstokes@ishool.berkeley.edu</a>. Happy to chat about
-        visualizations, class, or whatever's on your mind.</p>
-
-    <p>My office hours are xxx.</p>
-
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
 
 </body>
 

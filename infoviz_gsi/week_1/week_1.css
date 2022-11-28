@@ -1,11 +1,31 @@
-body {
-    margin: 5%;
-    /* font-size: 1.1em; */
+h2 {
+    font-size: 1.5em;
 }
 
-a {
-    text-decoration: none;
-    color: rgb(66, 66, 235)
+/* intro specific */
+
+.tuesday {
+    width: 50%;
+}
+
+.hover_img a {
+    position: relative;
+}
+
+.hover_img a span {
+    position: absolute;
+    display: none;
+}
+
+.hover_img a:hover span {
+    display: block;
+}
+
+/* html specific */
+
+
+#jupyterExample {
+    width: 75%;
 }
 
 .tag-block {
