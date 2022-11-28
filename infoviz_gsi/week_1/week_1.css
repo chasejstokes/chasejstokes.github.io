@@ -1,6 +1,19 @@
+/* all week-1 items */
+
 h2 {
     font-size: 1.5em;
 }
+
+.link {
+    background-color: #D0DDD2;
+    margin: 1% 0;
+    padding: 1%;
+    width: 25%;
+    color: black;
+    text-align: center;
+    align-items: center;
+}
+
 
 /* intro specific */
 
