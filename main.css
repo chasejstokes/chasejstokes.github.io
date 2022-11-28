@@ -44,6 +44,16 @@ body {
     font-size: 1.25em;
 }
 
+.dropdown-menu {
+    background-color: #D0DDD2;
+    --bs-dropdown-link-active-bg: #172815;
+}
+
+.dropdown-menu>li>a:hover {
+    background-color: #F7F9F9;
+    color: black;
+}
+
 /* introduction */
 
 .standardPic {

@@ -12,29 +12,29 @@
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="../main.css">
 </head>
 
 <body>
-
     <!-- navbar -->
     <nav id='mainNavbar' class="navbar navbar-expand-lg navbar-dark bf-dark" style="background-color: #172815;">
-        <h1 id="header">Chase Stokes <span id=pronouns><i>he/him</i></span></h1>
+        <h1 id="header">Chase Stokes</h1>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id='mainNavCollapse'>
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item active">
-                    <a href="index.html" class="nav-link">About</a>
+                <li class="nav-item">
+                    <a href="../index.html" class="nav-link">About</a>
                 </li>
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown active">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                         data-toggle="dropdown">Research</a>
                     <ul class="dropdown-menu">
-                        <li> <a class="dropdown-item" href="research.html">All</a></li>
-                        <li><a class="dropdown-item" href="research/lang_vis.html">Language and Visualization</a></li>
-                        <li><a class="dropdown-item" href="research/percep_vis.html">Perception and Visualization</a>
+                        <li> <a class="dropdown-item" href="../research.html">All</a></li>
+                        <li><a class="dropdown-item active" href="lang_vis.html">Language and Visualization</a>
+                        </li>
+                        <li><a class="dropdown-item" href="percep_vis.html">Perception and Visualization</a>
                         </li>
                     </ul>
                 </li>
@@ -42,16 +42,16 @@
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                         data-toggle="dropdown">Teaching</a>
                     <ul class="dropdown-menu">
-                        <li> <a class="dropdown-item" href="teaching.html">All</a></li>
-                        <li><a class="dropdown-item" href="infoviz_gsi/infoviz.html">INFO 247</a>
+                        <li> <a class="dropdown-item" href="../teaching.html">All</a></li>
+                        <li><a class="dropdown-item" href="../infoviz_gsi/infoviz.html">INFO 247</a>
                         </li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="cv.html" class="nav-link">CV</a>
+                    <a href="../cv.html" class="nav-link">CV</a>
                 </li>
                 <li class="nav-item">
-                    <a href="contact.html" class="nav-link">Contact</a>
+                    <a href="../contact.html" class="nav-link">Contact</a>
                 </li>
             </ul>
         </div>
@@ -59,124 +59,131 @@
 
 
     <div class="container-fluid">
-        <!-- row with image and intro statement -->
+
         <div class="row information">
-            <div class="col-lg-2 col-med-4 col-sm-3">
-                <img src="imgs/stokes_img.jpg" class="profPic"
-                    alt="A picture of Chase Stokes. He is wearing a blue sweater, black thin-rimmed glasses, and is grinning at the camera. Behind him is a blurred greenery."
-                    width="100%">
-            </div>
-            <div class="col text-block introduction">
-                <h2>Hello and welcome!</h2>
-            </div>
-        </div>
-
-        <!-- row with intro paragraph -->
-        <div class="row information information-text">
-
-            <p>
-                I am a PhD student at the University of California Berkeley. I
-                work with Professor
-                <a target="_blank" href="https://people.ischool.berkeley.edu/~hearst/">Marti Hearst</a>
-                on research relating to information visualization and text. My research predominantly
-                focuses on the combination of language and visualizations, with a specific focus on how text
-                elements of charts (e.g., annotations) affect
-                reader interpretations of data. Additionally, I am interested in the perceptual influence of
-                this text as well as its content, such as its influence on eye movements and the top-down
-                effects it may have on reader perception.
-            </p>
-
-            <p>
-                I, along with <a
-                    href="http://space.ucmerced.edu/Hosseinpour?_gl=1*1otzdh*_ga*MTkzMjQwMDgxNS4xNjY5NjExMjc2*_ga_TSE2LSBDQZ*MTY2OTYxMTI3NS4xLjEuMTY2OTYxMTI3Ni41OS4wLjA."
-                    target="_blank">Helia Hosseinpour</a>, co-organize the Northern California Visualization Group - a
-                group of researchers in the Northern California area who are studying or working in information
-                visualization. If this describes you, please <a href="mailto: cstokes@ischool.berkeley.edu">contact</a>
-                me to join!
-            </p>
-
-            <p>
-                Previously, I received my B.A. in Psychology & Gender Studies from Northwestern University,
-                advised by <a target="_blank" href="https://visualthinking.psych.northwestern.edu/people.html">Steve
-                    Franconeri</a> and <a target="_blank" href="https://cyxiong.com/">Cindy Xiong</a>.
-            </p>
-
-            <p>
-                See more about my current and past projects in <a href="research.html">Research</a>.
-            </p>
-        </div>
-    </div>
-
-    </div>
-    </div>
-
-    <div class="container-fluid last-container" style="margin-bottom:2%">
-        <!-- row with recent news items -->
-        <div class="row information">
-            <div class="col text-block">
-                <span class="information">
-                    <h3>Recent News</h3>
-                </span>
-                <div class="div news-block">
-                    <div class="news-item">
-                        <p>
-                            Presented poster at the Society for Judgement and Decision Making 2022 conference:
-                            "Investigating Reader Interpretations with Text Annotations in Data Visualizations."
-                        </p>
-                    </div>
-                    <div class="news-item">
-                        <p>
-                            Presented paper at NLVIS workshop at IEEE VIS 2022: "Why More Text is (Often) Better: Themes
-                            from Reader Preferences for Integration of Charts and Text."
-                        </p>
-                        <p>
-                            Read the paper <a target="_blank" href="pdfs/NLVIZ_2022_workshop.pdf">here</a>.
-                        </p>
-                    </div>
-                    <div class="news-item">
-                        <p>
-                            Presented paper at IEEE VIS 2022: "Striking a Balance: Reader Takeaways and Preferences when
-                            Integrating Text and Charts."
-                        </p>
-                        <p>
-                            Read the paper <a target="_blank" href="pdfs/VIS_2022_conference_Stokes.pdf">here</a>.
-                        </p>
-                    </div>
-                    <div class="news-item">
-                        <p>
-                            Co-authored paper accepted to IEEE VIS 2022: "Seeing What You Believe or Believing What You
-                            See? Belief Biases Correlation Estimation."
-                        </p>
-                        <p>
-                            Read the paper <a target="_blank" href="pdfs/VIS_2022_conference_Xiong.pdf">here</a>.
-                        </p>
-                    </div>
-                    <!-- <div class="news-item">
-                        <p>
-                            Presented at NLVIS workshop at IEEE VIS 2021: "Give Text A Chance: Advocating for Equal
-                            Consideration for Language and Visualization."
-                        </p>
-                        <p>
-                            Read the paper <a target="_blank" href="pdfs/NLVIZ_2021_workshop.pdf">here</a>.
-                        </p>
-                    </div> -->
-                    <!-- <div class="col news-item">
-                        <p>
-                            Assembled the NorCal Viz group: a group of researchers in the Northern California area who
-                            are
-                            studying or working in information visualization. We aim to cultivate a localized community
-                            around visualization and its study.
-                        </p>
-                        <p>
-                            If this describes you, <a href="mailto: cstokes@ischool.berkeley.edu">contact</a> me to
-                            join!
-                        </p>
-                    </div> -->
+            <div class="col-lg-1 col-sm-0"></div>
+            <div class="col">
+                <div class="text-block">
+                    <h3>Language and Visualization Research</h3>
                 </div>
             </div>
+            <div class="col-lg-1 col-sm-0"></div>
         </div>
-    </div>
 
+        <hr>
+
+        <div class="row information">
+            <div class="col-lg-1 col-sm-0"></div>
+            <div class="col">
+                <div class="text-block">
+                    <h3>2022</h3>
+                </div>
+            </div>
+            <div class="col-lg-1 col-sm-0"></div>
+        </div>
+
+        <hr>
+
+        <!-- more text often better -->
+        <div class="row information">
+            <div class="col-lg-1 col-sm-0"></div>
+            <div class="col-lg-3 col-med-4 col-sm-4">
+                <img src="../imgs/moretext_teaser_img.png" alt="" class=teaser>
+            </div>
+            <div class="col">
+                <div class="text-block">
+                    <h3>Why More Text is (Often) Better</h3>
+                    <p>
+                        <i><b>Chase Stokes</b> & Marti Hearst</i>
+                    </p>
+                    <p>
+                        We continued investigation of reader <i>preferences</i> for information with differing amounts
+                        of visuals and language. With a thematic analysis of over 2,000 writeen responses, we extract
+                        three themes which articulate trade-offs and affordances of visual and textual information.
+
+                    <p>Read the <a href="https://arxiv.org/abs/2209.10789" target="_blank">paper</a> or download the
+                        <a href="../pdfs/NLVIZ_2022_workshop.pdf" target="_blank">pdf</a>.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-1 col-sm-0"></div>
+        </div>
+
+        <hr>
+
+        <!-- striking a balance -->
+        <div class="row information">
+            <div class="col-lg-1 col-sm-0"></div>
+            <div class="col-lg-3 col-med-4 col-sm-4">
+                <img src="../imgs/strikebalance_teaser_img.png" alt="" class=teaser>
+            </div>
+            <div class="col">
+                <div class="text-block">
+                    <h3>Striking a Balance</h3>
+                    <p>
+                        <i><b>Chase Stokes</b>, Vidya Setlur, Bridget Cogley, Arvind Satyanarayan, & Marti Hearst</i>
+                    </p>
+                    <p>We explored several research questions about the relative value of textual
+                        components of visualizations: What are readers' <i>preferences</i> when viewing charts with
+                        different amounts of text? How do the different <i>semantic content of text</i> affect the type
+                        of information included in readers' takeaways? How does the <i>position</i> of text affect how
+                        the reader integrates the text with the chart?
+
+                    <p>Read the <a href="https://arxiv.org/abs/2208.01780" target="_blank">paper</a> or download the
+                        <a href="../pdfs/VIS_2022_conference_Stokes.pdf" target="_blank">pdf</a>.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-1 col-sm-0"></div>
+        </div>
+
+        <hr>
+
+        <div class="row information">
+            <div class="col-lg-1 col-sm-0"></div>
+            <div class="col">
+                <div class="text-block">
+                    <h3>2021</h3>
+                </div>
+            </div>
+            <div class="col-lg-1 col-sm-0"></div>
+        </div>
+
+        <hr>
+
+        <!-- give text a chance -->
+        <div class="row information">
+            <div class="col-lg-1 col-sm-0"></div>
+            <div class="col-lg-3 col-med-4 col-sm-4">
+                <img src="../imgs/givetext_teaser_img.png" alt="" class=teaser>
+            </div>
+            <div class="col">
+                <div class="text-block">
+                    <h3>Give Text A Chance</h3>
+
+                    <p>
+                        <i><b>Chase Stokes</b> & Marti Hearst</i>
+                    </p>
+                    <p>We advocate for further, careful consideration of the integration of text
+                        and charts. Readability of text should receive high priority when utilizing word-scale
+                        graphics and visualzations. Additionally, a text-only baseline is an important
+                        comparison when assessing a visualization method, ensuring that the usage of a visualization is
+                        improving the comprehension of the information presented.</p>
+
+                    <p>Read the full <a target="_blank"
+                            href="https://people.ischool.berkeley.edu/~hearst/papers/nlviz2021.pdf">paper</a> or
+                        download the
+                        <a href="../pdfs/NLVIZ_2021_workshop.pdf" target="_blank">pdf</a>.
+                    </p>
+
+                </div>
+            </div>
+            <div class="col-lg-1 col-sm-0"></div>
+        </div>
+
+        <hr>
+
+    </div>
 
     <!-- footer -->
     <footer class="footer mt-auto" style="background-color: #172815;">
