@@ -1,3 +1,9 @@
+/* basics */
+
+.container-fluid {
+    padding: 0.5% 10%;
+}
+
 a {
     color: #2E75B7;
     text-decoration-line: none;
@@ -7,25 +13,17 @@ h2 {
     font-size: 3.5em;
 }
 
-.news-item p {
-    margin-bottom: 0%;
-}
+/* navbar */
 
-.text-block {
-    margin-left: 2em;
-}
-
-.news-block {
-    overflow: auto;
-    height: 30vh;
+#header {
+    color: whitesmoke;
+    font-size: 3em;
+    padding-bottom: 1.5%;
+    margin: 0;
 }
 
 .navbar {
     padding: 3% 10% 0.5% 10%;
-}
-
-.container-fluid {
-    padding: 0.5% 10%;
 }
 
 .active {
@@ -37,27 +35,7 @@ h2 {
     font-size: 1.25em;
 }
 
-.information {
-    margin-top: 5%;
-}
-
-.interest-list {
-    margin-top: 2%;
-}
-
-.news-item {
-    background-color: #EEEEEE;
-    margin-top: 1%;
-}
-
-.last-container {
-    margin-bottom: 4%;
-}
-
-.footer-item {
-    padding: 1.5em;
-    margin: 0 1.5em;
-}
+/* introduction */
 
 .standardPic {
     border-radius: 12%;
@@ -65,31 +43,47 @@ h2 {
 
 .profPic {
     border-radius: 50%;
-    opacity: 0.8;
+    opacity: 0.9;
+}
+
+.introduction {
+    display: flex;
+    align-items: center;
+}
+
+.introduction h2 {
+    margin-left: .5em;
+}
+
+/* information */
+
+.information {
+    margin-top: 5%;
+}
+
+/* .text-block {
+    margin-left: 2em;
+} */
+
+/* .interest-list {
+    margin-top: 2%;
+} */
+
+/* news items */
+
+.news-item p {
+    margin-bottom: 0%;
+}
+
+.news-block {
+    overflow: auto;
+    height: 30vh;
 }
 
 .news-item {
+    background-color: #EEEEEE;
+    margin-top: 1%;
     padding: 1.5em;
-}
-
-.research-year {
-    padding: 1.5em 3.15em;
-    border: #D9D9D9 1px solid;
-    border-radius: 15px;
-    background-color: white;
-}
-
-
-.paper-title {
-    margin-top: 2em;
-    text-align: center;
-}
-
-#header {
-    color: whitesmoke;
-    font-size: 3em;
-    padding-bottom: 1.5%;
-    margin: 0;
 }
 
 @media (min-width: 1200px) {
@@ -115,8 +109,15 @@ h2 {
 
 }
 
-@media (max-width: 720) {
-    .research-title {
-        display: block;
-    }
+/* research */
+
+/* footer */
+
+.last-container {
+    margin-bottom: 4%;
+}
+
+.footer-item {
+    padding: 1.5em;
+    margin: 0 1.5em;
 }
