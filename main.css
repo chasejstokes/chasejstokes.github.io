@@ -73,6 +73,10 @@ body {
     margin-top: 5%;
 }
 
+.information-text {
+    font-size: 1.2em;
+}
+
 /* news items */
 
 .news-item p {
@@ -88,6 +92,7 @@ body {
     background-color: #AEC2B1;
     margin-top: 1%;
     padding: 1.5em;
+    font-size: 1.1em;
 }
 
 @media (min-width: 1200px) {
@@ -116,7 +121,8 @@ body {
 /* research */
 
 .teaser {
-    margin: 1.5em;
+    padding: 1.5em;
+    width: 100%;
 }
 
 /* footer */
