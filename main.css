@@ -26,6 +26,10 @@ body {
     margin: 0;
 }
 
+#pronouns {
+    font-size: .4em;
+    font-weight: 200;
+}
 
 .navbar {
     padding: 3% 10% 0.5% 10%;
@@ -89,7 +93,7 @@ body {
 }
 
 .news-item {
-    background-color: #AEC2B1;
+    background-color: #D0DDD2;
     margin-top: 1%;
     padding: 1.5em;
     font-size: 1.1em;
@@ -125,6 +129,22 @@ body {
     width: 100%;
 }
 
+.text-block {
+    font-size: 1.1em;
+}
+
+/* teaching */
+
+
+/* contact page */
+
+.contact-text {
+    font-size: 2em;
+    align-items: center;
+    text-align: center;
+    padding: 5%;
+}
+
 /* footer */
 
 .last-container {
@@ -134,4 +154,11 @@ body {
 .footer-item {
     padding: 1.5em;
     margin: 0 1.5em;
+    text-align: center;
+    align-items: center;
+}
+
+.footer-text {
+    color: #f9f9f9;
+    margin-top: 1.5em;
 }
