@@ -37,14 +37,6 @@ h2 {
 /* html specific */
 
 
-#jupyterExample {
-    width: 75%;
-}
-
-.tag-block {
-    margin: 2em 0;
-}
-
 .tag {
     color: rgb(208, 104, 121);
     margin-bottom: 1em;
@@ -59,12 +51,32 @@ h2 {
     margin-left: 2em;
 }
 
-.practice {
-    margin: 1%;
-    padding: 1.1em 1.5em;
-    background-color: rgb(242, 242, 242);
+.modifier {
+    color: rgb(151, 58, 151);
 }
 
-#htmltext {
+.modifier-info {
+    color: rgb(77, 120, 204)
+}
+
+.htmltext {
     color: black;
+}
+
+.code {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* movie review exercise */
+
+.movie-title {
+    color: rgb(57, 83, 145);
+    font-weight: bold;
+    font-size: 2em;
+}
+
+.movie-review {
+    margin: 1%;
+    padding: 2%;
+    background-color: #f5e9d8;
 }

@@ -87,7 +87,7 @@
             </div>
             <div class="tag">
                 <span class="p">&lt;p&gt;
-                    <span id="htmltext">Hi, I am a HTML element!</span>
+                    <span class="htmltext">Hi, I am a HTML element!</span>
                     &lt;/p&gt;</span>
             </div>
             <div class="tag">
@@ -117,77 +117,118 @@
             out.
         </p>
 
-        <h2>Practice</h2>
+        <h2>Hyperlinks</h2>
 
         <p>
-            There are few ways you can write HTML in the tools we downloaded. It is <i>easiest</i> to write in VSC,
-            which is what I would recommend for your final project.
+            Links are defined with the <span class="tag">&lt;a&gt;</span>...<span class="tag">&lt;/a&gt;</span> tag.
+        </p>
+
+        <p>
+            <a href="http://en.wikipediaorg">Wikipedia, the Free Encyclopedia</a>
+        </p>
+
+        <div class="tag-block">
+            <div class="tag">
+                <span class="anchor">&lt;a</span>
+                <span class="modifier">href =</span>
+                <span class="modifier-info">"http://en.wikipedia.org"</span>
+                <span>&gt;</span>
+                <span class="htmltext">Wikipedia, the Free Encyclopedia</span>
+                <span class="anchor">&lt;/a&gt;</span>
+
+            </div>
+        </div>
+
+        <h2>Images</h2>
+
+        <p>
+            Images are defined with the <span class="tag">&lt;img&gt;</span>...<span class="tag">&lt;/img&gt;</span>
+            tag. We have to specify the source (<span class="code">src</span>) of the image as well. Here is an image of
+            a cute cat.
         </p>
 
         <div>
-
-            <p>
-                However, writing HTML is also possible in Jupyter Notebooks.
-            </p>
-
-            <ul>Pros
-                <li>Easy to quickly update output without refreshing page</li>
-                <li>Creates a central location for turning in HTML code and Python</li>
-            </ul>
-
-            <ul>Cons
-                <li>No autofill of ending tags</li>
-                <li>No auto indent</li>
-                <li>Code highlights remain for Python, rather than for HTML</li>
-            </ul>
-
-            <p>
-                So, there are tradeoffs when writing HTML in Jupyter Notebooks.
-                It'll be how you write for assignments, but I wouldn't recommend it for your final project.
-            </p>
-
-            <p>
-                See?
-                <br>
-                <img src="jupyter_example.png" id=jupyterExample>
-
-            </p>
-
+            <img src="https://images.unsplash.com/photo-1607274641849-5a892286a7d3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80"
+                width="70%">
         </div>
+
+        <div class="tag-block">
+            <div class="tag">
+                <span class="anchor">&lt;img</span>
+                <span class="modifier">src =</span>
+                <span
+                    class="modifier-info">"https://images.unsplash.com/photo-1607274641849-5a892286a7d3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80"</span>
+                <span class="modifier">width = </span>
+                <span class="modifier-info">"70%"</span>
+                <span>&gt;</span>
+                <span class="anchor">&lt;/img&gt;</span>
+            </div>
+        </div>
+
+        <h2>Buttons</h2>
 
         <p>
-            As an exercise, write the following section in HTML. You can use either VSC or Jupyter Notebook. Use the
-            above links
-            to look up tags you might need.
+            Buttons are defined using a button tag. Buttons are used for interaction.
         </p>
 
-        <div class=practice>
-
-            <h5>I am a Header level 5.</h5>
-            <p>And this is my paragraph.</p>
-            <p>And an unordered list...</p>
-            <h5>To-Do List for Today</h5>
-            <ul>
-                <li>Think</li>
-                <li>Work</li>
-                <li>Sleep</li>
-            </ul>
-
+        <div>
+            <button>Click me to pet the cat</button>
         </div>
 
-        <h2>Hyperlinks</h2>
-
-        <a href="1_intro.html">
-            <div class="link">
-                Return to Week 1 Intro
+        <div class="tag-block">
+            <div class="tag">
+                <span class="anchor">&lt;button</span>
+                <span>&gt;</span>
+                <span class="htmltext">Click me to pet the cat</span>
+                <span class="anchor">&lt;/button&gt;</span>
             </div>
-        </a>
+        </div>
 
-        <a href="../infoviz.html">
-            <div class="link">
-                Return to Course Home
+
+        <h2>Practice More!</h2>
+
+        <p>There are many different types of HTML tags. We have merely scratched the surface of what HTML can do. Now
+            it's your turn!</p>
+
+        <p>Try creating a movie review poster using HTML. Include:</p>
+
+        <ul>
+            <li>A movie poster</li>
+            <li>A short blurb or description of the movie</li>
+            <li>A list of interesting things that heppened in the movie</li>
+            <li>A hyperlink to the Wikipedia or IMBB entry</li>
+        </ul>
+
+        <p>An example is shown below.</p>
+
+        <div class=movie-review>
+
+            <img src="https://upload.wikimedia.org/wikipedia/en/0/05/Gone_Girl_Poster.jpg" width="50%" alt="">
+
+            <h2 class=movie-title>Gone Girl Movie Review</h2>
+
+            <p>
+                Nick Dunne (Ben Affleck) and his wife Amy (Rosamund Pike) show the audience the beauty of the American
+                Dream. That is, until Amy disappears on their fifth wedding anniversary, and Nick becomes the primary
+                suspect in the investigation. Suddenly, the dream they had once portrayed becomes a nightmare.
+            </p>
+
+            <ul>
+                <li>Amy disappears, and Nick becomes a suspect</li>
+                <li>Every year, Amy and Nick perform scavenger hunts for their anniversary. This year is no different.
+                </li>
+                <li>Nick follows clues from Amy to complete the hunt and find out who is behind his wife's
+                    disappearance.</li>
+                <li>Nick finds Amy's diary, but it raises more questions than it answers.</li>
+            </ul>
+
+            <div>
+                <a href="https://en.wikipedia.org/wiki/Gone_Girl_(film)" target="_blank">Find out more!</a>
             </div>
-        </a>
+        </div>
+        <p>
+            Write your own review below!
+        </p>
 
     </div>
 
