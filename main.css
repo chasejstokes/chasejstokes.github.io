@@ -20,13 +20,17 @@ body {
 /* navbar */
 
 #header {
-    color: #F7F9F9;
     font-size: 3em;
     padding-bottom: 1.5%;
     margin: 0;
 }
 
+#header a {
+    color: #F7F9F9;
+}
+
 #pronouns {
+    color: #F7F9F9;
     font-size: .4em;
     font-weight: 200;
 }
