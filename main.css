@@ -4,17 +4,20 @@
     padding: 0.5% 10%;
 }
 
-a {
-    color: #1e91d6;
+a,
+a:hover {
+    color: #A48165;
     text-decoration-line: none;
 }
+
+
 
 h2 {
     font-size: 3.5em;
 }
 
 body {
-    background-color: #F7F9F9;
+    background-color: #E9EDED;
 }
 
 /* navbar */
@@ -26,7 +29,7 @@ body {
 }
 
 #pronouns {
-    color: #F7F9F9;
+    color: #E9EDED;
     font-size: .4em;
     font-weight: 200;
 }
@@ -40,18 +43,18 @@ body {
 }
 
 .nav-link {
-    color: #F7F9F9;
+    color: #E9EDED;
     font-size: 1.25em;
 }
 
 .dropdown-menu {
-    background-color: #D0DDD2;
-    --bs-dropdown-link-active-bg: #172815;
+    background-color: #B8C7CC;
+    --bs-dropdown-link-active-bg: #284044;
 }
 
 .dropdown-menu>li>a:hover {
-    background-color: #F7F9F9;
-    color: black;
+    background-color: #E9EDED;
+    color: #A48165;
 }
 
 /* introduction */
@@ -103,7 +106,7 @@ body {
 }
 
 .news-item {
-    background-color: #D0DDD2;
+    background-color: #B8C7CC;
     margin-top: 1%;
     padding: 1.5em;
 }
@@ -168,6 +171,10 @@ body {
 }
 
 .footer-text {
-    color: #f9f9f9;
+    color: #E9EDED;
     margin-top: 1.5em;
+}
+
+svg {
+    fill: #E9EDED
 }

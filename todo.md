@@ -1,7 +1,7 @@
 # TODO List for chasejstokes.github.io
 
 [] add research interests (& tags?)
-[] complete infoviz section
+[] add beter research photos
 [x] add dropdown menus
 [x] add teaching section
 [x] add perceptual works
