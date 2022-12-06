@@ -1,3 +1,12 @@
+/* define colors */
+:root {
+    --primary: #284044;
+    --secondary: #B8C7CC;
+    --background: #eff2f4;
+    --link: #A48165;
+}
+
+
 /* basics */
 
 .container-fluid {
@@ -6,7 +15,7 @@
 
 a,
 a:hover {
-    color: #A48165;
+    color: var(--link);
     text-decoration-line: none;
 }
 
@@ -17,7 +26,7 @@ h2 {
 }
 
 body {
-    background-color: #E9EDED;
+    background-color: var(--background);
 }
 
 /* navbar */
@@ -29,9 +38,17 @@ body {
 }
 
 #pronouns {
-    color: #E9EDED;
+    color: var(--background);
     font-size: .4em;
     font-weight: 200;
+}
+
+#mainNavbar {
+    background-color: var(--primary);
+}
+
+#headerLink {
+    color: var(--background);
 }
 
 .navbar {
@@ -43,18 +60,18 @@ body {
 }
 
 .nav-link {
-    color: #E9EDED;
+    color: var(--background);
     font-size: 1.25em;
 }
 
 .dropdown-menu {
-    background-color: #B8C7CC;
-    --bs-dropdown-link-active-bg: #284044;
+    background-color: var(--secondary);
+    --bs-dropdown-link-active-bg: var(--primary);
 }
 
 .dropdown-menu>li>a:hover {
-    background-color: #E9EDED;
-    color: #A48165;
+    background-color: var(--background);
+    color: var(--link);
 }
 
 /* introduction */
@@ -106,7 +123,7 @@ body {
 }
 
 .news-item {
-    background-color: #B8C7CC;
+    background-color: var(--secondary);
     margin-top: 1%;
     padding: 1.5em;
 }
@@ -159,6 +176,10 @@ body {
 
 /* footer */
 
+.footer {
+    background-color: var(--primary);
+}
+
 .last-container {
     margin-bottom: 4%;
 }
@@ -171,10 +192,10 @@ body {
 }
 
 .footer-text {
-    color: #E9EDED;
+    color: var(--background);
     margin-top: 1.5em;
 }
 
 svg {
-    fill: #E9EDED
+    fill: var(--background)
 }
