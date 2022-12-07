@@ -1,9 +1,9 @@
 /* define colors */
 :root {
-    --primary: #284044;
-    --secondary: #B8C7CC;
-    --background: #eff2f4;
-    --link: #A48165;
+    --primary: #012932;
+    --secondary: #D7DEE6;
+    --background: #FAFBFC;
+    --link: #0857aa;
 }
 
 
@@ -13,13 +13,19 @@
     padding: 0.5% 10%;
 }
 
-a,
-a:hover {
+a {
+    text-decoration: none;
+}
+
+.information a {
     color: var(--link);
     text-decoration-line: none;
 }
 
-
+a:hover {
+    color: var(--link);
+    text-decoration: underline;
+}
 
 h2 {
     font-size: 3.5em;
@@ -62,6 +68,12 @@ body {
 .nav-link {
     color: var(--background);
     font-size: 1.25em;
+}
+
+.nav-link:hover,
+.navbar-nav .show>.nav-link {
+    color: var(--secondary);
+    text-decoration: none;
 }
 
 .dropdown-menu {
