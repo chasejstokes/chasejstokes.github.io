@@ -68,7 +68,7 @@
 
                 // save the location of the click
                 x = e.clientX
-                y = e.clientY
+                y = e.clientY + document.documentElement.scrollTop
 
                 // update the location of the text
                 textNode.style.left = x + "px"
