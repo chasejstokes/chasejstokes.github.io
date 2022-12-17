@@ -362,11 +362,18 @@
                 titles[0].remove()
             }
 
-            let dataURL = canvas.toDataURL();
-            let design = document.createElement("a");
-            design.href = dataURL;
-            design.download = "canvas.png"; // Add this line
-            design.click();
+            // download image with button
+            // let dataURL = canvas.toDataURL();
+            // let design = document.createElement("a");
+            // design.href = dataURL;
+            // design.download = "design.png"; 
+            // design.click();
+
+            // add image with button
+            design = new Image()
+            design.src = canvas.toDataURL();
+            document.getElementById('wrapper').appendChild(design)
+            canvas.remove()
 
         }
 
