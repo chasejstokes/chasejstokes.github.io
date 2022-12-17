@@ -60,14 +60,23 @@
             <div class=instructions>
                 <h1>Instructions</h1>
                 <p>
-                    <b>Adding Text:</b> Double click anywhere to add an input box. Type your desired text in the box,
-                    and hit "Enter" to add the text. The text size is pre-determined and not possible to change.
+                    <b>Adding Text:</b> Type your desired text in the box below. Select its role from the choices below
+                    the box. Click the "Add Text" button to add the text to the chart. The sizes of text are
+                    pre-determined and not possible to change.
+                </p>
+                <textarea cols="30" rows="4"></textarea>
                 <p>
-                    <b>Moving Text:</b> Once the text is added to the chart, click and drag it to the position you
-                    want.
+                    <input type="radio" name="text" value="annotation">Annotation
+                    <input type="radio" name="text" value="caption">Caption
+                    <input type="radio" name="text" value="title">Title
+                    <br>
+                    <button id='addText'>Add Text</button>
+                </p>
                 <p>
-                    <b>Deleting Text:</b> Double-click anywhere on added text to remove it. If you accidentally add an
-                    input box where you did not mean to, double click anywhere in the box to remove it.
+                    <b>Moving Text:</b> Once the text is added to the chart, click and drag to position where you want.
+                    "Annotations" will automatically add to the center of the chart.
+                <p>
+                    <b>Deleting Text:</b> Double-click anywhere in the text to remove it.
                 </p>
                 <p>
                     <b>Saving Your Design:</b> When you are finished with your design, click the button below to
@@ -108,150 +117,108 @@
         layer.width = canvas.width
         layer.height = canvas.height
 
+        // make sure text is empty
+        textNode = document.querySelector('textarea')
+        textNode.value = ''
+
         // set text attributes
         var largeText = '20px'
         var regularText = '14px'
         var longWidth = '50ch'
-        var regularWidth = '15ch'
+        var regularWidth = '20ch'
 
-        // ADD INPUT ON DOUBLE CLICK
-        document.getElementById("wrapper").ondblclick = function (e) {
+        // ADDTEXT BUTTON CLICK//
+        //
+        //
+        //
+        // when the addText button is clicked, create a span with the text and clear the textarea box
+        document.getElementById("addText").onclick = function (e) {
 
-            // create textarea variable
-            var textNode = document.createElement('textarea')
+            // create span
+            var spanNode = document.createElement('span')
 
-            // save the location of the click
-            clickX = e.clientX
-            clickY = e.clientY
+            // add text to span
+            spanNode.innerHTML = textNode.value;
 
-            // update the location of the text
-            textNode.style.left = clickX + "px"
-            textNode.style.top = clickY + "px"
-            textNode.style.zIndex = 1
-            textNode.style.position = "absolute"
-            textNode.style.fontFamily = "Arial, Helvetica, sans-serif"
+            // adjust span qualtiies depending on selection
+            var type = document.querySelector('input[name="text"]:checked').value;
 
-            chart = document.querySelector('canvas')
-            // assign condition
-            if (clickY > (0.9 * (canvas.height + y))) {
-                textNode.classList.add('caption')
-            } else if (clickY < (0.2 * (canvas.height + y))) {
-                textNode.classList.add('title')
-            } else {
-                textNode.classList.add('annotation')
+            if (type === 'annotation') {
+                spanNode.style.width = regularWidth
+                spanNode.style.fontSize = regularText
+                spanNode.style.left = x + (0.5 * canvas.width) + 'px'
+                spanNode.style.top = y + (0.5 * canvas.height) + 'px'
+                spanNode.classList.add('annotation')
             }
-            // set properties to the text according to position relative to canvas
-            if (textNode.className === 'annotation') {
-                textNode.style.width = regularWidth
-                textNode.style.fontSize = regularText
+            if (type === 'caption') {
+                spanNode.style.width = longWidth
+                spanNode.style.fontSize = regularText
+                spanNode.style.left = x + (0.07 * canvas.width) + 'px'
+                spanNode.style.top = y + (0.92 * canvas.height) + 'px'
+                spanNode.classList.add('caption')
             }
-            if (textNode.className === 'caption') {
-                textNode.style.width = longWidth
-                textNode.style.fontSize = regularText
-            }
-            if (textNode.className === 'title') {
-                textNode.style.width = longWidth
-                textNode.style.fontSize = largeText
+            if (type === 'title') {
+                spanNode.style.width = longWidth
+                spanNode.style.fontSize = largeText
+                spanNode.style.left = x + (0.05 * canvas.width) + 'px'
+                spanNode.style.top = y + (0.05 * canvas.height) + 'px'
+                spanNode.classList.add('title')
             }
 
-            // append textarea to document
-            document.getElementById("parent_div").appendChild(textNode)
+            // position span above canvas
+            spanNode.style.position = 'absolute';
+            spanNode.style.zIndex = 2
+            spanNode.style.fontFamily = "Arial, Helvetica, sans-serif"
+            layer.appendChild(spanNode)
 
-            // focus on the input to type text in
-            textNode.focus()
-
-            // if the input is double clicked, remove it
-            textNode.addEventListener("dblclick", function () {
-                textNode.remove()
+            // EVENTS FOR SPAN
+            //
+            //
+            // add event listener to remove span when double clicked
+            spanNode.addEventListener("dblclick", function (e) {
+                spanNode.remove()
             })
 
-            // when the input is submitted
-            textNode.addEventListener("keypress", function (e) {
+            // add event listeners to span for drag and drop
+            var isDragging = false; // initialize the isDragging flag to false
 
-                // if "enter" was pressed
-                if (e.keyCode == 13) {
+            spanNode.addEventListener('mousedown', function (e) { // add a mousedown event listener to the span element
+                isDragging = true; // set the isDragging flag to true
+                // update the x and y coordinates of the span
+                spanX = e.clientX;
+                spanY = e.clientY;
+            });
 
-                    // create span
-                    var spanNode = document.createElement('span')
-
-                    // add text to span
-                    spanNode.innerHTML = textNode.value;
-
-                    // adjust span attributes
-                    spanNode.style.position = "absolute"
-                    spanNode.style.left = textNode.style.left
-                    spanNode.style.top = textNode.style.top
-                    spanNode.style.zIndex = 1
-
-                    // set properties to the text according to position relative to canvas
-                    if (textNode.className === 'annotation') {
-                        spanNode.style.width = regularWidth
-                        spanNode.style.fontSize = regularText
-                        spanNode.classList.add('annotation')
-                    }
-                    if (textNode.className === 'caption') {
-                        spanNode.style.width = longWidth
-                        spanNode.style.fontSize = regularText
-                        spanNode.classList.add('caption')
-                    }
-                    if (textNode.className === 'title') {
-                        spanNode.style.width = longWidth
-                        spanNode.style.fontSize = largeText
-                        spanNode.classList.add('title')
-                    }
-
-                    // add event listener to remove span when double clicked
-                    spanNode.addEventListener("dblclick", function (e) {
-                        spanNode.remove()
-                    })
-                    // initialize the isDragging flag to false
-                    var isDragging = false;
-                    // add a mousedown event listener to the span element
-                    spanNode.addEventListener('mousedown', function (e) {
-                        // set the isDragging flag to true
-                        isDragging = true;
-                        // update the x and y coordinates of the span
-                        spanX = e.clientX;
-                        spanY = e.clientY;
-                    });
-                    // add a mousemove event listener to the document
-                    document.addEventListener('mousemove', function (e) {
-                        // if the isDragging flag is true
-                        if (isDragging) {
-                            // calculate the distance the mouse has moved since the last mousemove event
-                            var dx = e.clientX - spanX;
-                            var dy = e.clientY - spanY;
-                            // update the x and y coordinates of the span
-                            spanX = e.clientX;
-                            spanY = e.clientY;
-                            // update the position of the span by adding the distance the mouse has moved to its current position
-                            spanNode.style.left = spanNode.offsetLeft + dx + 'px';
-                            spanNode.style.top = spanNode.offsetTop + dy + 'px';
-                        }
-                    });
-                    // add a mouseup event listener to the document
-                    document.addEventListener('mouseup', function (e) {
-                        // set the isDragging flag to false
-                        isDragging = false;
-                    })
-
-                    // add span
-                    document.getElementById("parent_div").appendChild(spanNode)
-
-                    // if span is empty, remove
-                    if (spanNode.innerText === "") {
-                        spanNode.remove()
-                    }
-
-                    // remove the textarea node
-                    textNode.remove()
-
+            document.addEventListener('mousemove', function (e) { // add a mousemove event listener to the document
+                if (isDragging) {  // if the isDragging flag is true
+                    // calculate the distance the mouse has moved since the last mousemove event
+                    var dx = e.clientX - spanX;
+                    var dy = e.clientY - spanY;
+                    // update the x and y coordinates of the span
+                    spanX = e.clientX;
+                    spanY = e.clientY;
+                    // update the position of the span by adding the distance the mouse has moved to its current position
+                    spanNode.style.left = spanNode.offsetLeft + dx + 'px';
+                    spanNode.style.top = spanNode.offsetTop + dy + 'px';
                 }
+            });
 
+            document.addEventListener('mouseup', function (e) { // add a mouseup event listener to the document
+                // set the isDragging flag to false
+                isDragging = false;
             })
+
+            // remove span if empty
+            if (spanNode.innerHTML === '') {
+                spanNode.remove()
+            }
+
+            // clear textarea
+            textNode.value = ''
+
         }
 
-        // helper function to add text to the canvas
+        // helper function to add 
         function getLines(span, maxWidth) {
             const words = span.split(" ");
             const lines = [];
@@ -396,11 +363,11 @@
             }
 
             // download image with button
-            // let dataURL = canvas.toDataURL();
-            // let design = document.createElement("a");
-            // design.href = dataURL;
-            // design.download = "design.png";
-            // design.click();
+            let dataURL = canvas.toDataURL();
+            let design = document.createElement("a");
+            design.href = dataURL;
+            design.download = "design.png";
+            design.click();
 
             // add image with button
             // design = new Image()
