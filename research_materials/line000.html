@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chart Design</title>
+</head>
+
+<body>
+
+    <!-- using style rather than .css stylesheet to keep everything in one file -->
+    <style>
+        body {
+            margin: 2%;
+        }
+
+        span {
+            cursor: pointer;
+        }
+
+        p {
+            margin-right: 40px;
+        }
+
+        .instructions {
+            margin-bottom: 2%;
+        }
+
+        .input {
+            display: inline-block;
+            width: 25%;
+            vertical-align: top;
+        }
+
+        #addText {
+            margin-top: 2%;
+        }
+
+        #wrapper {
+            display: inline;
+        }
+
+        #design_line000 {
+            border: 2px solid black;
+            position: relative;
+        }
+
+        #aboveCanvas {
+            position: absolute;
+            z-index: 1;
+        }
+    </style>
+
+
+
+    <div id="parent_div">
+        <div class="input">
+            <div class=instructions>
+                <h1>Instructions</h1>
+                <p>
+                    <b>Adding Text:</b> Type your desired text in the box below. Select its role from the choices below
+                    the box. Click the "Add Text" button to add the text to the chart. The sizes of text are
+                    pre-determined and not possible to change.
+                </p>
+                <textarea cols="30" rows="4"></textarea>
+                <p>
+                    <input type="radio" name="text" value="annotation">Annotation
+                    <input type="radio" name="text" value="caption">Caption
+                    <input type="radio" name="text" value="title">Title
+                    <br>
+                    <button id='addText'>Add Text</button>
+                </p>
+                <p>
+                    <b>Moving Text:</b> Once the text is added to the chart, click and drag to position where you want.
+                    "Annotations" will automatically add to the center of the chart.
+                <p>
+                    <b>Deleting Text:</b> Double-click anywhere in the text to remove it.
+                </p>
+                <p>
+                    <b>Saving Your Design:</b> When you are finished with your design, click the button below to
+                    automatically download the image to your computer. Otherwise, you can right click and select "Save
+                    Image As". You will upload this file in the next question and then can remove it from your device.
+                </p>
+                <button id='saveImg'>Save Image</button>
+            </div>
+        </div>
+        <div id="wrapper">
+            <canvas id="design_line000" width="800" height="500">
+            </canvas>
+            <div id="layer"></div>
+
+        </div>
+    </div>
+
+    <script>
+
+        // build the chart on the canvas
+        var canvas = document.getElementById("design_line000");
+        var context = canvas.getContext("2d");
+        line000 = new Image();
+        line000.src = 'line000.png';
+        line000.style.border = "2px black solid"
+        line000.onload = function () {
+            context.drawImage(line000, 0, 0);
+        }
+
+        // get canvas location
+        var x = canvas.offsetLeft
+        var y = canvas.offsetTop
+
+        // update the position and size of the aboveCanvas div
+        layer = document.getElementById('layer')
+        layer.style.left = x
+        layer.style.top = x
+        layer.width = canvas.width
+        layer.height = canvas.height
+
+        // make sure text is empty
+        textNode = document.querySelector('textarea')
+        textNode.value = ''
+
+        // set text attributes
+        var largeText = '20px'
+        var regularText = '14px'
+        var longWidth = '50ch'
+        var regularWidth = '20ch'
+
+        // ADDTEXT BUTTON CLICK//
+        //
+        //
+        //
+        // when the addText button is clicked, create a span with the text and clear the textarea box
+        document.getElementById("addText").onclick = function (e) {
+
+            // create span
+            var spanNode = document.createElement('span')
+
+            // add text to span
+            spanNode.innerHTML = textNode.value;
+
+            // adjust span qualtiies depending on selection
+            var type = document.querySelector('input[name="text"]:checked').value;
+
+            if (type === 'annotation') {
+                spanNode.style.width = regularWidth
+                spanNode.style.fontSize = regularText
+                spanNode.style.left = x + (0.5 * canvas.width) + 'px'
+                spanNode.style.top = y + (0.5 * canvas.height) + 'px'
+                spanNode.classList.add('annotation')
+            }
+            if (type === 'caption') {
+                spanNode.style.width = longWidth
+                spanNode.style.fontSize = regularText
+                spanNode.style.left = x + (0.07 * canvas.width) + 'px'
+                spanNode.style.top = y + (0.92 * canvas.height) + 'px'
+                spanNode.classList.add('caption')
+            }
+            if (type === 'title') {
+                spanNode.style.width = longWidth
+                spanNode.style.fontSize = largeText
+                spanNode.style.left = x + (0.05 * canvas.width) + 'px'
+                spanNode.style.top = y + (0.05 * canvas.height) + 'px'
+                spanNode.classList.add('title')
+            }
+
+            // position span above canvas
+            spanNode.style.position = 'absolute';
+            spanNode.style.zIndex = 2
+            spanNode.style.fontFamily = "Arial, Helvetica, sans-serif"
+            layer.appendChild(spanNode)
+
+            // EVENTS FOR SPAN
+            //
+            //
+            // add event listener to remove span when double clicked
+            spanNode.addEventListener("dblclick", function (e) {
+                spanNode.remove()
+            })
+
+            // add event listeners to span for drag and drop
+            var isDragging = false; // initialize the isDragging flag to false
+
+            spanNode.addEventListener('mousedown', function (e) { // add a mousedown event listener to the span element
+                isDragging = true; // set the isDragging flag to true
+                // update the x and y coordinates of the span
+                spanX = e.clientX;
+                spanY = e.clientY;
+            });
+
+            document.addEventListener('mousemove', function (e) { // add a mousemove event listener to the document
+                if (isDragging) {  // if the isDragging flag is true
+                    // calculate the distance the mouse has moved since the last mousemove event
+                    var dx = e.clientX - spanX;
+                    var dy = e.clientY - spanY;
+                    // update the x and y coordinates of the span
+                    spanX = e.clientX;
+                    spanY = e.clientY;
+                    // update the position of the span by adding the distance the mouse has moved to its current position
+                    spanNode.style.left = spanNode.offsetLeft + dx + 'px';
+                    spanNode.style.top = spanNode.offsetTop + dy + 'px';
+                }
+            });
+
+            document.addEventListener('mouseup', function (e) { // add a mouseup event listener to the document
+                // set the isDragging flag to false
+                isDragging = false;
+            })
+
+            // remove span if empty
+            if (spanNode.innerHTML === '') {
+                spanNode.remove()
+            }
+
+            // clear textarea
+            textNode.value = ''
+
+        }
+
+        // helper function to add 
+        function getLines(span, maxWidth) {
+            const words = span.split(" ");
+            const lines = [];
+            while (words.length > 0) {
+                let line = "";
+                while (words.length > 0 && (line + words[0]).length <= maxWidth) {
+                    line += words.shift() + " ";
+                }
+                lines.push(line.trim());
+            }
+            return lines;
+        }
+
+        // SAVEIMG BUTTON CLICK//
+        //
+        //
+        //
+        document.getElementById("saveImg").onclick = function (e) {
+
+            // ANNOTATIONS
+            //
+            //
+            // collect all annotations added to the document
+            var annots = document.getElementsByClassName('annotation')
+
+            // add all annotations to the canvas item
+            for (let i = 0; i < annots.length; i++) {
+                a = annots[i]
+                context.fillStyle = "black";
+                context.font = "14px Arial";
+                // get location of annotation to add
+                aX = parseInt(a.style.left) - x - 1
+                aY = parseInt(a.style.top) - y + parseInt(regularText) - 1
+
+                // get each line from an annotation
+                var a_content = getLines(a.innerHTML, parseInt(regularWidth) + 5)
+
+                for (let i = 0; i < a_content.length; i++) {
+
+                    // add the line spacing for lines after the first line
+                    if (i === 0) {
+                        aY = aY
+                    } else {
+                        aY = aY + 3
+                    }
+
+                    // add annotation
+                    context.fillText(a_content[i], aX, aY + (i * parseInt(regularText)));
+
+                }
+
+            }
+
+
+            // remove annotations
+            num_annotations = annots.length
+            for (let i = 0; i < num_annotations; i++) {
+                annots[0].remove()
+            }
+
+            // CAPTIONS
+            //
+            //
+            // collect all captions added to the document
+            var caps = document.getElementsByClassName('caption')
+
+            // add all captions to the canvas item
+            for (let i = 0; i < caps.length; i++) {
+                c = caps[i]
+                context.fillStyle = "black";
+                context.font = "14px Arial";
+                // get location of caption to add
+                cX = parseInt(c.style.left) - x - 1
+                cY = parseInt(c.style.top) - y + parseInt(regularText) - 1
+
+                // get each line from an caption
+                var c_content = getLines(c.innerHTML, parseInt(longWidth) + 15)
+
+                for (let i = 0; i < c_content.length; i++) {
+
+                    // add the line spacing for lines after the first line
+                    if (i === 0) {
+                        cY = cY
+                    } else {
+                        cY = cY + 3
+                    }
+
+                    // add caption
+                    context.fillText(c_content[i], cX, cY + (i * parseInt(regularText)));
+                }
+
+            }
+
+            // remove captions
+            num_captions = caps.length
+            for (let i = 0; i < num_captions; i++) {
+                caps[0].remove()
+            }
+
+            // TITLES
+            //
+            //
+            // repeat with titles
+
+            // collect all titles added to the document
+            var titles = document.getElementsByClassName('title')
+
+            // add all titles to the canvas item
+            for (let i = 0; i < titles.length; i++) {
+                t = titles[i]
+                context.fillStyle = "black";
+                context.font = "20px Arial";
+                // get location of title to add
+                tX = parseInt(t.style.left) - x - 1
+                tY = parseInt(t.style.top) - y + parseInt(largeText) - 1
+
+                // get each line from an title
+                var t_content = getLines(t.innerHTML, parseInt(longWidth) + 15)
+
+                for (let i = 0; i < t_content.length; i++) {
+
+                    // add the line spacing for lines after the first line
+                    if (i === 0) {
+                        tY = tY
+                    } else {
+                        tY = tY + 3
+                    }
+
+                    // add title
+                    context.fillText(t_content[i], tX, tY + (i * parseInt(largeText)));
+
+                    //now we have to try the same thing but this time we are adding a really long title to explain the content of the chart
+
+                }
+
+            }
+
+            // remove titles
+            num_titles = titles.length
+            for (let i = 0; i < num_titles; i++) {
+                titles[0].remove()
+            }
+
+            let dataURL = canvas.toDataURL();
+            let design = document.createElement("a");
+            design.href = dataURL;
+            design.download = "canvas.png"; // Add this line
+            design.click();
+
+        }
+
+
+    </script>
+</body>
+
+</html>
+
+
+</body>
+
+</html>
