@@ -83,7 +83,7 @@
                     automatically download the image to your computer. Otherwise, you can right click and select "Save
                     Image As". You will upload this file in the next question and then can remove it from your device.
                 </p>
-                <button id='saveImg'>Save Image</button>
+                <button id='saveImg'>Download Image</button>
             </div>
         </div>
         <div id="wrapper">
@@ -363,17 +363,17 @@
             }
 
             // download image with button
-            // let dataURL = canvas.toDataURL();
-            // let design = document.createElement("a");
-            // design.href = dataURL;
-            // design.download = "design.png"; 
-            // design.click();
+            let dataURL = canvas.toDataURL();
+            let design = document.createElement("a");
+            design.href = dataURL;
+            design.download = "design.png";
+            design.click();
 
             // add image with button
-            design = new Image()
-            design.src = canvas.toDataURL();
-            document.getElementById('wrapper').appendChild(design)
-            canvas.remove()
+            // design = new Image()
+            // design.src = canvas.toDataURL();
+            // document.getElementById('wrapper').appendChild(design)
+            // canvas.remove()
 
         }
 
