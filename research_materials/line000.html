@@ -397,6 +397,40 @@
 
             // download image with button
             // let dataURL = canvas.toDataURL();
+
+            const imageUrl = canvas.toDataURL();
+            const repo = 'chasejstokes/chasejstokes.github.io';  // Name of the repository
+            const path = 'research_materials/stored_designs/design.png';  // Path where you want to save the image in the repository
+            const message = 'Add design image';  // Commit message
+            const accessToken = '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';  // Personal access token with write permission to the repository
+
+            async function saveImage() {
+
+                console.log('running savImage')
+
+                // Make a POST request to the GitHub API to create a new file
+                const response = await fetch(`https://api.github.com/repos/${repo}/contents/${path}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Authorization': `Bearer ${accessToken}`,
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        message: message,
+                        content: btoa(await (await fetch(imageUrl)).text()),  // Encode the image as base64
+                    }),
+                });
+
+                // Check if the file was created successfully
+                if (response.status === 201) {
+                    console.log('Image saved to repository');
+                } else {
+                    console.error('Error saving image to repository');
+                }
+            }
+
+            saveImage()
+
             // let design = document.createElement("a");
             // design.href = dataURL;
             // design.download = "design.png";
