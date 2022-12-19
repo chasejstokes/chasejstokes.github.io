@@ -265,162 +265,162 @@
             return lines;
         }
 
-        // SAVEIMG BUTTON CLICK//
-        //
-        //
-        //
-        document.getElementById("saveImg").onclick = function (e) {
+        // // SAVEIMG BUTTON CLICK//
+        // //
+        // //
+        // //
+        // document.getElementById("saveImg").onclick = function (e) {
 
-            // // ANNOTATIONS
-            // //
-            // //
-            // // collect all annotations added to the document
-            // var annots = document.getElementsByClassName('annotation')
+        //     // // ANNOTATIONS
+        //     // //
+        //     // //
+        //     // // collect all annotations added to the document
+        //     // var annots = document.getElementsByClassName('annotation')
 
-            // // add all annotations to the canvas item
-            // for (let i = 0; i < annots.length; i++) {
-            //     a = annots[i]
-            //     context.fillStyle = "black";
-            //     context.font = "14px Arial";
-            //     // get location of annotation to add
-            //     aX = parseInt(a.style.left) - x - 1
-            //     aY = parseInt(a.style.top) - y + parseInt(regularText) - 1
+        //     // // add all annotations to the canvas item
+        //     // for (let i = 0; i < annots.length; i++) {
+        //     //     a = annots[i]
+        //     //     context.fillStyle = "black";
+        //     //     context.font = "14px Arial";
+        //     //     // get location of annotation to add
+        //     //     aX = parseInt(a.style.left) - x - 1
+        //     //     aY = parseInt(a.style.top) - y + parseInt(regularText) - 1
 
-            //     // get each line from an annotation
-            //     var a_content = getLines(a.innerHTML, parseInt(regularWidth) + 5)
+        //     //     // get each line from an annotation
+        //     //     var a_content = getLines(a.innerHTML, parseInt(regularWidth) + 5)
 
-            //     for (let i = 0; i < a_content.length; i++) {
+        //     //     for (let i = 0; i < a_content.length; i++) {
 
-            //         // add the line spacing for lines after the first line
-            //         if (i === 0) {
-            //             aY = aY
-            //         } else {
-            //             aY = aY + 3
-            //         }
+        //     //         // add the line spacing for lines after the first line
+        //     //         if (i === 0) {
+        //     //             aY = aY
+        //     //         } else {
+        //     //             aY = aY + 3
+        //     //         }
 
-            //         // add annotation
-            //         context.fillText(a_content[i], aX, aY + (i * parseInt(regularText)));
+        //     //         // add annotation
+        //     //         context.fillText(a_content[i], aX, aY + (i * parseInt(regularText)));
 
-            //     }
+        //     //     }
 
-            // }
+        //     // }
 
 
-            // // remove annotations
-            // num_annotations = annots.length
-            // for (let i = 0; i < num_annotations; i++) {
-            //     annots[0].remove()
-            // }
+        //     // // remove annotations
+        //     // num_annotations = annots.length
+        //     // for (let i = 0; i < num_annotations; i++) {
+        //     //     annots[0].remove()
+        //     // }
 
-            // // CAPTIONS
-            // //
-            // //
-            // // collect all captions added to the document
-            // var caps = document.getElementsByClassName('caption')
+        //     // // CAPTIONS
+        //     // //
+        //     // //
+        //     // // collect all captions added to the document
+        //     // var caps = document.getElementsByClassName('caption')
 
-            // // add all captions to the canvas item
-            // for (let i = 0; i < caps.length; i++) {
-            //     c = caps[i]
-            //     context.fillStyle = "black";
-            //     context.font = "14px Arial";
-            //     // get location of caption to add
-            //     cX = parseInt(c.style.left) - x - 1
-            //     cY = parseInt(c.style.top) - y + parseInt(regularText) - 1
+        //     // // add all captions to the canvas item
+        //     // for (let i = 0; i < caps.length; i++) {
+        //     //     c = caps[i]
+        //     //     context.fillStyle = "black";
+        //     //     context.font = "14px Arial";
+        //     //     // get location of caption to add
+        //     //     cX = parseInt(c.style.left) - x - 1
+        //     //     cY = parseInt(c.style.top) - y + parseInt(regularText) - 1
 
-            //     // get each line from an caption
-            //     var c_content = getLines(c.innerHTML, parseInt(longWidth) + 15)
+        //     //     // get each line from an caption
+        //     //     var c_content = getLines(c.innerHTML, parseInt(longWidth) + 15)
 
-            //     for (let i = 0; i < c_content.length; i++) {
+        //     //     for (let i = 0; i < c_content.length; i++) {
 
-            //         // add the line spacing for lines after the first line
-            //         if (i === 0) {
-            //             cY = cY
-            //         } else {
-            //             cY = cY + 3
-            //         }
+        //     //         // add the line spacing for lines after the first line
+        //     //         if (i === 0) {
+        //     //             cY = cY
+        //     //         } else {
+        //     //             cY = cY + 3
+        //     //         }
 
-            //         // add caption
-            //         context.fillText(c_content[i], cX, cY + (i * parseInt(regularText)));
-            //     }
+        //     //         // add caption
+        //     //         context.fillText(c_content[i], cX, cY + (i * parseInt(regularText)));
+        //     //     }
 
-            // }
+        //     // }
 
-            // // remove captions
-            // num_captions = caps.length
-            // for (let i = 0; i < num_captions; i++) {
-            //     caps[0].remove()
-            // }
+        //     // // remove captions
+        //     // num_captions = caps.length
+        //     // for (let i = 0; i < num_captions; i++) {
+        //     //     caps[0].remove()
+        //     // }
 
-            // // TITLES
-            // //
-            // //
-            // // repeat with titles
+        //     // // TITLES
+        //     // //
+        //     // //
+        //     // // repeat with titles
 
-            // // collect all titles added to the document
-            // var titles = document.getElementsByClassName('title')
+        //     // // collect all titles added to the document
+        //     // var titles = document.getElementsByClassName('title')
 
-            // // add all titles to the canvas item
-            // for (let i = 0; i < titles.length; i++) {
-            //     t = titles[i]
-            //     context.fillStyle = "black";
-            //     context.font = "20px Arial";
-            //     // get location of title to add
-            //     tX = parseInt(t.style.left) - x - 1
-            //     tY = parseInt(t.style.top) - y + parseInt(largeText) - 1
+        //     // // add all titles to the canvas item
+        //     // for (let i = 0; i < titles.length; i++) {
+        //     //     t = titles[i]
+        //     //     context.fillStyle = "black";
+        //     //     context.font = "20px Arial";
+        //     //     // get location of title to add
+        //     //     tX = parseInt(t.style.left) - x - 1
+        //     //     tY = parseInt(t.style.top) - y + parseInt(largeText) - 1
 
-            //     // get each line from an title
-            //     var t_content = getLines(t.innerHTML, parseInt(longWidth) + 15)
+        //     //     // get each line from an title
+        //     //     var t_content = getLines(t.innerHTML, parseInt(longWidth) + 15)
 
-            //     for (let i = 0; i < t_content.length; i++) {
+        //     //     for (let i = 0; i < t_content.length; i++) {
 
-            //         // add the line spacing for lines after the first line
-            //         if (i === 0) {
-            //             tY = tY
-            //         } else {
-            //             tY = tY + 3
-            //         }
+        //     //         // add the line spacing for lines after the first line
+        //     //         if (i === 0) {
+        //     //             tY = tY
+        //     //         } else {
+        //     //             tY = tY + 3
+        //     //         }
 
-            //         // add title
-            //         context.fillText(t_content[i], tX, tY + (i * parseInt(largeText)));
+        //     //         // add title
+        //     //         context.fillText(t_content[i], tX, tY + (i * parseInt(largeText)));
 
-            //         //now we have to try the same thing but this time we are adding a really long title to explain the content of the chart
+        //     //         //now we have to try the same thing but this time we are adding a really long title to explain the content of the chart
 
-            //     }
+        //     //     }
 
-            // }
+        //     // }
 
-            // // remove titles
-            // num_titles = titles.length
-            // for (let i = 0; i < num_titles; i++) {
-            //     titles[0].remove()
-            // }
+        //     // // remove titles
+        //     // num_titles = titles.length
+        //     // for (let i = 0; i < num_titles; i++) {
+        //     //     titles[0].remove()
+        //     // }
 
-            // Create element with <a> tag
-            const link = document.createElement("a");
-            // Create a blog object with the file content which you want to add to the file
-            const file = new Blob([document.body.innerHTML], { type: 'text/plain' });
-            // Add file content in the object URL
-            link.href = URL.createObjectURL(file);
-            // Add file name
-            link.download = "design.txt";
-            // Add click event to <a> tag to save file.
-            link.click();
-            URL.revokeObjectURL(link.href);
+        //     // Create element with <a> tag
+        //     const link = document.createElement("a");
+        //     // Create a blog object with the file content which you want to add to the file
+        //     const file = new Blob([document.body.innerHTML], { type: 'text/plain' });
+        //     // Add file content in the object URL
+        //     link.href = URL.createObjectURL(file);
+        //     // Add file name
+        //     link.download = "design.txt";
+        //     // Add click event to <a> tag to save file.
+        //     link.click();
+        //     URL.revokeObjectURL(link.href);
 
-            // download image with button
-            // let dataURL = canvas.toDataURL();
-            // let design = document.createElement("a");
-            // design.href = dataURL;
-            // design.download = "design.png";
-            // design.click();
+        //     // download image with button
+        //     // let dataURL = canvas.toDataURL();
+        //     // let design = document.createElement("a");
+        //     // design.href = dataURL;
+        //     // design.download = "design.png";
+        //     // design.click();
 
-            // add image with button
-            // design = new Image()
-            // design.src = canvas.toDataURL();
-            // document.getElementById('wrapper').appendChild(design)
-            // canvas.remove()
+        //     // add image with button
+        //     // design = new Image()
+        //     // design.src = canvas.toDataURL();
+        //     // document.getElementById('wrapper').appendChild(design)
+        //     // canvas.remove()
 
-        }
+        // }
 
 
     </script>
