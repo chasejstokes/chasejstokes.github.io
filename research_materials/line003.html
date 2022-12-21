@@ -42,7 +42,7 @@
             display: inline;
         }
 
-        #design_line000 {
+        #design_line003 {
             border: 2px solid black;
             position: relative;
         }
@@ -78,7 +78,7 @@
             </div>
         </div>
         <div id="wrapper">
-            <canvas id="design_line000" width="800" height="500">
+            <canvas id="design_line003" width="800" height="500">
             </canvas>
             <div id="layer"></div>
 
@@ -88,13 +88,13 @@
     <script>
 
         // build the chart on the canvas
-        var canvas = document.getElementById("design_line000");
+        var canvas = document.getElementById("design_line003");
         var context = canvas.getContext("2d");
-        line000 = new Image();
-        line000.src = 'http://chasejstokes.github.io/research_materials/line003.png';
-        line000.style.border = "2px black solid"
-        line000.onload = function () {
-            context.drawImage(line000, 0, 0);
+        line003 = new Image();
+        line003.src = 'http://chasejstokes.github.io/research_materials/line003.png';
+        line003.style.border = "2px black solid"
+        line003.onload = function () {
+            context.drawImage(line003, 0, 0);
         }
 
         // get canvas location

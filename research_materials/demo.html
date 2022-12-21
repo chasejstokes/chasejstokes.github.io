@@ -42,7 +42,7 @@
             display: inline;
         }
 
-        #design_line004 {
+        #demo {
             border: 2px solid black;
             position: relative;
         }
@@ -78,7 +78,7 @@
             </div>
         </div>
         <div id="wrapper">
-            <canvas id="design_line004" width="800" height="500">
+            <canvas id="design_demo" width="800" height="500">
             </canvas>
             <div id="layer"></div>
 
@@ -88,13 +88,13 @@
     <script>
 
         // build the chart on the canvas
-        var canvas = document.getElementById("design_line004");
+        var canvas = document.getElementById("design_demo");
         var context = canvas.getContext("2d");
-        line004 = new Image();
-        line004.src = 'http://chasejstokes.github.io/research_materials/line004.png';
-        line004.style.border = "2px black solid"
-        line004.onload = function () {
-            context.drawImage(line004, 0, 0);
+        demo = new Image();
+        demo.src = 'http://chasejstokes.github.io/research_materials/demo.png';
+        demo.style.border = "2px black solid"
+        demo.onload = function () {
+            context.drawImage(demo, 0, 0);
         }
 
         // get canvas location
@@ -278,7 +278,7 @@
             // Add file content in the object URL
             link.href = URL.createObjectURL(file);
             // Add file name
-            link.download = "design004.html";
+            link.download = "demo.html";
             // Add click event to <a> tag to save file.
             link.click();
             URL.revokeObjectURL(link.href);
