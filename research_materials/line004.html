@@ -10,10 +10,10 @@
 
 <body>
 
-    <!-- using style rather than .css stylesheet to keep everything in one file -->
-    <style>
+     <!-- using style rather than .css stylesheet to keep everything in one file -->
+     <style>
         body {
-            margin: 2%;
+            margin: 25px;
         }
 
         span {
@@ -25,26 +25,19 @@
         }
 
         .instructions {
-            margin-bottom: 2%;
-        }
-
-        .input {
             display: inline-block;
-            width: 25%;
             vertical-align: top;
+            margin-bottom: 25px;
+            width: 350px;
         }
-
-        #addText {
-            margin-top: 2%;
-        }
-
+        
         #wrapper {
             display: inline;
         }
 
-        #design_line004 {
+        #design {
             border: 2px solid black;
-            position: relative;
+            position: absolute;
         }
 
         #aboveCanvas {
@@ -82,7 +75,7 @@
             </div>
         </div>
         <div id="wrapper">
-            <canvas id="design_line004" width="800" height="500">
+            <canvas id="design" width="800" height="500">
             </canvas>
             <div id="layer"></div>
 
@@ -92,7 +85,7 @@
     <script>
 
         // build the chart on the canvas
-        var canvas = document.getElementById("design_line004");
+        var canvas = document.getElementById("design");
         var context = canvas.getContext("2d");
         line004 = new Image();
         line004.src = 'http://chasejstokes.github.io/research_materials/line004.png';
