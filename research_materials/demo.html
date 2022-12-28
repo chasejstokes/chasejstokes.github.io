@@ -13,7 +13,7 @@
     <!-- using style rather than .css stylesheet to keep everything in one file -->
     <style>
         body {
-            margin: 2%;
+            margin: 25px;
         }
 
         span {
@@ -25,26 +25,19 @@
         }
 
         .instructions {
-            margin-bottom: 2%;
-        }
-
-        .input {
             display: inline-block;
-            width: 25%;
             vertical-align: top;
+            margin-bottom: 25px;
+            width: 350px;
         }
-
-        #addText {
-            margin-top: 2%;
-        }
-
+        
         #wrapper {
             display: inline;
         }
 
         #design_demo {
             border: 2px solid black;
-            position: relative;
+            position: absolute;
         }
 
         #aboveCanvas {
@@ -56,7 +49,6 @@
 
 
     <div id="parent_div">
-        <div class="input">
             <div class=instructions>
                 <h1>Instructions</h1>
                 <p>
@@ -80,7 +72,6 @@
                 </p>
                 <button id='saveImg'>Download Image</button>
             </div>
-        </div>
         <div id="wrapper">
             <canvas id="design_demo" width="800" height="500">
             </canvas>
