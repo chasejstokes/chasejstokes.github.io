@@ -30,12 +30,12 @@
             margin-bottom: 25px;
             width: 350px;
         }
-        
+
         #wrapper {
             display: inline;
         }
 
-        #design_line000 {
+        #design {
             border: 2px solid black;
             position: absolute;
         }
@@ -73,7 +73,7 @@
             <button id='saveImg'>Download Image</button>
         </div>
         <div id="wrapper">
-            <canvas id="design_line000" width="800" height="500">
+            <canvas id="design" width="800" height="500">
             </canvas>
             <div id="layer"></div>
 
@@ -83,13 +83,13 @@
     <script>
 
         // build the chart on the canvas
-        var canvas = document.getElementById("design_line000");
+        var canvas = document.getElementById("design");
         var context = canvas.getContext("2d");
-        line000 = new Image();
-        line000.src = 'http://chasejstokes.github.io/research_materials/line000.png';
-        line000.style.border = "2px black solid"
-        line000.onload = function () {
-            context.drawImage(line000, 0, 0);
+        line007 = new Image();
+        line007.src = 'http://chasejstokes.github.io/research_materials/line007.png';
+        line007.style.border = "2px black solid"
+        line007.onload = function () {
+            context.drawImage(line007, 0, 0);
         }
 
         // get canvas location
@@ -273,7 +273,7 @@
             // Add file content in the object URL
             link.href = URL.createObjectURL(file);
             // Add file name
-            link.download = "design000.html";
+            link.download = "design007.html";
             // Add click event to <a> tag to save file.
             link.click();
             URL.revokeObjectURL(link.href);
