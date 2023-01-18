@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chart Design</title>
+</head>
+
+<body>
+
+    <!-- using style rather than .css stylesheet to keep everything in one file -->
+    <style>
+        body {
+            margin: 25px;
+        }
+
+        span {
+            cursor: pointer;
+        }
+
+        p {
+            margin-right: 40px;
+        }
+
+        .instructions {
+            display: inline-block;
+            vertical-align: top;
+            margin-bottom: 25px;
+            width: 350px;
+        }
+
+        #wrapper {
+            display: inline;
+        }
+
+        #design_demo {
+            border: 2px solid black;
+            position: absolute;
+        }
+
+        #aboveCanvas {
+            position: absolute;
+            z-index: 1;
+        }
+    </style>
+
+
+
+    <div id="parent_div">
+        <div class=instructions>
+            <h1>Instructions</h1>
+            <p>
+                <b>Before beginning, make sure your browser window is sufficiently wide. You should see the box
+                    enclosing the chart in its entirety.</b>
+            </p>
+            <p>
+                <b>Adding Text:</b> Double click anywhere to add an input box. Type your desired text in the box,
+                and hit "Enter" to add the text. The text size is pre-determined and not possible to change.
+            <p>
+                <b>Moving Text:</b> Once the text is added to the chart, click and drag it to the position you
+                want.
+            <p>
+                <b>Deleting Text:</b> Double-click anywhere on added text to remove it. If you accidentally add an
+                input box where you did not mean to, double click anywhere in the box to remove it.
+            </p>
+            <p>
+                <b>Saving Your Design:</b> When you are finished with your design, click the button below to
+                automatically download a .html file containing the image to your computer. Upload this file
+                in the next question.
+            </p>
+            <button id='saveImg'>Download File</button>
+        </div>
+        <div id="wrapper">
+            <canvas id="design_demo" width="800" height="500">
+            </canvas>
+            <div id="layer"></div>
+
+        </div>
+    </div>
+
+    <script>
+
+        // build the chart on the canvas
+        var canvas = document.getElementById("design_demo");
+        var context = canvas.getContext("2d");
+        demo = new Image();
+        demo.src = 'http://chasejstokes.github.io/research_materials/demo.png';
+        demo.style.border = "2px black solid"
+        demo.onload = function () {
+            context.drawImage(demo, 0, 0);
+        }
+
+        // get canvas location
+        var x = canvas.offsetLeft
+        var y = canvas.offsetTop
+
+        // update the position and size of the aboveCanvas div
+        layer = document.getElementById('layer')
+        layer.style.left = x
+        layer.style.top = y
+        layer.width = canvas.width
+        layer.height = canvas.height
+
+        // set text attributes
+        var largeText = '20px'
+        var regularText = '14px'
+        var longWidth = '50ch'
+        var regularWidth = '15ch'
+
+        // ADD INPUT ON DOUBLE CLICK
+        document.getElementById("wrapper").ondblclick = function (e) {
+
+            // create textarea variable
+            var textNode = document.createElement('textarea')
+
+            // save the location of the click
+            clickX = e.clientX
+            clickY = e.clientY
+
+            // update the location of the text
+            textNode.style.left = clickX + "px"
+            textNode.style.top = clickY + "px"
+            textNode.style.zIndex = 1
+            textNode.style.position = "absolute"
+            textNode.style.fontFamily = "Arial, Helvetica, sans-serif"
+
+            chart = document.querySelector('canvas')
+            // assign condition
+            if (clickY > (0.9 * (canvas.height + y))) {
+                textNode.classList.add('caption')
+            } else if (clickY < (0.2 * (canvas.height + y))) {
+                textNode.classList.add('title')
+            } else {
+                textNode.classList.add('annotation')
+            }
+            // set properties to the text according to position relative to canvas
+            if (textNode.className === 'annotation') {
+                textNode.style.width = regularWidth
+                textNode.style.fontSize = regularText
+            }
+            if (textNode.className === 'caption') {
+                textNode.style.width = longWidth
+                textNode.style.fontSize = regularText
+            }
+            if (textNode.className === 'title') {
+                textNode.style.width = longWidth
+                textNode.style.fontSize = largeText
+            }
+
+            // append textarea to document
+            document.getElementById("parent_div").appendChild(textNode)
+
+            // focus on the input to type text in
+            textNode.focus()
+
+            // if the input is double clicked, remove it
+            textNode.addEventListener("dblclick", function () {
+                textNode.remove()
+            })
+
+            // when the input is submitted
+            textNode.addEventListener("keypress", function (e) {
+
+                // if "enter" was pressed
+                if (e.keyCode == 13) {
+
+                    // create span
+                    var spanNode = document.createElement('span')
+
+                    // add text to span
+                    spanNode.innerHTML = textNode.value;
+
+                    // adjust span attributes
+                    spanNode.style.position = "absolute"
+                    spanNode.style.left = textNode.style.left
+                    spanNode.style.top = textNode.style.top
+                    spanNode.style.zIndex = 1
+
+                    // set properties to the text according to position relative to canvas
+                    if (textNode.className === 'annotation') {
+                        spanNode.style.width = regularWidth
+                        spanNode.style.fontSize = regularText
+                        spanNode.classList.add('annotation')
+                    }
+                    if (textNode.className === 'caption') {
+                        spanNode.style.width = longWidth
+                        spanNode.style.fontSize = regularText
+                        spanNode.classList.add('caption')
+                    }
+                    if (textNode.className === 'title') {
+                        spanNode.style.width = longWidth
+                        spanNode.style.fontSize = largeText
+                        spanNode.classList.add('title')
+                    }
+
+                    // add event listener to remove span when double clicked
+                    spanNode.addEventListener("dblclick", function (e) {
+                        spanNode.remove()
+                    })
+
+                    // initialize the isDragging flag to false
+                    var isDragging = false;
+                    // add a mousedown event listener to the span element
+                    spanNode.addEventListener('mousedown', function (e) {
+                        // set the isDragging flag to true
+                        isDragging = true;
+                        // update the x and y coordinates of the span
+                        spanX = e.clientX;
+                        spanY = e.clientY;
+                    });
+                    // add a mousemove event listener to the document
+                    document.addEventListener('mousemove', function (e) {
+                        // if the isDragging flag is true
+                        if (isDragging) {
+                            // calculate the distance the mouse has moved since the last mousemove event
+                            var dx = e.clientX - spanX;
+                            var dy = e.clientY - spanY;
+                            // update the x and y coordinates of the span
+                            spanX = e.clientX;
+                            spanY = e.clientY;
+                            // update the position of the span by adding the distance the mouse has moved to its current position
+                            spanNode.style.left = spanNode.offsetLeft + dx + 'px';
+                            spanNode.style.top = spanNode.offsetTop + dy + 'px';
+                        }
+                    });
+                    // add a mouseup event listener to the document
+                    document.addEventListener('mouseup', function (e) {
+                        // set the isDragging flag to false
+                        isDragging = false;
+                    })
+
+                    // add span
+                    document.getElementById("parent_div").appendChild(spanNode)
+
+                    // if span is empty, remove
+                    if (spanNode.innerText === "") {
+                        spanNode.remove()
+                    }
+
+                    // remove the textarea node
+                    textNode.remove()
+
+                }
+
+            })
+        }
+
+        // helper function to add text to the canvas
+        function getLines(span, maxWidth) {
+            const words = span.split(" ");
+            const lines = [];
+            while (words.length > 0) {
+                let line = "";
+                while (words.length > 0 && (line + words[0]).length <= maxWidth) {
+                    line += words.shift() + " ";
+                }
+                lines.push(line.trim());
+            }
+            return lines;
+        }
+
+        // SAVEIMG BUTTON CLICK//
+        //
+        //
+        //
+        document.getElementById("saveImg").onclick = function (e) {
+
+            // add all the unadded inputs
+            //
+            //
+            var text_additions = document.querySelectorAll('textarea')
+            for (let i = 0; i < text_additions.length; i++) {
+
+                var textNode = text_additions[i]
+
+                // create span
+                var spanNode = document.createElement('span')
+
+                // add text to span
+                spanNode.innerHTML = textNode.value;
+
+                // adjust span attributes
+                spanNode.style.position = "absolute"
+                spanNode.style.left = textNode.style.left
+                spanNode.style.top = textNode.style.top
+                spanNode.style.zIndex = 1
+
+                // set properties to the text according to position relative to canvas
+                if (textNode.className === 'annotation') {
+                    spanNode.style.width = regularWidth
+                    spanNode.style.fontSize = regularText
+                    spanNode.classList.add('annotation')
+                }
+                if (textNode.className === 'caption') {
+                    spanNode.style.width = longWidth
+                    spanNode.style.fontSize = regularText
+                    spanNode.classList.add('caption')
+                }
+                if (textNode.className === 'title') {
+                    spanNode.style.width = longWidth
+                    spanNode.style.fontSize = largeText
+                    spanNode.classList.add('title')
+                }
+
+                // add event listener to remove span when double clicked
+                spanNode.addEventListener("dblclick", function (e) {
+                    spanNode.remove()
+                })
+
+                // initialize the isDragging flag to false
+                var isDragging = false;
+                // add a mousedown event listener to the span element
+                spanNode.addEventListener('mousedown', function (e) {
+                    // set the isDragging flag to true
+                    isDragging = true;
+                    // update the x and y coordinates of the span
+                    spanX = e.clientX;
+                    spanY = e.clientY;
+                });
+                // add a mousemove event listener to the document
+                document.addEventListener('mousemove', function (e) {
+                    // if the isDragging flag is true
+                    if (isDragging) {
+                        // calculate the distance the mouse has moved since the last mousemove event
+                        var dx = e.clientX - spanX;
+                        var dy = e.clientY - spanY;
+                        // update the x and y coordinates of the span
+                        spanX = e.clientX;
+                        spanY = e.clientY;
+                        // update the position of the span by adding the distance the mouse has moved to its current position
+                        spanNode.style.left = spanNode.offsetLeft + dx + 'px';
+                        spanNode.style.top = spanNode.offsetTop + dy + 'px';
+                    }
+                });
+                // add a mouseup event listener to the document
+                document.addEventListener('mouseup', function (e) {
+                    // set the isDragging flag to false
+                    isDragging = false;
+                })
+
+                // add span
+                document.getElementById("parent_div").appendChild(spanNode)
+
+                // if span is empty, remove
+                if (spanNode.innerText === "") {
+                    spanNode.remove()
+                }
+
+                // remove the textarea node
+                textNode.remove()
+
+            }
+
+            // Create element with <a> tag
+            const link = document.createElement("a");
+            // Create a blog object with the file content which you want to add to the file
+            const file = new Blob([document.documentElement.innerHTML], { type: 'text/html' });
+            // Add file content in the object URL
+            link.href = URL.createObjectURL(file);
+            // Add file name
+            link.download = "demo.html";
+            // Add click event to <a> tag to save file.
+            link.click();
+            URL.revokeObjectURL(link.href);
+
+        }
+
+
+    </script>
+</body>
+
+</html>
