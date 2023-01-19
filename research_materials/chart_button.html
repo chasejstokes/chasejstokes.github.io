@@ -44,80 +44,6 @@
             position: absolute;
             z-index: 1;
         }
-
-        /* switch css  */
-
-        .point_label {
-            display: inline-block;
-
-        }
-
-        .point_container {
-            display: flex;
-            align-items: center;
-            height: 30px;
-        }
-
-        /* The switch - the box around the slider */
-        .switch {
-            position: relative;
-            display: inline-block;
-            width: 40px;
-            height: 20px;
-            margin-left: 5px;
-        }
-
-        /* Hide default HTML checkbox */
-        .switch input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
-
-        /* The slider */
-        .slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #ccc;
-            transition: .4s;
-        }
-
-        .slider:before {
-            position: absolute;
-            content: "";
-            height: 12px;
-            width: 12px;
-            left: 3px;
-            bottom: 4px;
-            background-color: white;
-            transition: .4s;
-        }
-
-        input:checked+.slider {
-            background-color: #2196F3;
-        }
-
-        input:focus+.slider {
-            box-shadow: 0 0 1px #2196F3;
-        }
-
-        input:checked+.slider:before {
-            -ms-transform: translateX(21px);
-            transform: translateX(21px);
-        }
-
-        /* Rounded sliders */
-        .slider.round {
-            border-radius: 34px;
-        }
-
-        .slider.round:before {
-            border-radius: 50%;
-        }
     </style>
 
 
@@ -146,15 +72,7 @@
                 in the next question After uploading, you can remove the downloaded file from your device.
             </p>
 
-            <div class="point_container">
-                <span class="point_label">Add Points:
-                </span>
-                <!-- Rounded switch -->
-                <label class="switch">
-                    <input type="checkbox" id="addPoint">
-                    <span class="slider round"></span>
-                </label>
-            </div>
+            <button id="addPoint">Add Point</button>
             <br>
             <br>
             <button id='saveImg'>Download File</button>
@@ -216,6 +134,9 @@
             textNode.style.border = "1px solid black"
             textNode.style.lineHeight = 1
 
+            console.log(textNode.style.left)
+            console.log(textNode.style.top)
+
             chart = document.querySelector('canvas')
             // assign condition
             if (clickY > (0.9 * (canvas.height + y))) {
@@ -268,6 +189,7 @@
                     // update the x and y coordinates of the input
                     inputX = e.clientX;
                     inputY = e.clientY;
+                    //console.log("inputY", inputY)
                     // update the position of the input by adding the distance the mouse has moved to its current position
                     textNode.style.left = textNode.offsetLeft + dx + 'px';
                     textNode.style.top = e.clientY - y_position + dy + 'px';
@@ -389,80 +311,65 @@
         //
         //
         num_points = 0
-        document.addEventListener('click', function (e) {
-
-            if (e.target.tagName.toUpperCase() == "CANVAS") {
-
-                if (document.getElementById('addPoint').checked) {
-                    num_points += 1;
-
-                    var container_size = 14
-                    var radius_size = (container_size / 2) - 1
-                    var pointX = e.clientX
-                    var pointY = e.clientY
-                    num_points += 1;
-
-                    // create the circle
-                    var point = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
-                    point.setAttributeNS(null, 'width', container_size);
-                    point.setAttributeNS(null, 'height', container_size);
-                    point.id = "svg_container" + num_points;
-                    point.style.top = pointY - radius_size + "px";
-                    point.style.left = pointX - radius_size + "px";
-                    point.style.zIndex = 2;
-                    point.style.position = "absolute";
-                    var circ = document.createElementNS("http://www.w3.org/2000/svg", 'circle');
-                    circ.setAttributeNS(null, 'cx', radius_size);
-                    circ.setAttributeNS(null, 'cy', radius_size);
-                    circ.setAttributeNS(null, 'r', radius_size);
-                    document.getElementById("wrapper").appendChild(point);
-                    document.getElementById("svg_container" + num_points).appendChild(circ);
-
-
-                    // adding event listeners for drag and dropping
-                    // initialize the isDraggingPoint flag to false
-                    var isDraggingPoint = false;
-                    // add a mousedown event listener to the point element
-                    point.addEventListener('mousedown', function (e) {
-                        // set the isDraggingPoint flag to true
-                        isDraggingPoint = true;
-                        // update the x and y coordinates of the point
-                        pointX = e.clientX;
-                        pointY = e.clientY;
-                        x_point_position = e.clientX - parseInt(point.style.left)
-                        y_point_position = e.clientY - parseInt(point.style.top)
-                    });
-                    // add a mousemove event listener to the document
-                    document.addEventListener('mousemove', function (e) {
-                        // if the isDraggingPoint flag is true
-                        if (isDraggingPoint) {
-                            // calculate the distance the mouse has moved since the last mousemove event
-                            var dx = e.clientX - pointX;
-                            var dy = e.clientY - pointY;
-                            // update the x and y coordinates of the point
-                            pointX = e.clientX;
-                            pointY = e.clientY;
-                            // update the position of the point by adding the distance the mouse has moved to its current position
-                            point.style.left = e.clientX - x_point_position + dx + 'px';
-                            point.style.top = e.clientY - y_point_position + dy + 'px';
-                        }
-                    });
-                    // add a mouseup event listener to the document
-                    document.addEventListener('mouseup', function (e) {
-                        // set the isDraggingPoint flag to false
-                        isDraggingPoint = false;
-                    })
-
-
-                }
-            }
-
-
-        })
         document.getElementById("addPoint").onclick = function (e) {
 
+            var container_size = "12"
+            num_points += 1;
+
+            // create the circle
+            var point = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
+            point.setAttributeNS(null, 'width', container_size);
+            point.setAttributeNS(null, 'height', container_size);
+            point.id = "svg_container" + num_points;
+            point.style.top = "300px";
+            point.style.left = "700px";
+            point.style.zIndex = 2;
+            point.style.position = "absolute";
+            var circ = document.createElementNS("http://www.w3.org/2000/svg", 'circle');
+            circ.setAttributeNS(null, 'cx', "6");
+            circ.setAttributeNS(null, 'cy', "6");
+            circ.setAttributeNS(null, 'r', "6");
+            document.getElementById("wrapper").appendChild(point);
+            document.getElementById("svg_container" + num_points).appendChild(circ);
+
+
+            // adding event listeners for drag and dropping
+            // initialize the isDraggingPoint flag to false
+            var isDraggingPoint = false;
+            // add a mousedown event listener to the point element
+            point.addEventListener('mousedown', function (e) {
+                // set the isDraggingPoint flag to true
+                isDraggingPoint = true;
+                // update the x and y coordinates of the point
+                pointX = e.clientX;
+                pointY = e.clientY;
+                x_point_position = e.clientX - parseInt(point.style.left)
+                y_point_position = e.clientY - parseInt(point.style.top)
+            });
+            // add a mousemove event listener to the document
+            document.addEventListener('mousemove', function (e) {
+                // if the isDraggingPoint flag is true
+                if (isDraggingPoint) {
+                    // calculate the distance the mouse has moved since the last mousemove event
+                    var dx = e.clientX - pointX;
+                    var dy = e.clientY - pointY;
+                    // update the x and y coordinates of the point
+                    pointX = e.clientX;
+                    pointY = e.clientY;
+                    // update the position of the point by adding the distance the mouse has moved to its current position
+                    point.style.left = e.clientX - x_point_position + dx + 'px';
+                    point.style.top = e.clientY - y_point_position + dy + 'px';
+                }
+            });
+            // add a mouseup event listener to the document
+            document.addEventListener('mouseup', function (e) {
+                // set the isDraggingPoint flag to false
+                isDraggingPoint = false;
+            })
 
         }
+
+        // ADD LINE
 
         // SAVEIMG BUTTON CLICK//
         //
