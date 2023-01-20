@@ -107,6 +107,11 @@
             border: 2px solid white;
             filter: invert(1);
         }
+
+
+        circle {
+            cursor: pointer;
+        }
     </style>
 
 
@@ -201,15 +206,17 @@
         num_points = 0
         num_lines = 0
 
+        // save the chart item
+        chart = document.querySelector('canvas')
+
         // ADD ITEM ON DOUBLE CLICK
         document.getElementById("wrapper").ondblclick = function (e) {
+
+            console.log(e.target)
 
             // save the location of the click
             clickX = e.clientX
             clickY = e.clientY
-
-            // save the chart item
-            chart = document.querySelector('canvas')
 
             // if text toggle is on
             if (document.getElementById('addText').checked) {
@@ -377,45 +384,36 @@
                 })
             }
 
+            // if point toggle is on
             if (document.getElementById('addPoint').checked) {
 
-            }
+                if (e.target.tagName.toUpperCase() != "CIRCLE") {
 
-        }
-
-
-        // ADD POINT
-        //
-        //
-
-        document.addEventListener('click', function (e) {
-
-            if (e.target.tagName.toUpperCase() == "CANVAS") {
-
-                if (document.getElementById('addPoint').checked) {
                     num_points += 1;
 
-                    var container_size = 14
-                    var radius_size = (container_size / 2) - 1
+                    var point_container_size = 14
+                    var point_radius_size = (point_container_size / 2) - 1
                     var pointX = e.clientX
                     var pointY = e.clientY
                     num_points += 1;
 
                     // create the circle
                     var point = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
-                    point.setAttributeNS(null, 'width', container_size);
-                    point.setAttributeNS(null, 'height', container_size);
-                    point.id = "svg_container" + num_points;
-                    point.style.top = pointY - radius_size + "px";
-                    point.style.left = pointX - radius_size + "px";
+                    point.setAttributeNS(null, 'width', point_container_size);
+                    point.setAttributeNS(null, 'height', point_container_size);
+                    point.id = "point_container" + num_points;
+                    point.style.top = pointY - point_radius_size + "px";
+                    point.style.left = pointX - point_radius_size + "px";
                     point.style.zIndex = 2;
                     point.style.position = "absolute";
                     var circ = document.createElementNS("http://www.w3.org/2000/svg", 'circle');
-                    circ.setAttributeNS(null, 'cx', radius_size);
-                    circ.setAttributeNS(null, 'cy', radius_size);
-                    circ.setAttributeNS(null, 'r', radius_size);
+                    circ.setAttributeNS(null, 'cx', point_radius_size);
+                    circ.setAttributeNS(null, 'cy', point_radius_size);
+                    circ.setAttributeNS(null, 'r', point_radius_size);
+
+                    // append the point
                     document.getElementById("wrapper").appendChild(point);
-                    document.getElementById("svg_container" + num_points).appendChild(circ);
+                    document.getElementById("point_container" + num_points).appendChild(circ);
 
 
                     // adding event listeners for drag and dropping
@@ -452,36 +450,146 @@
                         isDraggingPoint = false;
                     })
 
+                    // if the point is double clicked, remove it
+                    point.addEventListener("dblclick", function () {
+                        point.remove()
+                    })
 
                 }
+
             }
 
-
-        })
-
-        // helper function to add text to the canvas
-        function getLines(span, maxWidth) {
-            const words = span.split(" ");
-            const lines = [];
-            while (words.length > 0) {
-                let line = "";
-                while (words.length > 0 && (line + words[0]).length <= maxWidth) {
-                    line += words.shift() + " ";
-                }
-                lines.push(line.trim());
-            }
-            return lines;
         }
 
-        // SAVEIMG BUTTON CLICK//
-        //
-        //
-        //
+        // ADD LINE ON DRAG
+        var isDrawingLine = false;
+
+        document.addEventListener('mousedown', function (e) {
+
+
+            if (document.getElementById('addLine').checked) {
+
+                isDrawingLine = true;
+
+
+                num_lines += 1;
+
+                line_container_x = chart.width
+                line_container_y = chart.height
+
+                var startX_raw = e.clientX
+                var startY_raw = e.clientY
+
+                var startX = e.clientX - chart.offsetLeft
+                var startY = e.clientY - chart.offsetTop
+
+                // get canvas location
+                // create the circle
+                var line = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
+                line.setAttributeNS(null, 'width', line_container_x);
+                line.setAttributeNS(null, 'height', line_container_y);
+                line.id = "line_container" + num_lines;
+                line.style.top = chart.offsetTop + "px"
+                line.style.left = chart.offsetLeft + "px"
+                line.style.zIndex = 2;
+                line.style.position = "absolute";
+                line.style.border = "1px solid red"
+                drawn = document.createElementNS("http://www.w3.org/2000/svg", 'path');
+                // start at the click point
+                start_path = "M " + startX + " " + startY
+                drawn.id = "path" + num_lines;
+
+                drawn.setAttributeNS(null, 'd', start_path);
+                drawn.style.stroke = "black"
+                drawn.style.strokeWidth = 2
+
+
+                // append the svg
+                document.getElementById("wrapper").appendChild(line);
+                document.getElementById("line_container" + num_lines).appendChild(drawn);
+
+
+
+            }
+        })
+
+        document.addEventListener('mousemove', function (e) {
+
+            if (isDrawingLine) {
+
+                // calculate the distance the mouse has moved since the last mousemove event
+                var dx = e.clientX - canvas.offsetLeft;
+                var dy = e.clientY - canvas.offsetTop;
+                // update the x and y coordinates of the point
+
+                var drawn = document.getElementById('path' + num_lines)
+
+                drawn.setAttributeNS(null, 'd', start_path + " L" + " " + dx + " " + dy);
+            }
+        })
+
+        document.addEventListener('mouseup', function (e) {
+            // set the isDraggingPoint flag to false
+            isDrawingLine = false;
+        })
+
+
+
+
+
+
+
+        //         pointX = e.clientX;
+        //         pointY = e.clientY;
+        //         // update the position of the point by adding the distance the mouse has moved to its current position
+        //         point.style.left = e.clientX - x_point_position + dx + 'px';
+        //         point.style.top = e.clientY - y_point_position + dy + 'px';
+        //     }
+        // });
+
+
+
+
+        // // adding event listeners for drag and dropping
+        // // initialize the isDraggingPoint flag to false
+        // var isDraggingLine = false;
+        // // add a mousedown event listener to the point element
+        // drawn.addEventListener('mousedown', function (e) {
+        //     // set the isDraggingPoint flag to true
+        //     isDraggingPoint = true;
+        //     // update the x and y coordinates of the point
+        //     pointX = e.clientX;
+        //     pointY = e.clientY;
+        //     x_point_position = e.clientX - parseInt(point.style.left)
+        //     y_point_position = e.clientY - parseInt(point.style.top)
+        // });
+        // // add a mousemove event listener to the document
+        // document.addEventListener('mousemove', function (e) {
+        //     // if the isDraggingPoint flag is true
+        //     if (isDraggingPoint) {
+        //         // calculate the distance the mouse has moved since the last mousemove event
+        //         var dx = e.clientX - pointX;
+        //         var dy = e.clientY - pointY;
+        //         // update the x and y coordinates of the point
+        //         pointX = e.clientX;
+        //         pointY = e.clientY;
+        //         // update the position of the point by adding the distance the mouse has moved to its current position
+        //         point.style.left = e.clientX - x_point_position + dx + 'px';
+        //         point.style.top = e.clientY - y_point_position + dy + 'px';
+        //     }
+        // });
+        // // add a mouseup event listener to the document
+        // document.addEventListener('mouseup', function (e) {
+        //     //
+        // }
+
+
+
+
+        // SAVEIMG BUTTON CLICK
         document.getElementById("saveImg").onclick = function (e) {
 
             // add all the unadded inputs
-            //
-            //
             var text_additions = document.querySelectorAll('textarea')
             for (let i = 0; i < text_additions.length; i++) {
 
