@@ -208,13 +208,14 @@
             clickX = e.clientX
             clickY = e.clientY
 
+            // save the chart item
+            chart = document.querySelector('canvas')
+
             // if text toggle is on
             if (document.getElementById('addText').checked) {
 
                 // create textarea variable
                 var textNode = document.createElement('textarea')
-
-
 
                 // update the location of the text
                 textNode.style.left = clickX + "px"
@@ -225,8 +226,6 @@
                 textNode.style.background = "none"
                 textNode.style.border = "1px solid black"
                 textNode.style.lineHeight = 1
-
-                chart = document.querySelector('canvas')
                 // assign condition
                 if (clickY > (0.9 * (canvas.height + y))) {
                     textNode.classList.add('caption')
@@ -252,7 +251,6 @@
 
                 // append textarea to document
                 document.getElementById("parent_div").appendChild(textNode)
-
                 // focus on the input to type text in
                 textNode.focus()
 
@@ -302,16 +300,13 @@
 
                         // create span
                         var spanNode = document.createElement('span')
-
                         // add text to span
                         spanNode.innerHTML = textNode.value;
-
                         // adjust span attributes
                         spanNode.style.position = "absolute"
                         spanNode.style.left = parseInt(textNode.style.left) + 2.5 + "px"
                         spanNode.style.top = parseInt(textNode.style.top) + 4.5 + "px"
                         spanNode.style.zIndex = 1
-
                         // set properties to the text according to position relative to canvas
                         if (textNode.className === 'annotation') {
                             spanNode.style.width = regularWidth
@@ -329,11 +324,17 @@
                             spanNode.classList.add('title')
                         }
 
-                        // add event listener to remove span when double clicked
-                        spanNode.addEventListener("dblclick", function (e) {
-                            spanNode.remove()
-                        })
 
+                        // append span to document
+                        document.getElementById("parent_div").appendChild(spanNode)
+                        // if span is empty, remove
+                        if (spanNode.innerText === "") {
+                            spanNode.remove()
+                        }
+                        // remove the textarea node
+                        textNode.remove()
+
+                        // add drag and drop listener
                         // initialize the isDraggingSpan flag to false
                         var isDraggingSpan = false;
                         // add a mousedown event listener to the span element
@@ -365,16 +366,10 @@
                             isDraggingSpan = false;
                         })
 
-                        // add span
-                        document.getElementById("parent_div").appendChild(spanNode)
-
-                        // if span is empty, remove
-                        if (spanNode.innerText === "") {
+                        // add event listener to remove span when double clicked
+                        spanNode.addEventListener("dblclick", function (e) {
                             spanNode.remove()
-                        }
-
-                        // remove the textarea node
-                        textNode.remove()
+                        })
 
 
                     }
@@ -382,21 +377,12 @@
                 })
             }
 
+            if (document.getElementById('addPoint').checked) {
+
+            }
+
         }
 
-        // helper function to add text to the canvas
-        function getLines(span, maxWidth) {
-            const words = span.split(" ");
-            const lines = [];
-            while (words.length > 0) {
-                let line = "";
-                while (words.length > 0 && (line + words[0]).length <= maxWidth) {
-                    line += words.shift() + " ";
-                }
-                lines.push(line.trim());
-            }
-            return lines;
-        }
 
         // ADD POINT
         //
@@ -472,9 +458,19 @@
 
 
         })
-        document.getElementById("addPoint").onclick = function (e) {
 
-
+        // helper function to add text to the canvas
+        function getLines(span, maxWidth) {
+            const words = span.split(" ");
+            const lines = [];
+            while (words.length > 0) {
+                let line = "";
+                while (words.length > 0 && (line + words[0]).length <= maxWidth) {
+                    line += words.shift() + " ";
+                }
+                lines.push(line.trim());
+            }
+            return lines;
         }
 
         // SAVEIMG BUTTON CLICK//
