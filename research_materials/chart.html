@@ -227,7 +227,7 @@
                 // update the location of the text
                 textNode.style.left = clickX + "px"
                 textNode.style.top = clickY + "px"
-                textNode.style.zIndex = 1
+                textNode.style.zIndex = 5
                 textNode.style.position = "absolute"
                 textNode.style.fontFamily = "Arial, Helvetica, sans-serif"
                 textNode.style.background = "none"
@@ -313,7 +313,7 @@
                         spanNode.style.position = "absolute"
                         spanNode.style.left = parseInt(textNode.style.left) + 2.5 + "px"
                         spanNode.style.top = parseInt(textNode.style.top) + 4.5 + "px"
-                        spanNode.style.zIndex = 1
+                        spanNode.style.zIndex = 5
                         // set properties to the text according to position relative to canvas
                         if (textNode.className === 'annotation') {
                             spanNode.style.width = regularWidth
@@ -404,7 +404,7 @@
                     point.id = "point_container" + num_points;
                     point.style.top = pointY - point_radius_size + "px";
                     point.style.left = pointX - point_radius_size + "px";
-                    point.style.zIndex = 2;
+                    point.style.zIndex = 4;
                     point.style.position = "absolute";
                     var circ = document.createElementNS("http://www.w3.org/2000/svg", 'circle');
                     circ.setAttributeNS(null, 'cx', point_radius_size);
@@ -469,47 +469,96 @@
 
             if (document.getElementById('addLine').checked) {
 
-                isDrawingLine = true;
+                if (e.target.tagName.toUpperCase() != "PATH") {
+
+                    isDrawingLine = true;
+
+                    num_lines += 1;
+
+                    line_container_x = chart.width
+                    line_container_y = chart.height
+
+                    var startX_raw = e.clientX
+                    var startY_raw = e.clientY
+
+                    var startX = e.clientX - chart.offsetLeft
+                    var startY = e.clientY - chart.offsetTop
+
+                    // get canvas location
+                    // create the path
+                    var line = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
+                    line.setAttributeNS(null, 'width', line_container_x);
+                    line.setAttributeNS(null, 'height', line_container_y);
+                    line.id = "line_container" + num_lines;
+                    line.style.top = chart.offsetTop + "px"
+                    line.style.left = chart.offsetLeft + "px"
+                    line.style.zIndex = 2;
+                    line.style.position = "absolute";
+                    drawn = document.createElementNS("http://www.w3.org/2000/svg", 'path');
+                    // start at the click point
+                    start_path = "M " + startX + " " + startY
+                    drawn.id = "path" + num_lines;
+                    drawn.style.zIndex = 3;
+
+                    drawn.setAttributeNS(null, 'd', start_path);
+                    drawn.style.stroke = "black"
+                    drawn.style.strokeWidth = 2
 
 
-                num_lines += 1;
+                    // append the svg
+                    document.getElementById("wrapper").appendChild(line);
+                    document.getElementById("line_container" + num_lines).appendChild(drawn);
 
-                line_container_x = chart.width
-                line_container_y = chart.height
+                    // add a drag and drop to the line
+                    // initialize the isDraggingInput flag to false
+                    var isDraggingLine = false;
+                    // add a mousedown event listener to the span element
+                    drawn.addEventListener('mousedown', function (e) {
+                        // set the isDraggingLine flag to true
+                        isDraggingLine = true;
+                        console.log("start drag")
 
-                var startX_raw = e.clientX
-                var startY_raw = e.clientY
+                        // get line coordinates 
+                        startX_drag = parseInt(drawn.getAttribute('d').slice(2, 5))
+                        startY_drag = parseInt(drawn.getAttribute('d').slice(6, 9))
+                        endX_drag = parseInt(drawn.getAttribute('d').slice(12, 15))
+                        endY_drag = parseInt(drawn.getAttribute('d').slice(16))
 
-                var startX = e.clientX - chart.offsetLeft
-                var startY = e.clientY - chart.offsetTop
+                        clickX = e.clientX
+                        clickY = e.clientY
 
-                // get canvas location
-                // create the circle
-                var line = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
-                line.setAttributeNS(null, 'width', line_container_x);
-                line.setAttributeNS(null, 'height', line_container_y);
-                line.id = "line_container" + num_lines;
-                line.style.top = chart.offsetTop + "px"
-                line.style.left = chart.offsetLeft + "px"
-                line.style.zIndex = 2;
-                line.style.position = "absolute";
-                line.style.border = "1px solid red"
-                drawn = document.createElementNS("http://www.w3.org/2000/svg", 'path');
-                // start at the click point
-                start_path = "M " + startX + " " + startY
-                drawn.id = "path" + num_lines;
+                        console.log(drawn.getAttribute('d'))
+                        console.log(startX_drag, startY_drag, endX_drag, endY_drag)
+                    });
+                    // add a mousemove event listener to the document
+                    document.addEventListener('mousemove', function (e) {
+                        // if the isDraggingLine flag is true
+                        if (isDraggingLine) {
+                            // calculate the distance the mouse has moved since the last mousemove event
+                            // calculate the distance the mouse has moved since the last mousemove event
+                            var dx = e.clientX - clickX;
+                            var dy = e.clientY - clickY;
 
-                drawn.setAttributeNS(null, 'd', start_path);
-                drawn.style.stroke = "black"
-                drawn.style.strokeWidth = 2
+                            var startX_drag_new = startX_drag + dx
+                            var startY_drag_new = startY_drag + dy
+                            var endX_drag_new = endX_drag + dx
+                            var endY_drag_new = endY_drag + dy
 
+                            drawn.setAttributeNS(null, 'd', "M " + startX_drag_new + " " + startY_drag_new + " L " + endX_drag_new + " " + endY_drag_new);
 
-                // append the svg
-                document.getElementById("wrapper").appendChild(line);
-                document.getElementById("line_container" + num_lines).appendChild(drawn);
+                        }
+                    });
+                    // add a mouseup event listener to the document
+                    document.addEventListener('mouseup', function (e) {
+                        // set the isDraggingLine flag to false
+                        isDraggingLine = false;
+                    })
 
-
-
+                    // if the input is double clicked, remove it
+                    drawn.addEventListener("dblclick", function () {
+                        drawn.remove();
+                    })
+                }
             }
         })
 
@@ -520,10 +569,9 @@
                 // calculate the distance the mouse has moved since the last mousemove event
                 var dx = e.clientX - canvas.offsetLeft;
                 var dy = e.clientY - canvas.offsetTop;
-                // update the x and y coordinates of the point
 
+                // update the x and y coordinates of the line
                 var drawn = document.getElementById('path' + num_lines)
-
                 drawn.setAttributeNS(null, 'd', start_path + " L" + " " + dx + " " + dy);
             }
         })
@@ -532,57 +580,6 @@
             // set the isDraggingPoint flag to false
             isDrawingLine = false;
         })
-
-
-
-
-
-
-
-        //         pointX = e.clientX;
-        //         pointY = e.clientY;
-        //         // update the position of the point by adding the distance the mouse has moved to its current position
-        //         point.style.left = e.clientX - x_point_position + dx + 'px';
-        //         point.style.top = e.clientY - y_point_position + dy + 'px';
-        //     }
-        // });
-
-
-
-
-        // // adding event listeners for drag and dropping
-        // // initialize the isDraggingPoint flag to false
-        // var isDraggingLine = false;
-        // // add a mousedown event listener to the point element
-        // drawn.addEventListener('mousedown', function (e) {
-        //     // set the isDraggingPoint flag to true
-        //     isDraggingPoint = true;
-        //     // update the x and y coordinates of the point
-        //     pointX = e.clientX;
-        //     pointY = e.clientY;
-        //     x_point_position = e.clientX - parseInt(point.style.left)
-        //     y_point_position = e.clientY - parseInt(point.style.top)
-        // });
-        // // add a mousemove event listener to the document
-        // document.addEventListener('mousemove', function (e) {
-        //     // if the isDraggingPoint flag is true
-        //     if (isDraggingPoint) {
-        //         // calculate the distance the mouse has moved since the last mousemove event
-        //         var dx = e.clientX - pointX;
-        //         var dy = e.clientY - pointY;
-        //         // update the x and y coordinates of the point
-        //         pointX = e.clientX;
-        //         pointY = e.clientY;
-        //         // update the position of the point by adding the distance the mouse has moved to its current position
-        //         point.style.left = e.clientX - x_point_position + dx + 'px';
-        //         point.style.top = e.clientY - y_point_position + dy + 'px';
-        //     }
-        // });
-        // // add a mouseup event listener to the document
-        // document.addEventListener('mouseup', function (e) {
-        //     //
-        // }
-
 
 
 
@@ -605,7 +602,7 @@
                 spanNode.style.position = "absolute"
                 spanNode.style.left = textNode.style.left
                 spanNode.style.top = textNode.style.top
-                spanNode.style.zIndex = 1
+                spanNode.style.zIndex = 5
 
                 // set properties to the text according to position relative to canvas
                 if (textNode.className === 'annotation') {
