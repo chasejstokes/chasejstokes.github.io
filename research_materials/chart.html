@@ -229,15 +229,15 @@
                 }
                 // set properties to the text according to position relative to canvas
                 if (textNode.className === 'annotation') {
-                    textNode.style.maxWidth = regularWidth
+                    textNode.style.width = regularWidth
                     textNode.style.fontSize = regularText
                 }
                 if (textNode.className === 'caption') {
-                    textNode.style.maxWidth = longWidth
+                    textNode.style.width = longWidth
                     textNode.style.fontSize = regularText
                 }
                 if (textNode.className === 'title') {
-                    textNode.style.maxWidth = longWidth
+                    textNode.style.width = longWidth
                     textNode.style.fontSize = largeText
                 }
 
@@ -302,17 +302,17 @@
                         spanNode.style.zIndex = 5
                         // set properties to the text according to position relative to canvas
                         if (textNode.className === 'annotation') {
-                            spanNode.style.width = regularWidth
+                            spanNode.style.maxWidth = regularWidth
                             spanNode.style.fontSize = regularText
                             spanNode.classList.add('annotation')
                         }
                         if (textNode.className === 'caption') {
-                            spanNode.style.width = longWidth
+                            spanNode.style.maxWidth = longWidth
                             spanNode.style.fontSize = regularText
                             spanNode.classList.add('caption')
                         }
                         if (textNode.className === 'title') {
-                            spanNode.style.width = longWidth
+                            spanNode.style.maxWidth = longWidth
                             spanNode.style.fontSize = largeText
                             spanNode.classList.add('title')
                         }
@@ -377,7 +377,7 @@
 
                     num_points += 1;
 
-                    var point_container_size = 14
+                    var point_container_size = 12
                     var point_radius_size = (point_container_size / 2) - 1
                     var pointX = e.clientX
                     var pointY = e.clientY
