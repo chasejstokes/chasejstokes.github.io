@@ -88,6 +88,13 @@
             background-repeat: no-repeat;
         }
 
+        #lineToggler {
+            background-image: url('https://raw.githubusercontent.com/chasejstokes/chasejstokes.github.io/main/research_materials/line.png');
+            background-size: 15px;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
         /* Hide default HTML checkbox */
         .switch input {
             opacity: 0;
@@ -106,6 +113,8 @@
             cursor: pointer;
         }
     </style>
+
+
 
     <div id="parent_div">
         <div class=instructions>
@@ -135,13 +144,18 @@
                 <div class="itemContainer">
 
                     <label class="switch">
-                        <input type="radio" id="addText" name="item" value="text" checked="true" />
+                        <input type="radio" id="addText" name="item" value="text" />
                         <span class="itemToggler" id="textToggler"></span>
                     </label>
 
                     <label class="switch">
                         <input type="radio" id="addPoint" name="item" value="point" />
                         <span class="itemToggler" id="pointToggler"></span>
+                    </label>
+
+                    <label class="switch">
+                        <input type="radio" id="addLine" name="item" value="line" />
+                        <span class="itemToggler" id="lineToggler"></span>
                     </label>
 
                 </div>
@@ -195,8 +209,6 @@
         // save the chart item
         chart = document.querySelector('canvas')
 
-        //
-
         // ADD ITEM ON DOUBLE CLICK
         document.getElementById("wrapper").ondblclick = function (e) {
 
@@ -229,15 +241,15 @@
                 }
                 // set properties to the text according to position relative to canvas
                 if (textNode.className === 'annotation') {
-                    textNode.style.maxWidth = regularWidth
+                    textNode.style.width = regularWidth
                     textNode.style.fontSize = regularText
                 }
                 if (textNode.className === 'caption') {
-                    textNode.style.maxWidth = longWidth
+                    textNode.style.width = longWidth
                     textNode.style.fontSize = regularText
                 }
                 if (textNode.className === 'title') {
-                    textNode.style.maxWidth = longWidth
+                    textNode.style.width = longWidth
                     textNode.style.fontSize = largeText
                 }
 
@@ -446,6 +458,163 @@
             }
 
         }
+
+        // ADD LINE ON DRAG
+        var isDrawingLine = false;
+
+        document.addEventListener('mousedown', function (e) {
+
+
+            if (document.getElementById('addLine').checked) {
+
+                if (e.target.tagName.toUpperCase() != "PATH") {
+
+                    isDrawingLine = true;
+
+                    num_lines += 1;
+
+                    // make a small svg to start updating
+                    var line = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
+                    line.setAttributeNS(null, 'width', 1);
+                    line.setAttributeNS(null, 'height', 1);
+                    line.id = "line_container" + num_lines;
+                    line.style.left = e.clientX + "px"
+                    line.style.top = e.clientY + "px"
+                    line.style.zIndex = 2;
+                    line.style.border = "1px solid blue"
+                    line.style.position = "absolute";
+                    document.getElementById("wrapper").appendChild(line);
+                    // create the path
+                    startX = e.clientX
+                    startY = e.clientY
+                    drawn = document.createElementNS("http://www.w3.org/2000/svg", 'path');
+                    // start at the click point
+                    start_path = "M " + startX + " " + startY
+                    drawn.id = "path" + num_lines;
+                    drawn.style.zIndex = 3;
+                    drawn.setAttributeNS(null, 'd', start_path);
+                    drawn.style.stroke = "black"
+                    drawn.style.strokeWidth = 2
+                    // drawn.style.position = "absolute";
+                    // append the svg
+                    document.getElementById("line_container" + num_lines).appendChild(drawn);
+
+                    // // add a drag and drop to the line
+                    // // initialize the isDraggingInput flag to false
+                    // var isDraggingLine = false;
+                    // // add a mousedown event listener to the span element
+                    // drawn.addEventListener('mousedown', function (e) {
+                    //     // set the isDraggingLine flag to true
+                    //     isDraggingLine = true;
+
+                    //     // get line coordinates 
+                    //     startX_drag = parseInt(drawn.getAttribute('d').slice(2, 5))
+                    //     startY_drag = parseInt(drawn.getAttribute('d').slice(6, 9))
+                    //     endX_drag = parseInt(drawn.getAttribute('d').slice(12, 15))
+                    //     endY_drag = parseInt(drawn.getAttribute('d').slice(16))
+
+                    //     clickX = e.clientX
+                    //     clickY = e.clientY
+
+                    // });
+                    // // add a mousemove event listener to the document
+                    // document.addEventListener('mousemove', function (e) {
+                    //     // if the isDraggingLine flag is true
+                    //     if (isDraggingLine) {
+                    //         // calculate the distance the mouse has moved since the last mousemove event
+                    //         // calculate the distance the mouse has moved since the last mousemove event
+                    //         var dx = e.clientX - clickX;
+                    //         var dy = e.clientY - clickY;
+
+                    //         var startX_drag_new = startX_drag + dx
+                    //         var startY_drag_new = startY_drag + dy
+                    //         var endX_drag_new = endX_drag + dx
+                    //         var endY_drag_new = endY_drag + dy
+
+                    //         drawn.setAttributeNS(null, 'd', "M " + startX_drag_new + " " + startY_drag_new + " L " + endX_drag_new + " " + endY_drag_new);
+
+                    //     }
+                    // });
+                    // // add a mouseup event listener to the document
+                    // document.addEventListener('mouseup', function (e) {
+                    //     // set the isDraggingLine flag to false
+                    //     isDraggingLine = false;
+
+                    // })
+
+                    // // if the line is double clicked, remove it
+                    // drawn.addEventListener("dblclick", function () {
+                    //     drawn.remove();
+                    //     num_lines -= 1;
+                    // })
+
+                }
+            }
+        })
+
+        document.addEventListener('mousemove', function (e) {
+
+            if (isDrawingLine) {
+
+                var line = document.getElementById('line_container' + num_lines)
+
+                // grab the corner info
+
+                // update corner info based on mouse move
+                // if the mouse moves down relative to starting corner
+                if (e.clientY > startY) {
+                    // if the mouse moves to the right relative to starting corner
+                    if (e.clientX > startX) {
+                        // adjust the width and height by adding to both
+                        line.setAttributeNS(null, 'width', line.getAttribute(null, 'width') + Math.abs(startX - e.clientX));
+                        line.setAttributeNS(null, 'height', line.getAttribute(null, 'height') + Math.abs(startY - e.clientY));
+                    }
+                    // if the mouse moves to the left relative to starting corner
+                    if (e.clientX < startX) {
+                        // adjust the width and height by adding to height and subtracting from width
+                        line.setAttributeNS(null, 'width', Math.abs(line.getAttribute(null, 'width') - Math.abs(startX - e.clientX)));
+                        line.setAttributeNS(null, 'height', line.getAttribute(null, 'height') + Math.abs(startY - e.clientY));
+
+                        // the top left also starts moving here so how to handle that
+                        // LEFT OFF HERE
+                    }
+                }
+
+                // // update the x and y coordinates of the line
+                // var drawn = document.getElementById('path' + num_lines)
+                // drawn.setAttributeNS(null, 'd', start_path + " L" + " " + dx + " " + dy);
+
+            }
+        })
+
+        document.addEventListener('mouseup', function (e) {
+            // set the isDraggingPoint flag to false
+            isDrawingLine = false;
+
+            var drawn = document.getElementById('path' + num_lines)
+
+            // get start point
+            // get line coordinates 
+            var startX = parseInt(drawn.getAttribute('d').slice(2, 5))
+            var startY = parseInt(drawn.getAttribute('d').slice(6, 9))
+
+            // get end point
+            var endX = parseInt(drawn.getAttribute('d').slice(12, 15))
+            var endY = parseInt(drawn.getAttribute('d').slice(16))
+
+
+            if (drawn.getAttribute('d').length < 15) {
+                drawn.remove();
+                num_lines -= 1;
+            }
+
+            // if they are the same, remove it
+            // if (startX == endX && startY == endY) {
+            //     drawn.remove();
+            //     num_lines -= 1;
+            // }
+        })
+
 
 
         // SAVEIMG BUTTON CLICK
