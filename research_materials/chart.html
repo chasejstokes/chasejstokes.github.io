@@ -206,173 +206,178 @@
             // if text toggle is on
             if (document.getElementById('addText').checked) {
 
-                // create textarea variable
-                var textNode = document.createElement('textarea')
+                console.log(e.target)
 
-                // update the location of the text
-                textNode.style.left = clickX + "px"
-                textNode.style.top = clickY + "px"
-                textNode.style.zIndex = 5
-                textNode.style.position = "absolute"
-                textNode.style.fontFamily = "Arial, Helvetica, sans-serif"
-                textNode.style.background = "none"
-                textNode.style.border = "1px solid black"
-                textNode.style.lineHeight = 1
-                // assign condition
-                if (clickY > (0.9 * (canvas.height + y))) {
-                    textNode.classList.add('caption')
-                } else if (clickY < (0.2 * (canvas.height + y))) {
-                    textNode.classList.add('title')
-                } else {
-                    textNode.classList.add('annotation')
-                }
-                // set properties to the text according to position relative to canvas
-                if (textNode.className === 'annotation') {
-                    textNode.style.width = regularWidth
-                    textNode.style.fontSize = regularText
-                }
-                if (textNode.className === 'caption') {
-                    textNode.style.width = longWidth
-                    textNode.style.fontSize = regularText
-                }
-                if (textNode.className === 'title') {
-                    textNode.style.width = longWidth
-                    textNode.style.fontSize = largeText
-                }
+                if (e.target.tagName.toUpperCase() == "CANVAS") {
+
+                    // create textarea variable
+                    var textNode = document.createElement('textarea')
+
+                    // update the location of the text
+                    textNode.style.left = clickX + "px"
+                    textNode.style.top = clickY + "px"
+                    textNode.style.zIndex = 5
+                    textNode.style.position = "absolute"
+                    textNode.style.fontFamily = "Arial, Helvetica, sans-serif"
+                    textNode.style.background = "none"
+                    textNode.style.border = "1px solid black"
+                    textNode.style.lineHeight = 1
+                    // assign condition
+                    if (clickY > (0.9 * (canvas.height + y))) {
+                        textNode.classList.add('caption')
+                    } else if (clickY < (0.2 * (canvas.height + y))) {
+                        textNode.classList.add('title')
+                    } else {
+                        textNode.classList.add('annotation')
+                    }
+                    // set properties to the text according to position relative to canvas
+                    if (textNode.className === 'annotation') {
+                        textNode.style.width = regularWidth
+                        textNode.style.fontSize = regularText
+                    }
+                    if (textNode.className === 'caption') {
+                        textNode.style.width = longWidth
+                        textNode.style.fontSize = regularText
+                    }
+                    if (textNode.className === 'title') {
+                        textNode.style.width = longWidth
+                        textNode.style.fontSize = largeText
+                    }
 
 
-                // append textarea to document
-                document.getElementById("parent_div").appendChild(textNode)
-                // focus on the input to type text in
-                textNode.focus()
+                    // append textarea to document
+                    document.getElementById("parent_div").appendChild(textNode)
+                    // focus on the input to type text in
+                    textNode.focus()
 
-                // add a drag and drop to the input
-                // initialize the isDraggingInput flag to false
-                var isDraggingInput = false;
-                // add a mousedown event listener to the span element
-                textNode.addEventListener('mousedown', function (e) {
-                    // set the isDraggingInput flag to true
-                    isDraggingInput = true;
-                    // update the x and y coordinates of the input
-                    inputX = e.clientX;
-                    inputY = e.clientY;
-                    y_position = e.clientY - parseInt(textNode.style.top)
-                });
-                // add a mousemove event listener to the document
-                document.addEventListener('mousemove', function (e) {
-                    // if the isDraggingInput flag is true
-                    if (isDraggingInput) {
-                        // calculate the distance the mouse has moved since the last mousemove event
-                        var dx = e.clientX - inputX;
-                        var dy = e.clientY - inputY;
+                    // add a drag and drop to the input
+                    // initialize the isDraggingInput flag to false
+                    var isDraggingInput = false;
+                    // add a mousedown event listener to the span element
+                    textNode.addEventListener('mousedown', function (e) {
+                        // set the isDraggingInput flag to true
+                        isDraggingInput = true;
                         // update the x and y coordinates of the input
                         inputX = e.clientX;
                         inputY = e.clientY;
-                        // update the position of the input by adding the distance the mouse has moved to its current position
-                        textNode.style.left = textNode.offsetLeft + dx + 'px';
-                        textNode.style.top = e.clientY - y_position + dy + 'px';
-                    }
-                });
-                // add a mouseup event listener to the document
-                document.addEventListener('mouseup', function (e) {
-                    // set the isDraggingInput flag to false
-                    isDraggingInput = false;
-                })
-
-                // if the input is double clicked, remove it
-                textNode.addEventListener("dblclick", function () {
-                    textNode.remove()
-                })
-
-                // when the input is submitted
-                textNode.addEventListener("keypress", function (e) {
-
-                    // if "enter" was pressed
-                    if (e.keyCode == 13) {
-
-                        // create span
-                        var spanNode = document.createElement('span')
-                        // add text to span
-                        spanNode.innerHTML = textNode.value;
-                        // adjust span attributes
-                        spanNode.style.position = "absolute"
-                        spanNode.style.left = parseInt(textNode.style.left) + 2.5 + "px"
-                        spanNode.style.top = parseInt(textNode.style.top) + 4.5 + "px"
-                        spanNode.style.zIndex = 5
-                        // set properties to the text according to position relative to canvas
-                        if (textNode.className === 'annotation') {
-                            spanNode.style.maxWidth = regularWidth
-                            spanNode.style.fontSize = regularText
-                            spanNode.classList.add('annotation')
+                        y_position = e.clientY - parseInt(textNode.style.top)
+                    });
+                    // add a mousemove event listener to the document
+                    document.addEventListener('mousemove', function (e) {
+                        // if the isDraggingInput flag is true
+                        if (isDraggingInput) {
+                            // calculate the distance the mouse has moved since the last mousemove event
+                            var dx = e.clientX - inputX;
+                            var dy = e.clientY - inputY;
+                            // update the x and y coordinates of the input
+                            inputX = e.clientX;
+                            inputY = e.clientY;
+                            // update the position of the input by adding the distance the mouse has moved to its current position
+                            textNode.style.left = textNode.offsetLeft + dx + 'px';
+                            textNode.style.top = e.clientY - y_position + dy + 'px';
                         }
-                        if (textNode.className === 'caption') {
-                            spanNode.style.maxWidth = longWidth
-                            spanNode.style.fontSize = regularText
-                            spanNode.classList.add('caption')
-                        }
-                        if (textNode.className === 'title') {
-                            spanNode.style.maxWidth = longWidth
-                            spanNode.style.fontSize = largeText
-                            spanNode.classList.add('title')
-                        }
+                    });
+                    // add a mouseup event listener to the document
+                    document.addEventListener('mouseup', function (e) {
+                        // set the isDraggingInput flag to false
+                        isDraggingInput = false;
+                    })
 
-
-                        // append span to document
-                        document.getElementById("parent_div").appendChild(spanNode)
-                        // if span is empty, remove
-                        if (spanNode.innerText === "") {
-                            spanNode.remove()
-                        }
-                        // remove the textarea node
+                    // if the input is double clicked, remove it
+                    textNode.addEventListener("dblclick", function () {
                         textNode.remove()
+                    })
 
-                        // add drag and drop listener
-                        // initialize the isDraggingSpan flag to false
-                        var isDraggingSpan = false;
-                        // add a mousedown event listener to the span element
-                        spanNode.addEventListener('mousedown', function (e) {
-                            // set the isDraggingSpan flag to true
-                            isDraggingSpan = true;
-                            // update the x and y coordinates of the span
-                            spanX = e.clientX;
-                            spanY = e.clientY;
-                        });
-                        // add a mousemove event listener to the document
-                        document.addEventListener('mousemove', function (e) {
-                            // if the isDraggingSpan flag is true
-                            if (isDraggingSpan) {
-                                // calculate the distance the mouse has moved since the last mousemove event
-                                var dx = e.clientX - spanX;
-                                var dy = e.clientY - spanY;
+                    // when the input is submitted
+                    textNode.addEventListener("keypress", function (e) {
+
+                        // if "enter" was pressed
+                        if (e.keyCode == 13) {
+
+                            // create span
+                            var spanNode = document.createElement('span')
+                            // add text to span
+                            spanNode.innerHTML = textNode.value;
+                            // adjust span attributes
+                            spanNode.style.position = "absolute"
+                            spanNode.style.left = parseInt(textNode.style.left) + 2.5 + "px"
+                            spanNode.style.top = parseInt(textNode.style.top) + 4.5 + "px"
+                            spanNode.style.zIndex = 5
+                            // set properties to the text according to position relative to canvas
+                            if (textNode.className === 'annotation') {
+                                spanNode.style.maxWidth = regularWidth
+                                spanNode.style.fontSize = regularText
+                                spanNode.classList.add('annotation')
+                            }
+                            if (textNode.className === 'caption') {
+                                spanNode.style.maxWidth = longWidth
+                                spanNode.style.fontSize = regularText
+                                spanNode.classList.add('caption')
+                            }
+                            if (textNode.className === 'title') {
+                                spanNode.style.maxWidth = longWidth
+                                spanNode.style.fontSize = largeText
+                                spanNode.classList.add('title')
+                            }
+
+
+                            // append span to document
+                            document.getElementById("parent_div").appendChild(spanNode)
+                            // if span is empty, remove
+                            if (spanNode.innerText === "") {
+                                spanNode.remove()
+                            }
+                            // remove the textarea node
+                            textNode.remove()
+
+                            // add drag and drop listener
+                            // initialize the isDraggingSpan flag to false
+                            var isDraggingSpan = false;
+                            // add a mousedown event listener to the span element
+                            spanNode.addEventListener('mousedown', function (e) {
+                                // set the isDraggingSpan flag to true
+                                isDraggingSpan = true;
                                 // update the x and y coordinates of the span
                                 spanX = e.clientX;
                                 spanY = e.clientY;
-                                // update the position of the span by adding the distance the mouse has moved to its current position
-                                spanNode.style.left = spanNode.offsetLeft + dx + 'px';
-                                spanNode.style.top = spanNode.offsetTop + dy + 'px';
-                            }
-                        });
-                        // add a mouseup event listener to the document
-                        document.addEventListener('mouseup', function (e) {
-                            // set the isDraggingSpan flag to false
-                            isDraggingSpan = false;
-                        })
+                            });
+                            // add a mousemove event listener to the document
+                            document.addEventListener('mousemove', function (e) {
+                                // if the isDraggingSpan flag is true
+                                if (isDraggingSpan) {
+                                    // calculate the distance the mouse has moved since the last mousemove event
+                                    var dx = e.clientX - spanX;
+                                    var dy = e.clientY - spanY;
+                                    // update the x and y coordinates of the span
+                                    spanX = e.clientX;
+                                    spanY = e.clientY;
+                                    // update the position of the span by adding the distance the mouse has moved to its current position
+                                    spanNode.style.left = spanNode.offsetLeft + dx + 'px';
+                                    spanNode.style.top = spanNode.offsetTop + dy + 'px';
+                                }
+                            });
+                            // add a mouseup event listener to the document
+                            document.addEventListener('mouseup', function (e) {
+                                // set the isDraggingSpan flag to false
+                                isDraggingSpan = false;
+                            })
 
-                        // add event listener to remove span when double clicked
-                        spanNode.addEventListener("dblclick", function (e) {
-                            spanNode.remove()
-                        })
+                            // add event listener to remove span when double clicked
+                            spanNode.addEventListener("dblclick", function (e) {
+                                spanNode.remove()
+                            })
 
 
-                    }
+                        }
 
-                })
+                    })
+                }
             }
 
             // if point toggle is on
             if (document.getElementById('addPoint').checked) {
 
-                if (e.target.tagName.toUpperCase() != "CIRCLE") {
+                if (e.target.tagName.toUpperCase() == "CANVAS") {
 
                     num_points += 1;
 
