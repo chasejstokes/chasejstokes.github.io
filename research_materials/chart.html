@@ -221,9 +221,9 @@
                     textNode.style.border = "1px solid black"
                     textNode.style.lineHeight = 1
                     // assign condition
-                    if (clickY > (0.9 * (canvas.height + y))) {
+                    if (clickY > (0.95 * (canvas.height + y))) {
                         textNode.classList.add('caption')
-                    } else if (clickY < (0.2 * (canvas.height + y))) {
+                    } else if (clickY < (0.15 * (canvas.height + y))) {
                         textNode.classList.add('title')
                     } else {
                         textNode.classList.add('annotation')
