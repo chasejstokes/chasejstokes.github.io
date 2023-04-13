@@ -1,0 +1,19 @@
+body {
+    background-color: aliceblue;
+}
+
+.row {
+    max-width: 100%
+}
+
+.header {
+    padding-top: 5em;
+    padding-bottom: 5em;
+    text-align: center;
+    font-size: 2em;
+    overflow: auto;
+}
+
+.charts {
+    padding-top: 3em;
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 13</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="demo.css">
+</head>
+
+<body>
+
+
+    <div class="row justify-content-center header">
+        <div class="col-4">
+            <h1>This is my header.</h1>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-4">
+            <h2>Topic 1</h2>
+            <p>So first we're going to look at Topic 1. Here's an illustrative photo.</p>
+            <p>Some more information:</p>
+            <ol>
+                <li>Thing 1</li>
+                <li>Thing 2</li>
+                <li>Thing 3</li>
+                <li>Thing 4</li>
+            </ol>
+        </div>
+        <div class="col-4">
+            <img src="https://images.unsplash.com/photo-1599707367072-cd6ada2bc375?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZGlhbW9uZHN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"
+                width=100%>
+        </div>
+    </div>
+
+
+    <div class="row charts">
+        <div class="col-2"></div>
+        <div class="col-2">
+            <p>Diamonds have different qualites, like carat and cut. Use the legend to toggle the different cuts on and
+                off to compare how the carat and pricing distributions vary.</p>
+        </div>
+        <div class="col-6">
+            <div id="observablehq-allCharts-cd7d7b7e"></div>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
+            <script type="module">
+                import { Runtime, Inspector } from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+                import define from "https://api.observablehq.com/d/ce81180e3f4c892f@895.js?v=3";
+                new Runtime().module(define, name => {
+                    if (name === "allCharts") return new Inspector(document.querySelector("#observablehq-allCharts-cd7d7b7e"));
+                });
+            </script>
+        </div>
+        <div class="col-2"></div>
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
