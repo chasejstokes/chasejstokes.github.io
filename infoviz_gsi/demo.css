@@ -1,9 +1,6 @@
 body {
     background-color: aliceblue;
-}
-
-.row {
-    max-width: 100%
+    width: 100%;
 }
 
 .header {
@@ -16,4 +13,8 @@ body {
 
 .charts {
     padding-top: 3em;
+}
+
+.active {
+    fill: rgb(17, 17, 179);
 }
