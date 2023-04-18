@@ -20,8 +20,10 @@
         </div>
     </div>
 
-    <div class="row justify-content-center">
-        <div class="col-4">
+    <!-- <div class="row justify-content-center"> -->
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-3">
             <h2>Topic 1</h2>
             <p>So first we're going to look at Topic 1. Here's an illustrative photo.</p>
             <p>Some more information:</p>
@@ -32,10 +34,12 @@
                 <li>Thing 4</li>
             </ol>
         </div>
+        <div class="col-1"></div>
         <div class="col-4">
             <img src="https://images.unsplash.com/photo-1599707367072-cd6ada2bc375?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZGlhbW9uZHN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"
                 width=100%>
         </div>
+        <div class="col-2"></div>
     </div>
 
 
@@ -65,7 +69,8 @@
     <div style="padding: 2%">
     </div>
 
-    <div class="row justify-content-center">
+    <div class="row">
+        <div class="col-2"></div>
         <div class="col-4">
             <h2>Topic 2</h2>
             <p>Now, a related topic:</p>
@@ -77,67 +82,67 @@
         <div class="col-4">
 
         </div>
-    </div>
 
-    <div class="row charts">
-        <div class="col-2"></div>
-        <div class="col-8">
-            <tableau-viz id="tableauViz"
-                src='https://public.tableau.com/views/Lab5_16817000359580/ValentinesDay?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link'
-                device="desktop">
-            </tableau-viz>
+        <div class="row charts">
+            <div class="col-2"></div>
+            <div class="col-8">
+                <tableau-viz id="tableauViz"
+                    src='https://public.tableau.com/views/Lab5_16817000359580/ValentinesDay?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link'
+                    device="desktop">
+                </tableau-viz>
+            </div>
+            <div class="col-2"></div>
         </div>
-        <div class="col-2"></div>
-    </div>
 
-    <div class="row justify-content-center header">
-        <div class="col-4">
-            <h1>This is my ending thing.</h1>
+        <div class="row justify-content-center header">
+            <div class="col-4">
+                <h1>This is my ending thing.</h1>
+            </div>
         </div>
-    </div>
 
-    <div class="row header">
-        <div class="col"></div>
-        <div class="col justify-content-center">
-            <svg width=100 height=100 class='active square'>
-                <rect x=0 y=0 width=100% height=100%></rect>
-            </svg>
+        <div class="row header">
+            <div class="col"></div>
+            <div class="col justify-content-center">
+                <svg width=100 height=100 class='active square'>
+                    <rect x=0 y=0 width=100% height=100%></rect>
+                </svg>
+            </div>
+            <div class="col justify-content-center">
+                <svg width=100 height=100 class='square'>
+                    <rect x=0 y=0 width=100% height=100%></rect>
+                </svg>
+            </div>
+            <div class="col justify-content-center">
+                <svg width=100 height=100 class='square'>
+                    <rect x=0 y=0 width=100% height=100%></rect>
+                </svg>
+            </div>
+            <div class="col justify-content-center">
+                <svg width=100 height=100 class='square'>
+                    <rect x=0 y=0 width=100% height=100%></rect>
+                </svg>
+            </div>
+            <div class="col"></div>
         </div>
-        <div class="col justify-content-center">
-            <svg width=100 height=100 class='square'>
-                <rect x=0 y=0 width=100% height=100%></rect>
-            </svg>
-        </div>
-        <div class="col justify-content-center">
-            <svg width=100 height=100 class='square'>
-                <rect x=0 y=0 width=100% height=100%></rect>
-            </svg>
-        </div>
-        <div class="col justify-content-center">
-            <svg width=100 height=100 class='square'>
-                <rect x=0 y=0 width=100% height=100%></rect>
-            </svg>
-        </div>
-        <div class="col"></div>
-    </div>
 
-    <script>
+        <script>
 
-        const squares = document.querySelectorAll('.square')
+            const squares = document.querySelectorAll('.square')
 
-        // script to toggle classes on and off
-        for (var i = 0; i < squares.length; i++) {
-            squares[i].addEventListener('click', function () {
-                this.classList.toggle('active')
-            })
-        }
+            // script to toggle classes on and off
+            for (var i = 0; i < squares.length; i++) {
+                squares[i].addEventListener('click', function () {
+                    this.classList.toggle('active')
+                })
+            }
 
-    </script>
+        </script>
 
-    <script type="module" src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-        crossorigin="anonymous"></script>
+        <script type="module"
+            src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+            crossorigin="anonymous"></script>
 </body>
 
 </html>
