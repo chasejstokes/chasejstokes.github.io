@@ -8,7 +8,6 @@ body {
     padding-bottom: 5em;
     text-align: center;
     font-size: 2em;
-    overflow: auto;
 }
 
 .charts {
@@ -17,4 +16,16 @@ body {
 
 .active {
     fill: rgb(17, 17, 179);
+}
+
+.btn-primary {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #203f6d;
+    --bs-btn-border-color: #13233a;
+    --bs-btn-hover-color: rgb(255, 255, 255);
+    --bs-btn-hover-bg: #135fd1;
+}
+
+.invisible {
+    display: none;
 }

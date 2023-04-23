@@ -21,128 +21,158 @@
     </div>
 
     <!-- <div class="row justify-content-center"> -->
-    <div class="row">
-        <div class="col-2"></div>
-        <div class="col-3">
-            <h2>Topic 1</h2>
-            <p>So first we're going to look at Topic 1. Here's an illustrative photo.</p>
-            <p>Some more information:</p>
-            <ol>
-                <li>Thing 1</li>
-                <li>Thing 2</li>
-                <li>Thing 3</li>
-                <li>Thing 4</li>
-            </ol>
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                <h2>Topic 1</h2>
+                <p>So first we're going to look at Topic 1. Here's a few illustrative photos.</p>
+                <p>Some more information:</p>
+                <ol>
+                    <li>Thing 1</li>
+                    <li>Thing 2</li>
+                    <li>Thing 3</li>
+                    <li>Thing 4</li>
+                </ol>
+            </div>
+            <div class="col-4">
+                <img src="https://images.unsplash.com/photo-1599707367072-cd6ada2bc375?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZGlhbW9uZHN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"
+                    width=100%>
+            </div>
+            <div class="col-4">
+                <img src="https://images.unsplash.com/photo-1631013636761-c533d81e96a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2229&q=80"
+                    width=100%>
+            </div>
         </div>
-        <div class="col-1"></div>
-        <div class="col-4">
-            <img src="https://images.unsplash.com/photo-1599707367072-cd6ada2bc375?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZGlhbW9uZHN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"
-                width=100%>
-        </div>
-        <div class="col-2"></div>
-    </div>
 
 
-    <div class="row charts">
-        <div class="col-2"></div>
-        <div class="col-2">
-            <p>Diamonds have different qualites, like carat and cut, which affect the price of the stone. Use the legend
-                to toggle the different cuts on and
-                off to compare how the carat and pricing distributions vary.</p>
-        </div>
-        <div class="col-6">
-            <div id="observablehq-allCharts-cd7d7b7e"></div>
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
-            <script type="module">
-                import { Runtime, Inspector } from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
-                import define from "https://api.observablehq.com/d/ce81180e3f4c892f@895.js?v=3";
-                new Runtime().module(define, name => {
-                    if (name === "allCharts") return new Inspector(document.querySelector("#observablehq-allCharts-cd7d7b7e"));
-                });
-            </script>
-        </div>
-        <div class="col-2"></div>
-
-    </div>
-
-
-    <div style="padding: 2%">
-    </div>
-
-    <div class="row">
-        <div class="col-2"></div>
-        <div class="col-4">
-            <h2>Topic 2</h2>
-            <p>Now, a related topic:</p>
-            <ol>
-                <li>Thing 1</li>
-                <li>Thing 2</li>
-            </ol>
-        </div>
-        <div class="col-4">
-
-        </div>
 
         <div class="row charts">
-            <div class="col-2"></div>
-            <div class="col-8">
-                <tableau-viz id="tableauViz"
-                    src='https://public.tableau.com/views/Lab5_16817000359580/ValentinesDay?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link'
-                    device="desktop">
-                </tableau-viz>
-            </div>
-            <div class="col-2"></div>
-        </div>
-
-        <div class="row justify-content-center header">
             <div class="col-4">
-                <h1>This is my ending thing.</h1>
+                <p>Diamonds have different qualites, like carat and cut, which affect the price of the stone. Use the
+                    legend
+                    to toggle the different cuts on and
+                    off to compare how the carat and pricing distributions vary.</p>
+
+                <p>Click the button below to toggle average lines for price and carat.</p>
+                <button type="button" class="btn btn-primary" onclick=changeChart()>Reveal Averages</button>
+            </div>
+            <div class="col-8">
+                <div class="visualization">
+                    <div id="observablehq-allCharts-4cb6b69e"></div>
+
+                    <link rel="stylesheet"
+                        href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
+                    <script type="module">
+                        import { Runtime, Inspector } from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+                        import define from "https://api.observablehq.com/d/eb421e8dd301c8dc.js?v=3";
+                        new Runtime().module(define, name => {
+                            if (name === "allCharts") return new Inspector(document.querySelector("#observablehq-allCharts-4cb6b69e"));
+                        });
+                    </script>
+                </div>
+
+                <div class="visualization invisible">
+                    <div id="observablehq-allChartsAvg-5958671f"></div>
+                    <link rel="stylesheet"
+                        href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
+                    <script type="module">
+                        import { Runtime, Inspector } from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+                        import define from "https://api.observablehq.com/d/eb421e8dd301c8dc@840.js?v=3";
+                        new Runtime().module(define, name => {
+                            if (name === "allChartsAvg") return new Inspector(document.querySelector("#observablehq-allChartsAvg-5958671f"));
+                        });
+                    </script>
+                </div>
+
             </div>
         </div>
 
-        <div class="row header">
-            <div class="col"></div>
-            <div class="col justify-content-center">
-                <svg width=100 height=100 class='active square'>
-                    <rect x=0 y=0 width=100% height=100%></rect>
-                </svg>
-            </div>
-            <div class="col justify-content-center">
-                <svg width=100 height=100 class='square'>
-                    <rect x=0 y=0 width=100% height=100%></rect>
-                </svg>
-            </div>
-            <div class="col justify-content-center">
-                <svg width=100 height=100 class='square'>
-                    <rect x=0 y=0 width=100% height=100%></rect>
-                </svg>
-            </div>
-            <div class="col justify-content-center">
-                <svg width=100 height=100 class='square'>
-                    <rect x=0 y=0 width=100% height=100%></rect>
-                </svg>
-            </div>
-            <div class="col"></div>
+
+
+        <div style="padding: 2%">
         </div>
 
-        <script>
+        <div class="row">
+            <div class="col-4">
+                <h2>Topic 2</h2>
+                <p>Now, a related topic:</p>
+                <ol>
+                    <li>Thing 1</li>
+                    <li>Thing 2</li>
+                </ol>
+            </div>
 
-            const squares = document.querySelectorAll('.square')
+            <div class="row charts">
+                <div class="col">
+                    <tableau-viz id="tableauViz"
+                        src='https://public.tableau.com/views/Lab5_16817000359580/ValentinesDay?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link'
+                        device="desktop">
+                    </tableau-viz>
+                </div>
+            </div>
+
+            <div class="row justify-content-center header">
+                <div class="col-4">
+                    <h1>This is my ending thing.</h1>
+                </div>
+            </div>
+
+            <div class="row header">
+                <div class="col"></div>
+                <div class="col justify-content-center">
+                    <svg width=100 height=100 class='active square'>
+                        <rect x=0 y=0 width=100% height=100%></rect>
+                    </svg>
+                </div>
+                <div class="col justify-content-center">
+                    <svg width=100 height=100 class='square'>
+                        <rect x=0 y=0 width=100% height=100%></rect>
+                    </svg>
+                </div>
+                <div class="col justify-content-center">
+                    <svg width=100 height=100 class='square'>
+                        <rect x=0 y=0 width=100% height=100%></rect>
+                    </svg>
+                </div>
+                <div class="col justify-content-center">
+                    <svg width=100 height=100 class='square'>
+                        <rect x=0 y=0 width=100% height=100%></rect>
+                    </svg>
+                </div>
+                <div class="col"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+
+        const squares = document.querySelectorAll('.square')
+
+        // script to toggle classes on and off
+        for (var i = 0; i < squares.length; i++) {
+            squares[i].addEventListener('click', function () {
+                this.classList.toggle('active')
+            })
+        }
+
+        // script for on button click for switching classes for all .visualization
+        function changeChart() {
+
+            const vis = document.querySelectorAll('.visualization')
 
             // script to toggle classes on and off
-            for (var i = 0; i < squares.length; i++) {
-                squares[i].addEventListener('click', function () {
-                    this.classList.toggle('active')
-                })
+            for (var i = 0; i < vis.length; i++) {
+                vis[i].classList.toggle('invisible')
             }
+        }
 
-        </script>
 
-        <script type="module"
-            src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-            crossorigin="anonymous"></script>
+
+    </script>
+
+    <script type="module" src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
