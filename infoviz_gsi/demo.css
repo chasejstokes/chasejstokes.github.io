@@ -29,3 +29,15 @@ body {
 .invisible {
     display: none;
 }
+
+iframe#tableauViz>* {
+    background-color: none;
+}
+
+.chart {
+    display: none;
+}
+
+.visible {
+    display: inline-block;
+}

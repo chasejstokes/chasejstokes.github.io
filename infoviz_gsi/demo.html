@@ -57,21 +57,22 @@
                 <button type="button" class="btn btn-primary" onclick=changeChart()>Reveal Averages</button>
             </div>
             <div class="col-8">
-                <div class="visualization">
-                    <div id="observablehq-allCharts-4cb6b69e"></div>
+                <div id="exercise" class="visualization">
+                    <div id="observablehq-cell-b5bd4bc5"></div>
+
 
                     <link rel="stylesheet"
                         href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
                     <script type="module">
                         import { Runtime, Inspector } from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
-                        import define from "https://api.observablehq.com/d/eb421e8dd301c8dc.js?v=3";
+                        import define from "https://api.observablehq.com/d/6579c48bde709c12@174.js?v=3";
                         new Runtime().module(define, name => {
-                            if (name === "allCharts") return new Inspector(document.querySelector("#observablehq-allCharts-4cb6b69e"));
+                            if (name === "cell") return new Inspector(document.querySelector("#observablehq-cell-b5bd4bc5"));
                         });
                     </script>
                 </div>
 
-                <div class="visualization invisible">
+                <div id="weed" class="visualization invisible">
                     <div id="observablehq-allChartsAvg-5958671f"></div>
                     <link rel="stylesheet"
                         href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
@@ -145,14 +146,14 @@
     </div>
     <script>
 
-        const squares = document.querySelectorAll('.square')
+        // const squares = document.querySelectorAll('.square')
 
-        // script to toggle classes on and off
-        for (var i = 0; i < squares.length; i++) {
-            squares[i].addEventListener('click', function () {
-                this.classList.toggle('active')
-            })
-        }
+        // // script to toggle classes on and off
+        // for (var i = 0; i < squares.length; i++) {
+        //     squares[i].addEventListener('click', function () {
+        //         this.classList.toggle('active')
+        //     })
+        // }
 
         // script for on button click for switching classes for all .visualization
         function changeChart() {
@@ -165,6 +166,44 @@
             }
         }
 
+        function showExercise() {
+
+            const arr = document.querySelectorAll('.chart')
+
+            for (let index = 0; index < arr.length; index++) {
+                const element = arr[index];
+                if (element.id == "exercise") {
+                    // check if vis is visible
+                    if (!element.classList.contains('visible')) { // if not visible
+                        element.classList.toggle('visible') // make visible
+                    }
+                } else { // if its not the target
+                    if (element.classList.contains('visible')) { // if visible
+                        element.classList.toggle('visible') // make invisible
+                    }
+                }
+            }
+        }
+
+        function showWeed() {
+
+            const arr = document.querySelectorAll('.chart')
+
+            for (let index = 0; index < arr.length; index++) {
+                const element = arr[index];
+                if (element.id == "weed") {
+                    // check if vis is visible
+                    if (!element.classList.contains('visible')) { // if not visible
+                        element.classList.toggle('visible') // make visible
+                    }
+                } else { // if its not the target
+                    if (element.classList.contains('visible')) { // if visible
+                        element.classList.toggle('visible') // make invisible
+                    }
+                }
+            }
+        }
+
 
 
     </script>
@@ -173,6 +212,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
+    <script>
+        const tableau = document.getElementById('tableauViz')
+    </script>
 </body>
 
 </html>

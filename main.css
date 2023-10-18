@@ -1,7 +1,7 @@
 /* define colors */
 :root {
     --primary: #012932;
-    --secondary: #D7DEE6;
+    --secondary: #e2e9f1;
     --background: #FAFBFC;
     --link: #0857aa;
 }
@@ -166,7 +166,7 @@ body {
 /* research */
 
 .teaser {
-    padding: 1.5em;
+    padding: 0 1.5em;
     width: 100%;
 }
 
@@ -174,16 +174,28 @@ body {
     font-size: 1.1em;
 }
 
+.last-item {
+    padding-bottom: 3em;
+}
+
 /* teaching */
 
 
 /* contact page */
 
-.contact-text {
+/* .contact-text {
     font-size: 2em;
     align-items: center;
     text-align: center;
     padding: 5%;
+} */
+
+.contact-text {
+    background-color: var(--secondary);
+    margin: 2%;
+    font-size: 1.25em;
+    align-items: center;
+    padding: 3%;
 }
 
 /* footer */
