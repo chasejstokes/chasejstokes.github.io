@@ -27,9 +27,9 @@ a:hover {
     text-decoration: underline;
 }
 
-h2 {
+/* h2 {
     font-size: 3.5em;
-}
+} */
 
 body {
     background-color: var(--background);
@@ -38,7 +38,7 @@ body {
 /* navbar */
 
 #header {
-    font-size: 3em;
+    /* font-size: 3em; */
     padding-bottom: 1.5%;
     margin: 0;
 }
@@ -67,7 +67,7 @@ body {
 
 .nav-link {
     color: var(--background);
-    font-size: 1.25em;
+    /* font-size: 1.25em; */
 }
 
 .nav-link:hover,
@@ -119,9 +119,9 @@ body {
     margin-top: 5%;
 }
 
-.information-text {
+/* .information-text {
     font-size: 1.2em;
-}
+} */
 
 /* news items */
 
@@ -147,9 +147,9 @@ body {
 }
 
 @media (min-width: 992px) and (max-width: 1199.9px) {
-    .information {
+    /* .information {
         font-size: 1.25vw;
-    }
+    } */
 
     .news-item {
         padding: 2%;
@@ -170,9 +170,9 @@ body {
     width: 100%;
 }
 
-.text-block {
+/* .text-block {
     font-size: 1.1em;
-}
+} */
 
 .last-item {
     padding-bottom: 3em;
@@ -193,7 +193,7 @@ body {
 .contact-text {
     background-color: var(--secondary);
     margin: 2%;
-    font-size: 1.25em;
+    /* font-size: 1.25em; */
     align-items: center;
     padding: 3%;
 }
