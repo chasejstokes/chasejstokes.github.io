@@ -2,3 +2,4 @@
 
 [] add research interests (& tags?)
 [] add better research display (ability to toggle expanded view?)
+[] add publications to the ISchool website (under settings)
