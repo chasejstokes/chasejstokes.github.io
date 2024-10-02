@@ -165,18 +165,42 @@ body {
 
 /* research */
 
-.teaser {
-    padding: 0 1.1em;
-    width: 75%;
-}
 
-/* .text-block {
-    font-size: 1.1em;
-} */
+.title {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
 
 .last-item {
     padding-bottom: 3em;
 }
+
+.author-name {
+    font-weight: 600;
+}
+
+.teaser {
+    margin-right: 10px;
+    width: 100px;
+}
+
+.btn-link {
+    font-size: 0.85rem;
+}
+
+button.btn-outline-secondary {
+    font-size: 0.85rem;
+}
+
+#description {
+    font-size: 0.9rem;
+}
+
+span.mx-2 {
+    font-size: 0.85rem;
+    color: #39626b;
+}
+
 
 /* teaching */
 

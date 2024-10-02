@@ -11,8 +11,8 @@
     <link rel="shortcut icon" href="imgs/icon.png" type="image/x-icon">
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="main.css">
@@ -32,7 +32,10 @@
                 <li class="nav-item">
                     <a href="index.html" class="nav-link">About</a>
                 </li>
-                <li class="nav-item dropdown active">
+                <li class="nav-item active">
+                    <a href="research.html" class="nav-link">Research</a>
+                </li>
+                <!-- <li class="nav-item dropdown active">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                         data-toggle="dropdown">Research</a>
                     <ul class="dropdown-menu">
@@ -41,7 +44,7 @@
                         <li><a class="dropdown-item" href="research/percep_vis.html">Visualization Perception</a>
                         </li>
                     </ul>
-                </li>
+                </li> -->
                 <!-- <li class="nav-item">
                     <a href="teaching.html" class="nav-link">Teaching</a>
                 </li> -->
@@ -58,283 +61,540 @@
     <div class="container-fluid">
 
         <div class="row information">
-            <div class="col-lg-1 col-sm-0"></div>
             <div class="col">
-                <div class="text-block">
-                    <h4>2024</h4>
-                </div>
+                <span class="title">2024</span>
             </div>
-            <div class="col-lg-1 col-sm-0"></div>
         </div>
 
-        <!-- mixing modes -->
-        <div class="row information">
-            <div class="col-lg-1 col-sm-0"></div>
-            <div class="col-lg-3 col-med-4 col-sm-4">
-                <img src="imgs/mixingmodes_teaser_img.png" alt="" class=teaser>
+        <!-- writing rudders -->
+        <div class="row information mb-4">
+            <div class="col-lg-11 col-sm-12 d-flex align-items-start">
+                <img src="imgs/writingrudder_teaser_img.png" alt="" class="teaser me-3">
 
-            </div>
-            <div class="col">
-                <div class="text-block">
-                    <h4>Mixing Modes</h4>
-
-                    <p>
-                        <i><b>Chase Stokes</b>, Chelsea Sanker, Bridget Cogley, and Vidya Setlur</i>
+                <div>
+                    <b>“It's a Good Idea to Put It Into Words”:
+                        Writing 'Rudders' in the Initial Stages of Visualization Design</b>
+                    <p><i><span class="author-name">Chase Stokes</span>, Clara Hu, and Marti A. Hearst</i>
                     </p>
 
-                    <p>
-                        Examining two different multimodal interfaces for presenting data uncertainty, we determined
-                        important considerations for future systems. Making an effective multimodal interface requires
-                        careful consideration of user's data expertise and context of use.
-                    </p>
+                    <div class="d-flex align-items-center">
+                        <button class="btn btn-sm btn-outline-secondary me-3" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#writingrudder-abstract" aria-expanded="false"
+                            aria-controls="writingrudder-abstract">
+                            Read Abstract
+                        </button>
+                        <span class="mx-2">|</span>
+                        <a href="pdfs/Writing 'Rudders'.pdf" target="_blank" class="btn btn-link p-0 me-3">Read
+                            Paper</a>
+                        <!-- TODO: CREATE AND ADD VIDEO LINK -->
+                        <!-- <span class="mx-2">|</span>
+                            <a href="TODO_LINK" target="_blank"
+                                class="btn btn-link p-0">Watch Video</a> -->
+                    </div>
 
-
-                    <p>Read the <a href="pdfs/Eurovis_2024_short_Stokes.pdf" target="_blank">short paper</a> or watch
-                        the <a href="https://www.tableau.com/research/publications/mixing-modes"
-                            target="_blank">video</a>.
-                    </p>
+                    <div id="writingrudder-abstract" class="collapse mt-2">
+                        <p class="mb-0">Written language is a useful tool for non-visual creative activities like
+                            composing essays and planning searches. This
+                            paper investigates the integration of written language into the visualization design
+                            process. We create the idea of a 'writing rudder,'
+                            which acts as a guiding force or strategy for the designer. Via an interview study of 24
+                            working visualization designers, we first
+                            established that only a minority of participants systematically use writing to aid in
+                            design. A second study with 15 visualization designers
+                            examined four different variants of written rudders: asking questions, stating conclusions,
+                            composing a narrative, and writing titles.
+                            Overall, participants had a positive reaction; designers recognized the benefits of
+                            explicitly writing down components of the design and
+                            indicated that they would use this approach in future design work. More specifically, two
+                            approaches — writing questions and writing
+                            conclusions/takeaways — were seen as beneficial across the design process, while writing
+                            narratives showed promise mainly for the
+                            creation stage. Although concerns around potential bias during data exploration were raised,
+                            participants also discussed strategies to
+                            mitigate such concerns. This paper contributes to a deeper understanding of the interplay
+                            between language and visualization, and
+                            proposes a straightforward, lightweight addition to the visualization design process.</p>
+                    </div>
                 </div>
             </div>
-            <div class="col-lg-1 col-sm-0"></div>
+        </div>
+
+        <!-- uncertainty workshop -->
+        <div class="row information mb-4">
+            <div class="col-lg-11 col-sm-12 d-flex align-items-start">
+                <img src="imgs/voicinguncertainty_teaser_img.png" alt="" class="teaser me-3">
+
+                <div>
+                    <b>Voicing Uncertainty: How Speech, Text, and Visualizations Influence
+                        Decisions with Data Uncertainty</b>
+                    <p><i><span class="author-name">Chase Stokes</span>, Chelsea Sanker, Bridget Cogley, and Vidya
+                            Setlur</i>
+                    </p>
+
+                    <div class="d-flex align-items-center">
+                        <button class="btn btn-sm btn-outline-secondary me-3" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#voicinguncertainty-abstract" aria-expanded="false"
+                            aria-controls="voicinguncertainty-abstract">
+                            Read Abstract
+                        </button>
+                        <span class="mx-2">|</span>
+                        <a href="pdfs/Voicing Uncertainty.pdf" target="_blank" class="btn btn-link p-0 me-3">Read
+                            Paper</a>
+                        <!-- TODO: CREATE AND ADD VIDEO LINK -->
+                        <!-- <span class="mx-2">|</span>
+                            <a href="TODO_LINK" target="_blank"
+                                class="btn btn-link p-0">Watch Video</a> -->
+                    </div>
+
+                    <div id="voicinguncertainty-abstract" class="collapse mt-2">
+                        <p class="mb-0">Understanding and communicating data uncertainty is crucial for
+                            informed decision-making across various domains, including finance, healthcare, and public
+                            policy. This study investigates the
+                            impact of gender and acoustic variables on decision-making, confidence, and trust through a
+                            crowdsourced experiment. We compared
+                            visualization-only representations of uncertainty to text-forward
+                            and speech-forward bimodal representations, including multiple
+                            synthetic voices across gender. Speech-forward representations led
+                            to an increase in risky decisions, and text-forward representations
+                            led to lower confidence. Contrary to prior work, speech-forward
+                            forecasts did not receive higher ratings of trust. Higher normalized pitch led to a slight
+                            increase in decision confidence, but other
+                            voice characteristics had minimal impact on decisions and trust. An
+                            exploratory analysis of accented speech showed consistent results
+                            with the main experiment and additionally indicated lower trust ratings for information
+                            presented in Indian and Kenyan accents. The
+                            results underscore the importance of considering acoustic and contextual factors in
+                            presentation of data uncertainty.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- mixing modes -->
+        <div class="row information mb-4">
+            <div class="col-lg-11 col-sm-12 d-flex align-items-start">
+                <img src="imgs/mixingmodes_teaser_img.png" alt="" class="teaser me-3">
+
+                <div>
+                    <b>Mixing Modes: Active and Passive Integration of Speech, Text, and
+                        Visualization for Communicating Data Uncertainty</b>
+                    <p><i><span class="author-name">Chase Stokes</span>, Chelsea Sanker, Bridget Cogley, and Vidya
+                            Setlur</i>
+                    </p>
+
+                    <div class="d-flex align-items-center">
+                        <button class="btn btn-sm btn-outline-secondary me-3" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#mixingmodes-abstract" aria-expanded="false"
+                            aria-controls="mixingmodes-abstract">
+                            Read Abstract
+                        </button>
+                        <span class="mx-2">|</span>
+                        <a href="pdfs/Mixing Modes.pdf" target="_blank" class="btn btn-link p-0 me-3">Read
+                            Paper</a>
+                        <span class="mx-2">|</span>
+                        <a href="https://www.tableau.com/research/publications/mixing-modes" target="_blank"
+                            class="btn btn-link p-0">Watch Video</a>
+                    </div>
+
+                    <div id="mixingmodes-abstract" class="collapse mt-2">
+                        <p class="mb-0">Interpreting uncertain data can be difficult, particularly if the data
+                            presentation is complex. We investigate the efficacy of
+                            different modalities for representing data and how to combine the strengths of each modality
+                            to facilitate the communication
+                            of data uncertainty. We implemented two multimodal prototypes to explore the design space of
+                            integrating speech, text, and
+                            visualization elements. A preliminary evaluation with 20 participants from academic and
+                            industry communities demonstrates
+                            that there exists no one-size-fits-all approach for uncertainty communication strategies;
+                            rather, the effectiveness of conveying
+                            uncertain data is intertwined with user preferences and situational context, necessitating a
+                            more refined, multimodal strategy
+                            for future interface design. Materials for this paper can be found on <a
+                                href="https://osf.io/6g8ex/" target="_blank">OSF</a>.</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- delays to densities -->
-        <div class="row information">
-            <div class="col-lg-1 col-sm-0"></div>
-            <div class="col-lg-3 col-med-4 col-sm-4">
-                <img src="imgs/delaydensity_teaser_img.png" alt="" class=teaser>
+        <div class="row information mb-4">
+            <div class="col-lg-11 col-sm-12 d-flex align-items-start">
+                <img src="imgs/delaydensity_teaser_img.png" alt="" class="teaser me-3">
 
-            </div>
-            <div class="col">
-                <div class="text-block">
-                    <h4>From Delays to Densities</h4>
-
-                    <p>
-                        <i><b>Chase Stokes</b>, Chelsea Sanker, Bridget Cogley, and Vidya Setlur</i>
+                <div>
+                    <b>From Delays to Densities: Exploring Data Uncertainty through
+                        Speech, Text, and Visualization</b>
+                    <p><i><span class="author-name">Chase Stokes</span>, Chelsea Sanker, Bridget Cogley, and Vidya
+                            Setlur</i>
                     </p>
 
-                    <p>
-                        Considering three different modes of information (speech, text, and visualization), we uncovered
-                        trade-offs in the use of each mode for decision making with uncertain data. We examined
-                        variations
-                        across modes as well as the impact of emphasizing uncertainty within each mode.
-                    </p>
+                    <div class="d-flex align-items-center">
+                        <button class="btn btn-sm btn-outline-secondary me-3" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#delaydensity-description" aria-expanded="false"
+                            aria-controls="delaydensity-description">
+                            Read Abstract
+                        </button>
+                        <span class="mx-2">|</span>
+                        <a href="pdfs/From Delays to Densities.pdf" target="_blank" class="btn btn-link p-0 me-3">Read
+                            Paper</a>
+                        <span class="mx-2">|</span>
+                        <a href="https://www.tableau.com/research/publications/delays-and-densities" target="_blank"
+                            class="btn btn-link p-0">Watch Video</a>
+                    </div>
 
-
-                    <p>Read the <a href="pdfs/Eurovis_2024_long_Stokes.pdf" target="_blank">paper</a> or watch
-                        the <a href="https://www.tableau.com/research/publications/delays-and-densities"
-                            target="_blank">video</a>.
-                    </p>
+                    <div id="delaydensity-description" class="collapse mt-2">
+                        <p class="mb-0">Understanding and communicating data uncertainty is crucial for making informed
+                            decisions in sectors like finance and
+                            healthcare. Previous work has explored how to express uncertainty in various modes. For
+                            example, uncertainty can be expressed
+                            visually with quantile dot plots or linguistically with hedge words and prosody. Our
+                            research aims to systematically explore
+                            how variations within each mode contribute to communicating uncertainty to the user; this
+                            allows us to better understand
+                            each mode's affordances and limitations. We completed an exploration of the uncertainty
+                            design space based on pilot studies
+                            and ran two crowdsourced experiments examining how speech, text, and visualization modes and
+                            variants within them impact
+                            decision-making with uncertain data. Visualization and text were most effective for rational
+                            decision-making, though text
+                            resulted in lower confidence. Speech garnered the highest trust despite sometimes leading to
+                            risky decisions. Results from
+                            these studies indicate meaningful trade-offs among modes of information and encourage
+                            exploration of multimodal data
+                            representations.</p>
+                    </div>
                 </div>
             </div>
-            <div class="col-lg-1 col-sm-0"></div>
         </div>
+
 
         <!-- role of text -->
-        <div class="row information">
-            <div class="col-lg-1 col-sm-0"></div>
-            <div class="col-lg-3 col-med-4 col-sm-4">
-                <img src="imgs/roletext_teaser_img.png" alt="" class=teaser>
-            </div>
-            <div class="col">
-                <div class="text-block">
-                    <h4>The Role of Text in Visualizations <a
-                            href="http://www.replicabilitystamp.org#https-github-com-chasejstokes-role-text-git"><img
-                                height="20px"
-                                src="https://www.replicabilitystamp.org/logo/Reproducibility-small.png"></a> </h4>
+        <div class="row information mb-4">
+            <div class="col-lg-11 col-sm-12 d-flex align-items-start">
+                <img src="imgs/roletext_teaser_img.png" alt="" class="teaser me-3">
 
-                    <p>
-                        <i><b>Chase Stokes</b>, Cindy Bearfield Xiong, & Marti A. Hearst</i>
+                <div>
+                    <b>The Role of Text in Visualizations: How Annotations Shape
+                        Perceptions of Bias and Influence Predictions</b> <a
+                        href="http://www.replicabilitystamp.org#https-github-com-chasejstokes-role-text-git"><img
+                            height="20px" src="https://www.replicabilitystamp.org/logo/Reproducibility-small.png"></a>
+                    <p><i><span class="author-name">Chase Stokes</span>, Cindy Bearfield Xiong, & Marti A. Hearst</i>
                     </p>
 
-                    <p>
-                        We investigated the influence of titles and annotations on a reader's perception of author bias
-                        in a visualizations.
-                        We also examined the possible effect of this text on the predictions a reader made about the
-                        future state of the data, as well as how these two features of understanding may be related.
-                    </p>
+                    <div class="d-flex align-items-center">
+                        <button class="btn btn-sm btn-outline-secondary me-3" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#roletext-description" aria-expanded="false"
+                            aria-controls="roletext-description">
+                            Read Abstract
+                        </button>
+                        <span class="mx-2">|</span>
+                        <a href="pdfs/The Role of Text in Visualizations.pdf" target="_blank"
+                            class="btn btn-link p-0 me-3">Read
+                            Paper</a>
+                        <!-- TODO: CREATE AND ADD VIDEO LINK -->
+                        <!-- <span class="mx-2">|</span>
+                        <a href="TODO_LINK" target="_blank"
+                            class="btn btn-link p-0">Watch Video</a> -->
+                    </div>
 
-
-                    <p>Read the <a href="../pdfs/TVCG_2023_Stokes.pdf" target="_blank">paper</a>.
-                    </p>
+                    <div id="roletext-description" class="collapse mt-2">
+                        <p class="mb-0">This paper investigates the role of text in visualizations, specifically the
+                            impact of text position, semantic content, and
+                            biased wording. Two empirical studies were conducted based on two tasks (predicting data
+                            trends and appraising bias) using two
+                            visualization types (bar and line charts). While the addition of text had a minimal effect
+                            on how people perceive data trends, there was
+                            a significant impact on how biased they perceive the authors to be. This finding revealed a
+                            relationship between the degree of bias in
+                            textual information and the perception of the authors' bias. Exploratory analyses support an
+                            interaction between a person's prediction
+                            and the degree of bias they perceived. This paper also develops a crowdsourced method for
+                            creating chart annotations that range from
+                            neutral to highly biased. This research highlights the need for designers to mitigate
+                            potential polarization of readers' opinions based on
+                            how authors' ideas are expressed.</p>
+                    </div>
                 </div>
             </div>
-            <div class="col-lg-1 col-sm-0"></div>
         </div>
 
+
+
         <div class="row information">
-            <div class="col-lg-1 col-sm-0"></div>
             <div class="col">
-                <div class="text-block">
-                    <h4>2023</h4>
-                </div>
+                <span class="title">2023</span>
             </div>
-            <div class="col-lg-1 col-sm-0"></div>
         </div>
 
         <!-- bar chart groupings -->
-        <div class="row information">
-            <div class="col-lg-1 col-sm-0"></div>
-            <div class="col-lg-3 col-med-4 col-sm-4">
-                <img src="imgs/groupingcues_teaser_img.png" alt="" class=teaser>
-            </div>
-            <div class="col">
-                <div class="text-block">
-                    <h4>Grouping Cues Guide Viewer Comparisons and Conclusions </h4>
+        <div class="row information mb-4">
+            <div class="col-lg-11 col-sm-12 d-flex align-items-start">
+                <img src="imgs/groupingcues_teaser_img.png" alt="" class="teaser me-3">
 
-                    <p>
-                        <i>Cindy Xiong, <b>Chase Stokes</b>, Andrew Lovett, & Steve Franconeri</i>
+                <div>
+                    <b>What Does the Chart Say? Grouping Cues Guide Viewer
+                        Comparisons and Conclusions in Bar Charts</b>
+                    <p><i>Cindy Bearfield Xiong, <span class="author-name">Chase Stokes</span>, Andrew Lovett, & Steven
+                            Franconeri</i>
                     </p>
 
-                    <p>
-                        We examined the cognitive process of reading visualizations, focusing on how readers select and
-                        compare data units. Building on psychological research, we developed a visual comparison
-                        taxonomy to explore hypotheses about reader conclusions and comparisons.
-                    </p>
+                    <div class="d-flex align-items-center">
+                        <button class="btn btn-sm btn-outline-secondary me-3" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#groupingcues-description" aria-expanded="false"
+                            aria-controls="groupingcues-description">
+                            Read Abstract
+                        </button>
+                        <span class="mx-2">|</span>
+                        <a href="pdfs/What Does the Chart Say.pdf" target="_blank" class="btn btn-link p-0 me-3">Read
+                            Paper</a>
+                        <!-- TODO: CREATE AND ADD VIDEO LINK -->
+                        <!-- <span class="mx-2">|</span>
+                        <a href="TODO_LINK" target="_blank"
+                            class="btn btn-link p-0">Watch Video</a> -->
+                    </div>
 
-
-                    <p>Read the <a href="../pdfs/TVCG_2023_Bearfield.pdf" target="_blank">paper</a>.
-                    </p>
-
-
+                    <div id="groupingcues-description" class="collapse mt-2">
+                        <p class="mb-0">Reading a visualization is like reading a paragraph. Each sentence is a
+                            comparison: the mean of these is higher than
+                            those; this difference is smaller than that. What determines which comparisons are made
+                            first? The viewer's goals and expertise
+                            matter, but the way that values are visually grouped together within the chart also impacts
+                            those comparisons. We create a visual
+                            comparison taxonomy that allows us to develop and test a sequence of hypotheses about which
+                            comparisons people are more likely
+                            to make when reading a visualization. We find that people tend to compare two groups before
+                            comparing two individual bars and that
+                            second-order comparisons are rare. Visual cues like spatial proximity and color can
+                            influence which elements are grouped together
+                            and selected for comparison, with spatial proximity being a stronger grouping cue.
+                            Interestingly, once the viewer grouped together
+                            and compared a set of bars, regardless of whether the group is formed by spatial proximity
+                            or color similarity, they no longer consider
+                            other possible groupings in their comparisons.</p>
+                    </div>
                 </div>
             </div>
-            <div class="col-lg-1 col-sm-0"></div>
         </div>
 
         <div class="row information">
-            <div class="col-lg-1 col-sm-0"></div>
             <div class="col">
-                <div class="text-block">
-                    <h4>2022</h4>
-                </div>
+                <span class="title">2022</span>
             </div>
-            <div class="col-lg-1 col-sm-0"></div>
-        </div>
-
-
-        <!-- more text often better -->
-        <div class="row information">
-            <div class="col-lg-1 col-sm-0"></div>
-            <div class="col-lg-3 col-med-4 col-sm-4">
-                <img src="imgs/moretext_teaser_img.png" alt="" class=teaser>
-            </div>
-            <div class="col">
-                <div class="text-block">
-                    <h4>Why More Text is (Often) Better</h4>
-                    <p>
-                        <i><b>Chase Stokes</b> & Marti A. Hearst</i>
-                    </p>
-                    <p>
-                        We continued investigation of reader <i>preferences</i> for information with differing amounts
-                        of visuals and language. With a thematic analysis of over 2,000 written responses, we extract
-                        three themes which articulate trade-offs and affordances of visual and textual information.
-
-                    <p>Read the <a href="pdfs/NLVIZ_2022_workshop.pdf" target="_blank">workshop paper</a>.
-                    </p>
-                </div>
-            </div>
-            <div class="col-lg-1 col-sm-0"></div>
         </div>
 
 
         <!-- striking a balance -->
-        <div class="row information">
-            <div class="col-lg-1 col-sm-0"></div>
-            <div class="col-lg-3 col-med-4 col-sm-4">
-                <img src="imgs/strikebalance_teaser_img.png" alt="" class=teaser>
-            </div>
-            <div class="col">
-                <div class="text-block">
-                    <h4>Striking a Balance <a
-                            href="http://www.replicabilitystamp.org#https-github-com-chasejstokes-balance-text-git"><img
-                                height="20px"
-                                src="https://www.replicabilitystamp.org/logo/Reproducibility-small.png"></a> </h4>
-                    <p>
-                        <i><b>Chase Stokes</b>, Vidya Setlur, Bridget Cogley, Arvind Satyanarayan, & Marti A. Hearst</i>
-                    </p>
-                    <p>We explored several research questions about the relative value of textual
-                        components of visualizations: What are readers' <i>preferences</i> when viewing charts with
-                        different amounts of text? How do the different <i>semantic content of text</i> affect the type
-                        of information included in readers' takeaways? How does the <i>position</i> of text affect how
-                        the reader integrates the text with the chart?
+        <div class="row information mb-4">
+            <div class="col-lg-11 col-sm-12 d-flex align-items-start">
+                <img src="imgs/strikebalance_teaser_img.png" alt="" class="teaser me-3">
 
-                    <p>Read the <a href="pdfs/Eurovis_2024_long_Stokes.pdf" target="_blank">paper</a>.
+                <div>
+                    <b>Striking a Balance: Reader Takeaways and Preferences when
+                        Integrating Text and Charts</b>
+                    <a href="http://www.replicabilitystamp.org#https-github-com-chasejstokes-balance-text-git"><img
+                            height="20px" src="https://www.replicabilitystamp.org/logo/Reproducibility-small.png"></a>
+                    <p><i><span class="author-name">Chase Stokes</span>, Vidya Setlur, Bridget Cogley, Arvind
+                            Satyanarayan, & Marti A. Hearst</i>
                     </p>
+
+                    <div class="d-flex align-items-center">
+                        <button class="btn btn-sm btn-outline-secondary me-3" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#strikebalance-description" aria-expanded="false"
+                            aria-controls="strikebalance-description">
+                            Read Abstract
+                        </button>
+                        <span class="mx-2">|</span>
+                        <a href="pdfs/Striking a Balance.pdf" target="_blank" class="btn btn-link p-0 me-3">Read
+                            Paper</a>
+                        <!-- TODO: CREATE AND ADD VIDEO LINK -->
+                        <!-- <span class="mx-2">|</span>
+                    <a href="TODO_LINK" target="_blank"
+                        class="btn btn-link p-0">Watch Video</a> -->
+                    </div>
+
+                    <div id="strikebalance-description" class="collapse mt-2">
+                        <p class="mb-0">While visualizations are an effective way to represent insights about
+                            information, they rarely stand alone. When designing
+                            a visualization, text is often added to provide additional context and guidance for the
+                            reader. However, there is little experimental
+                            evidence to guide designers as to what is the right amount of text to show within a chart,
+                            what its qualitative properties should be,
+                            and where it should be placed. Prior work also shows variation in personal preferences for
+                            charts versus textual representations. In
+                            this paper, we explore several research questions about the relative value of textual
+                            components of visualizations. We found that participants
+                            preferred the charts with the largest number of
+                            textual annotations over charts with fewer annotations or text alone. We also found effects
+                            of semantic content. For instance, the text that
+                            describes statistical or relational components of a chart leads to more takeaways of a
+                            similar nature than text describing elemental
+                            or encoded components. Finally, we found different effects for the semantic levels based on
+                            the placement of the text on the chart;
+                            some kinds of information are best placed in the title, while others should be placed closer
+                            to the data. These results have important
+                            implications for chart design guidelines and future work pertaining to the combination of
+                            text and charts.</p>
+                    </div>
                 </div>
             </div>
-            <div class="col-lg-1 col-sm-0"></div>
         </div>
 
+        <!-- more text often better -->
+        <div class="row information mb-4">
+            <div class="col-lg-11 col-sm-12 d-flex align-items-start">
+                <img src="imgs/moretext_teaser_img.png" alt="" class="teaser me-3">
+
+                <div>
+                    <b>Why More Text is (Often) Better:
+                        Themes from Reader Preferences for Integration of Charts and Text</b>
+                    <p><i><span class="author-name">Chase Stokes</span> & Marti A. Hearst</i>
+                    </p>
+
+                    <div class="d-flex align-items-center">
+                        <button class="btn btn-sm btn-outline-secondary me-3" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#moretext-description" aria-expanded="false"
+                            aria-controls="moretext-description">
+                            Read Abstract
+                        </button>
+                        <span class="mx-2">|</span>
+                        <a href="pdfs/Why More Text is (Often) Better.pdf" target="_blank"
+                            class="btn btn-link p-0 me-3">Read
+                            Paper</a>
+                        <!-- TODO: CREATE AND ADD VIDEO LINK -->
+                        <!-- <span class="mx-2">|</span>
+                <a href="TODO_LINK" target="_blank"
+                    class="btn btn-link p-0">Watch Video</a> -->
+                    </div>
+
+                    <div id="moretext-description" class="collapse mt-2">
+                        <p class="mb-0">Given a choice between charts with minimal and those with copious
+                            textual annotations, participants in a study (<a href="pdfs/Striking a Balance.pdf"
+                                target="_blank">Stokes et al., 2022</a>) tended to prefer the
+                            charts with more text. This paper examines the qualitative responses
+                            of the participants' preferences for various stimuli integrating charts
+                            and text, including a text-only variant. A thematic analysis of these
+                            responses resulted in three main findings. First, readers commented
+                            most frequently on the presence or lack of context or detail; they
+                            preferred to be informed, even at the cost of simplicity. Second,
+                            readers discussed the story-like component of the text-only variant,
+                            making little mention of narrative in relation to the chart variants.
+                            Finally, readers showed suspicion around possible misleading elements of the chart or text.
+                            These themes support findings from
+                            previous work on annotations, captions, and alternative text and
+                            raise further questions in the study of the combination of text and
+                            visual communication.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- belief bias -->
-        <div class="row information">
-            <div class="col-lg-1 col-sm-0"></div>
-            <div class="col-lg-3 col-med-4 col-sm-4">
-                <img src="imgs/seebelieve_teaser_img.png" alt="" class=teaser>
-            </div>
-            <div class="col">
-                <div class="text-block">
-                    <h4>Belief Biases Correlation Estimation </h4>
+        <div class="row information mb-4">
+            <div class="col-lg-11 col-sm-12 d-flex align-items-start">
+                <img src="imgs/seebelieve_teaser_img.png" alt="" class="teaser me-3">
 
-                    <p>
-                        <i>Cindy Xiong, <b>Chase Stokes</b>, Yea-Seul Kim, & Steve Franconeri</i>
+                <div>
+                    <b>Seeing What You Believe or Believing What You See?
+                        Belief Biases Correlation Estimation</b>
+                    <p><i>Cindy Xiong Bearfield, <span class="author-name">Chase Stokes</span>, Yea-Seul Kim, Steven
+                            Franconeri</i>
                     </p>
 
-                    <p>
-                        We measured how prior belief may bias the supposedly objective assessments of
-                        scatterplot correlation. This work builds on previous examples of motivated perception,
-                        using
-                        scatterplot correlation as a case study to examine the effect of existing belief.
-                    </p>
+                    <div class="d-flex align-items-center">
+                        <button class="btn btn-sm btn-outline-secondary me-3" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#seebelieve-description" aria-expanded="false"
+                            aria-controls="seebelieve-description">
+                            Read Abstract
+                        </button>
+                        <span class="mx-2">|</span>
+                        <a href="pdfs/Seeing What You Believe or Believing What You See.pdf" target="_blank"
+                            class="btn btn-link p-0 me-3">Read
+                            Paper</a>
+                        <!-- TODO: CREATE AND ADD VIDEO LINK -->
+                        <!-- <span class="mx-2">|</span>
+                    <a href="TODO_LINK" target="_blank"
+                        class="btn btn-link p-0">Watch Video</a> -->
+                    </div>
 
-
-                    <p>Read the <a href="pdfs/VIS_2022_conference_Xiong.pdf" target="_blank">paper</a>.
-                    </p>
-
-
+                    <div id="seebelieve-description" class="collapse mt-2">
+                        <p class="mb-0">When an analyst or scientist has a belief about how the world works, their
+                            thinking can be biased in favor of that belief.
+                            Therefore, one bedrock principle of science is to minimize that bias by testing the
+                            predictions of one's belief against objective data. Through two crowdsourced experiments, we
+                            demonstrate
+                            that supposedly objective assessments of the strength of a correlational relationship can be
+                            influenced by how strongly a viewer
+                            believes in the existence of that relationship. Participants viewed in scatterplots
+                            depicting a relationship between variable
+                            pairs and estimated their correlations. After completing a distractor task,
+                            they also reported how strongly they believed there to be a correlation between the depicted
+                            variable pairs. In a control condition, they
+                            judged the same scatterplots labeled instead with generic 'X' and 'Y' axes. Participants
+                            estimated correlations more accurately when
+                            they viewed scatterplots labeled with generic axes compared to scatterplots labeled with
+                            meaningful variable pairs. Furthermore,
+                            when viewers believed that two variables should have a strong relationship, they
+                            overestimated correlations between those variables
+                            by around an r-value of 0.1. When they believed that the variables should be unrelated, they
+                            underestimated the correlations by
+                            around an r-value of 0.1. While data visualizations are typically thought to present
+                            objective truths to the viewer, these results suggest
+                            that existing personal beliefs can bias even objective statistical values people extract
+                            from data.</p>
+                    </div>
                 </div>
             </div>
-            <div class="col-lg-1 col-sm-0"></div>
         </div>
 
 
-        <div class="row information">
-            <div class="col-lg-1 col-sm-0"></div>
-            <div class="col">
-                <div class="text-block">
-                    <h4>2021</h4>
-                </div>
-            </div>
-            <div class="col-lg-1 col-sm-0"></div>
-        </div>
 
+        <div class="row information">
+            <div class="col">
+                <span class="title">2021</span>
+            </div>
+        </div>
 
         <!-- give text a chance -->
-        <div class="row information last-item">
-            <div class="col-lg-1 col-sm-0"></div>
-            <div class="col-lg-3 col-med-4 col-sm-4">
-                <img src="imgs/givetext_teaser_img.png" alt="" class=teaser>
-            </div>
-            <div class="col">
-                <div class="text-block">
-                    <h4>Give Text A Chance</h4>
+        <div class="row information mb-4 last-item">
+            <div class="col-lg-11 col-sm-12 d-flex align-items-start">
+                <img src="imgs/givetext_teaser_img.png" alt="" class="teaser me-3">
 
-                    <p>
-                        <i><b>Chase Stokes</b> & Marti A. Hearst</i>
-                    </p>
-                    <p>We advocate for further, careful consideration of the integration of text
-                        and charts. Readability of text should receive high priority when utilizing word-scale
-                        graphics and visualzations. Additionally, a text-only baseline is an important
-                        comparison when assessing a visualization method, ensuring that the usage of a visualization is
-                        improving the comprehension of the information presented.</p>
-
-                    <p>Read the <a href="pdfs/NLVIZ_2021_workshop.pdf" target="_blank">workshop paper</a>.
+                <div>
+                    <b>Seeing What You Believe or Believing What You See?
+                        Belief Biases Correlation Estimation</b>
+                    <p><i><span class="author-name">Chase Stokes</span> & Marti A. Hearst</i>
                     </p>
 
+                    <div class="d-flex align-items-center">
+                        <button class="btn btn-sm btn-outline-secondary me-3" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#givetext-description" aria-expanded="false"
+                            aria-controls="givetext-description">
+                            Read Abstract
+                        </button>
+                        <span class="mx-2">|</span>
+                        <a href="pdfs/Give Text A Chance.pdf" target="_blank" class="btn btn-link p-0 me-3">Read
+                            Paper</a>
+                        <!-- TODO: CREATE AND ADD VIDEO LINK -->
+                        <!-- <span class="mx-2">|</span>
+                    <a href="TODO_LINK" target="_blank"
+                        class="btn btn-link p-0">Watch Video</a> -->
+                    </div>
+
+                    <div id="givetext-description" class="collapse mt-2">
+                        <p class="mb-0">Visualization research tends to de-emphasize consideration of the
+                            textual context in which its images are placed. We argue that visualization research should
+                            consider textual representations as a primary
+                            alternative to visual options when assessing designs, and when assessing designs, equal
+                            attention should be given to the construction
+                            of the language as to the visualizations. We also call for a consideration of readability
+                            when integrating visualizations with written text.
+                            In highlighting these points, visualization research would be elevated
+                            in efficacy and demonstrate thorough accounting for viewers' needs
+                            and responses.</p>
+                    </div>
                 </div>
             </div>
-            <div class="col-lg-1 col-sm-0"></div>
         </div>
 
 
@@ -358,7 +618,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" class="bi bi-mastodon"
                             viewBox="0 0 16 16">
                             <path
-                                d="M11.19 12.195c2.016-.24 3.77-1.475 3.99-2.603.348-1.778.32-4.339.32-4.339 0-3.47-2.286-4.488-2.286-4.488C12.062.238 10.083.017 8.027 0h-.05C5.92.017 3.942.238 2.79.765c0 0-2.285 1.017-2.285 4.488l-.002.662c-.004.64-.007 1.35.011 2.091.083 3.394.626 6.74 3.78 7.57 1.454.383 2.703.463 3.709.408 1.823-.1 2.847-.647 2.847-.647l-.06-1.317s-1.303.41-2.767.36c-1.45-.05-2.98-.156-3.215-1.928a3.614 3.614 0 0 1-.033-.496s1.424.346 3.228.428c1.103.05 2.137-.064 3.188-.189zm1.613-2.47H11.13v-4.08c0-.859-.364-1.295-1.091-1.295-.804 0-1.207.517-1.207 1.541v2.233H7.168V5.89c0-1.024-.403-1.541-1.207-1.541-.727 0-1.091.436-1.091 1.296v4.079h4.197V5.522c0-.859.22-1.541.66-2.046.456-.505 1.052-.764 1.793-.764.856 0 1.504.328 1.933.983L8 4.39l.417-.695c.429-.655 1.077-.983 1.934-.983.74 0 1.336.259 1.791.764.442.505.661 1.187.661 2.046v4.203z" />
+                                d="M11.19 12.195c2.016-.24 3.77-1.475 3.99-2.603.348-1.778.32-4.339.32-4.339 0-3.47-2.286-4.488-2.286-4.488C12.062.238 10.083.017 8.027 0h-.05C5.92.017 3.942.238 2.79.765c0 0-2.285 1.017-2.285 4.488l-.002.662c-.004.64-.007 1.35.011 2.091.083 3.394.626 6.74 3.78 7.57 1.454.383 2.703.463 3.709.408 1.823-.1 2.847-.647 2.847-.647l-.06-1.317s-1.303.41-2.767.36c-1.45-.05-2.98-.156-3.215-1.928a3.614 3.614 0 0 1-.033-.496s1.424.346 3.228.428c1.103.05 2.137-.064 3.188-.189zm1.613-2.47H11.13v-4.08c0-.859-.364-1.295-1.091-1.295-.804 0-1.207.517-1.207 1.541v2.233H7.168V5.89c0-1.024-.403-1.541-1.207-1.541-.727 0-1.091.436-1.091 1.296v4.079span.197V5.522c0-.859.22-1.541.66-2.046.456-.505 1.052-.764 1.793-.764.856 0 1.504.328 1.933.983L8 4.39l.417-.695c.429-.655 1.077-.983 1.934-.983.74 0 1.336.259 1.791.764.442.505.661 1.187.661 2.046v4.203z" />
                         </svg>
                     </a>
                 </li> -->
@@ -367,7 +627,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" class="bi bi-mortarboard-fill"
                             viewBox="0 0 16 16">
                             <path
-                                d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h4v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917l-7.5-3.5Z" />
+                                d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917l-7.5-3.5Z" />
                             <path
                                 d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466 4.176 9.032Z" />
                         </svg>
@@ -386,6 +646,7 @@
         </div>
     </footer>
 
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -395,7 +656,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
-
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 
