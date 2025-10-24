@@ -171,6 +171,10 @@ body {
     font-weight: bold;
 }
 
+.authors {
+    margin-bottom: 0;
+}
+
 .last-item {
     padding-bottom: 3em;
 }
